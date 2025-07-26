@@ -66,7 +66,7 @@ class Zone:
 # PARSING FUNCTIONS - Convert raw tzdata files into our data structures
 # =============================================================================
 
-def parse_zone_files(input_dir: pathlib.Path) -> Dict[str, Zone]:
+def parse_zone_files(input_dir: pathlib.Path):
     """
     Parse all the main tzdata files to extract zones, rules, and links.
     
@@ -93,7 +93,7 @@ def parse_zone_files(input_dir: pathlib.Path) -> Dict[str, Zone]:
     ]
     
     zones: Dict[str, Zone] = {}     # Will store all parsed zones
-    rules: Dict[str, Dict] = {}     # Store DST rules (not fully implemented yet)
+    rules: Dict[str, list] = {}     # Store DST rules: name -> list of rule dicts
     links: Dict[str, str] = {}      # Store aliases: alias_name -> target_zone
 
     def parse_zone_line(parts):
@@ -114,13 +114,11 @@ def parse_zone_files(input_dir: pathlib.Path) -> Dict[str, Zone]:
         offset = parts[2]       # UTC offset (e.g., "8:30")
         rule = parts[3]         # Rule name or "-"
         abbr = parts[4]         # Abbreviation format
-        
         # UNTIL date is everything after the format field
         from_utc = None
         if len(parts) > 5:
             from_utc = " ".join(parts[5:])  # Join remaining parts
-            
-        # Create a transition representing this period
+        # Store the rule name in the transition for later linking
         transition = Transition(
             from_utc=from_utc or "",  # Empty string if no UNTIL date
             to_utc=None,              # Will be calculated later if needed
@@ -128,7 +126,8 @@ def parse_zone_files(input_dir: pathlib.Path) -> Dict[str, Zone]:
             is_dst=False,             # Simplified - would need rule parsing for accuracy
             abbr=abbr
         )
-        
+        # Attach rule name for later linking (not in dataclass, so add as attribute)
+        transition.rule_name = rule
         return name, transition
 
     def parse_rule_line(parts):
@@ -161,7 +160,6 @@ def parse_zone_files(input_dir: pathlib.Path) -> Dict[str, Zone]:
             "save": parts[8],     # DST offset
             "letter": parts[9] if len(parts) > 9 else ""  # Abbreviation letter
         }
-        
         # Store rule under its name
         if name not in rules:
             rules[name] = []
@@ -236,7 +234,7 @@ def parse_zone_files(input_dir: pathlib.Path) -> Dict[str, Zone]:
             zones[target] = Zone(name=target, aliases=[alias])
 
     logging.info(f"Parsed {len(zones)} zones total")
-    return zones
+    return zones, rules
 
 
 def parse_zone1970_tab(input_dir: pathlib.Path) -> Dict[str, Dict]:
@@ -319,7 +317,7 @@ def parse_version(input_dir: pathlib.Path) -> str:
         return "unknown"
 
 
-def merge_rules_and_metadata(zones: Dict[str, Zone], metadata: Dict[str, Dict]) -> Dict[str, Zone]:
+def merge_rules_and_metadata(zones: Dict[str, Zone], metadata: Dict[str, Dict], rules: Dict[str, list]) -> Dict[str, Zone]:
     """
     Enhance zone objects with metadata from zone1970.tab.
     
@@ -342,17 +340,19 @@ def merge_rules_and_metadata(zones: Dict[str, Zone], metadata: Dict[str, Dict]) 
             metadata_found += 1
             zone.country_code = meta["country_code"]
             zone.comment = meta["comment"]
-            
             # Parse coordinates from format like "+3733+12658"
-            # This represents +37°33' +126°58' (latitude +longitude)
             coords = meta["coordinates"]
             if coords and len(coords) >= 4:
-                # Simple parsing - split at the middle
-                # More robust parsing would handle the ±DDMM±DDDMM format properly
                 mid = len(coords) // 2
                 zone.latitude = coords[:mid]
                 zone.longitude = coords[mid:]
-    
+        # For each transition, attach the rule name if present and not "-"
+        for t in zone.rules:
+            rule_name = getattr(t, "rule_name", None)
+            if rule_name and rule_name != "-":
+                t.rule_name = rule_name
+            else:
+                t.rule_name = None
     logging.info(f"Added metadata to {metadata_found}/{len(zones)} zones")
     return zones
 
@@ -361,7 +361,7 @@ def merge_rules_and_metadata(zones: Dict[str, Zone], metadata: Dict[str, Dict]) 
 # OUTPUT FUNCTIONS - Write parsed data to JSON and SQLite formats
 # =============================================================================
 
-def write_combined_json(zones: Dict[str, Zone], version: str, output_path: pathlib.Path):
+def write_combined_json(zones: Dict[str, Zone], rules: Dict[str, list], version: str, output_path: pathlib.Path):
     """
     Write all zone data to a combined JSON file.
     
@@ -385,28 +385,28 @@ def write_combined_json(zones: Dict[str, Zone], version: str, output_path: pathl
     """
     logging.info("Writing JSON output...")
     
-    # Build the output dictionary
-    out = {}
+    # Build the output dictionary with 'timezones' and 'rules' at the root
+    out = {
+        "timezones": {},
+        "rules": rules,
+        "_version": version
+    }
     for name, zone in zones.items():
-        out[name] = {
+        out["timezones"][name] = {
             "country_code": zone.country_code,
-            "coordinates": f"{zone.latitude}{zone.longitude}",  # Recombine coordinates
+            "coordinates": f"{zone.latitude}{zone.longitude}",
             "comment": zone.comment,
-            "rules": [t.__dict__ for t in zone.rules],  # Convert transitions to dicts
+            "rules": [
+                {**t.__dict__, "rule_name": getattr(t, "rule_name", None)} for t in zone.rules
+            ],
             "aliases": zone.aliases
         }
-    
-    # Add version info
-    out["_version"] = version
-    
-    # Write to file with nice formatting
     with output_path.open("w", encoding="utf-8") as f:
         json.dump(out, f, indent=2, ensure_ascii=False)
-    
-    logging.info(f"Wrote JSON with {len(zones)} zones to: {output_path}")
+    logging.info(f"Wrote JSON with {len(zones)} zones and {len(rules)} rule sets to: {output_path}")
 
 
-def write_combined_sqlite(zones: Dict[str, Zone], version: str, output_path: pathlib.Path):
+def write_combined_sqlite(zones: Dict[str, Zone], rules: Dict[str, list], version: str, output_path: pathlib.Path):
     """
     Write all zone data to a SQLite database with normalized tables.
     
@@ -437,7 +437,6 @@ def write_combined_sqlite(zones: Dict[str, Zone], version: str, output_path: pat
             comment TEXT                    -- Optional description
         )
     """)
-    
     # Create transitions table - one row per transition
     cur.execute("""
         CREATE TABLE IF NOT EXISTS transitions (
@@ -446,32 +445,45 @@ def write_combined_sqlite(zones: Dict[str, Zone], version: str, output_path: pat
             to_utc TEXT,                    -- When this transition ends
             offset TEXT,                    -- UTC offset during this period
             is_dst BOOLEAN,                 -- Whether DST is active
-            abbr TEXT                       -- Time zone abbreviation
+            abbr TEXT,                      -- Time zone abbreviation
+            rule_name TEXT                  -- Name of DST rule set (nullable)
         )
     """)
-    
-    # Insert all the data
+    # Create rules table - one row per rule definition
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS rules (
+            rule_name TEXT,     -- Name of the rule set
+            from_year TEXT,
+            to_year TEXT,
+            type TEXT,
+            in_month TEXT,
+            on_day TEXT,
+            at_time TEXT,
+            save TEXT,
+            letter TEXT
+        )
+    """)
     zones_inserted = 0
     transitions_inserted = 0
-    
+    rules_inserted = 0
     for name, zone in zones.items():
-        # Insert zone metadata
         cur.execute("INSERT OR REPLACE INTO zones VALUES (?, ?, ?, ?, ?)",
                    (name, zone.country_code, zone.latitude, zone.longitude, zone.comment))
         zones_inserted += 1
-        
-        # Insert all transitions for this zone
         for transition in zone.rules:
-            cur.execute("INSERT INTO transitions VALUES (?, ?, ?, ?, ?, ?)",
+            cur.execute("INSERT INTO transitions VALUES (?, ?, ?, ?, ?, ?, ?)",
                        (name, transition.from_utc, transition.to_utc, 
-                        transition.offset, transition.is_dst, transition.abbr))
+                        transition.offset, transition.is_dst, transition.abbr, getattr(transition, "rule_name", None)))
             transitions_inserted += 1
-    
-    # Save changes and close
+    # Insert all rules
+    for rule_name, rule_list in rules.items():
+        for rule in rule_list:
+            cur.execute("INSERT INTO rules VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                        (rule_name, rule["from"], rule["to"], rule["type"], rule["in"], rule["on"], rule["at"], rule["save"], rule["letter"]))
+            rules_inserted += 1
     conn.commit()
     conn.close()
-    
-    logging.info(f"Wrote SQLite with {zones_inserted} zones and {transitions_inserted} transitions to: {output_path}")
+    logging.info(f"Wrote SQLite with {zones_inserted} zones, {transitions_inserted} transitions, and {rules_inserted} rules to: {output_path}")
 
 
 # =============================================================================
@@ -514,24 +526,19 @@ def main():
         # Step 2: Parse version info
         print("2. Reading tzdata version...")
         version = parse_version(input_dir)
-        
-        # Step 3: Parse all zone files
-        print("3. Parsing zone files...")
-        zones = parse_zone_files(input_dir)
-        
+        # Step 3: Parse all zone files and rules
+        print("3. Parsing zone files and rules...")
+        zones, rules = parse_zone_files(input_dir)
         # Step 4: Parse metadata
         print("4. Parsing metadata...")
         metadata = parse_zone1970_tab(input_dir)
-        
         # Step 5: Merge everything together
         print("5. Merging data...")
-        zones = merge_rules_and_metadata(zones, metadata)
-        
+        zones = merge_rules_and_metadata(zones, metadata, rules)
         # Step 6: Write outputs
         print("6. Writing outputs...")
-        write_combined_json(zones, version, output_dir / "combined.json")
-        write_combined_sqlite(zones, version, output_dir / "combined.sqlite")
-        
+        write_combined_json(zones, rules, version, output_dir / "combined.json")
+        write_combined_sqlite(zones, rules, version, output_dir / "combined.sqlite")
         print(f"✅ Complete! Processed {len(zones)} zones from tzdata {version}")
         print(f"📁 Output files in: {output_dir}")
         print(f"   - combined.json: {(output_dir / 'combined.json').stat().st_size // 1024}KB")
