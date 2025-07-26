@@ -1,4 +1,4 @@
-# 🌐 tzkit: IANA Time Zone Database Parser
+# 🌐 tzbundler: IANA Time Zone Database Parser and Bundler
 
 [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -6,9 +6,9 @@
 
 A Python tool that parses IANA tzdata files and converts them into machine-readable formats (JSON and SQLite). Perfect for applications, research, or data analysis involving time zones.
 
-Or you can simply use the pre-generated bundle from `tzdata/` folder or [the Releases page](https://github.com/ikelaiah/tzkit/releases).
+Or you can simply use the pre-generated bundle from `tzdata/` folder or [the Releases page](https://github.com/ikelaiah/tzbundler/releases).
 
-## 🎯 Who Should Use tzkit?
+## 🎯 Who Should Use tzbundler?
 
 - App developers who need reliable time zone handling
 - Researchers working on temporal/historical datasets
@@ -37,7 +37,7 @@ This single command will:
 
 ## 🚀 Quick Start - Alternative
 
-Use the pre-generated `.json` or `.sqlite` bundle from `tzdata/` folder or [the Releases page](https://github.com/ikelaiah/tzkit/releases).
+Use the pre-generated `.json` or `.sqlite` bundle from `tzdata/` folder or [the Releases page](https://github.com/ikelaiah/tzbundler/releases).
 
 ## 📊 Data Model
 
@@ -152,6 +152,7 @@ The tool processes these IANA tzdata files:
 ```
 
 ### 💾 SQLite Database (`combined.sqlite`)
+
 Three normalized tables:
 
 **🗄️ zones**
@@ -162,6 +163,7 @@ Three normalized tables:
 - `comment` (TEXT)
 
 **transitions**  
+
 - `zone_name` (TEXT)
 - `from_utc` (TEXT)
 - `to_utc` (TEXT)
@@ -170,6 +172,7 @@ Three normalized tables:
 - `rule_name` (TEXT)
 
 **rules**
+
 - `rule_name` (TEXT)
 - `from_year` (TEXT)
 - `to_year` (TEXT)
@@ -182,7 +185,7 @@ Three normalized tables:
 
 ## 🧠 How to Use the Rules (DST Logic)
 
-**tzkit provides raw rule data - DST calculations are your responsibility.**
+**tzbundler provides raw rule data - DST calculations are your responsibility.**
 
 To determine if DST is in effect for a given zone and date:
 
@@ -386,15 +389,15 @@ requests>=2.25.0    # For downloading tzdata
 
 Clone and run:
 ```bash
-git clone https://github.com/yourusername/tzkit.git
-cd tzkit
+git clone https://github.com/yourusername/tzbundler.git
+cd tzbundler
 pip install -r requirements.txt
 python make_tz_bundle.py
 ```
 
 ## Important Design Decision
 
-**tzkit does not pre-calculate DST status.** Instead, it provides:
+**tzbundler does not pre-calculate DST status.** Instead, it provides:
 
 - ✅ Raw transition data (offsets, dates, abbreviations)
 - ✅ Complete DST rule definitions  
@@ -402,6 +405,7 @@ python make_tz_bundle.py
 - ❌ Pre-calculated DST boolean flags
 
 **Why?** This design:
+
 - Avoids bundler bugs affecting DST calculations
 - Allows consumers to implement DST logic that fits their needs
 - Enables caching and on-demand DST computation

@@ -1,5 +1,5 @@
 """
-tzkit: IANA Time Zone Database Parser & Bundle Tool
+tzbundler: IANA Time Zone Database Parser & Bundle Tool
 
 This tool downloads, parses, and converts IANA tzdata files into JSON and SQLite formats.
 
@@ -517,7 +517,7 @@ def main():
     
     Note: DST calculations are left to consumers who can use the rules data.
     """
-    print("tzkit: IANA Time Zone Database Parser")
+    print("tzbundler: IANA Time Zone Database Parser")
     print("=====================================")
     
     # Step 1: Download and extract the latest tzdata
