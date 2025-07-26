@@ -1,5 +1,5 @@
 
-# 🌐 tzbundler: IANA Time Zone Database Parser and Bundler
+# 🌏 tzbundler: IANA Time Zone Database Parser and Bundler
 
 [![Version](https://img.shields.io/badge/version-1.0-blueviolet.svg)](https://github.com/ikelaiah/tzbundler/releases)
 [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
@@ -16,6 +16,49 @@
 A Python tool that parses IANA tzdata files and converts them into machine-readable formats (JSON and SQLite). Perfect for applications, research, or data analysis involving time zones. Includes Windows timezone mappings for cross-platform compatibility.
 
 Or you can simply use the pre-generated bundle from `tzdata/` folder or [the Releases page](https://github.com/ikelaiah/tzbundler/releases).
+## 🗂️ Table of Contents
+
+- [🌏 tzbundler: IANA Time Zone Database Parser and Bundler](#-tzbundler-iana-time-zone-database-parser-and-bundler)
+  - [🗂️ Table of Contents](#️-table-of-contents)
+  - [🎯 Who Should Use tzbundler?](#-who-should-use-tzbundler)
+  - [✨ Features](#-features)
+  - [🚀 Quick Start](#-quick-start)
+  - [🚀 Quick Start - Alternative](#-quick-start---alternative)
+  - [📊 Data Model](#-data-model)
+    - [Zone](#zone)
+    - [🔄 Transition](#-transition)
+    - [📏 Rule](#-rule)
+  - [📁 Input Files](#-input-files)
+  - [📤 Output Files](#-output-files)
+    - [📝 JSON Format (`combined.json`)](#-json-format-combinedjson)
+    - [💾 SQLite Database (`combined.sqlite`)](#-sqlite-database-combinedsqlite)
+      - [zones](#zones)
+      - [transitions](#transitions)
+      - [rules](#rules)
+      - [windows\_mapping](#windows_mapping)
+  - [🪟 Windows Timezone Support](#-windows-timezone-support)
+    - [Example Usage](#example-usage)
+    - [SQL Query Examples for Windows Mappings](#sql-query-examples-for-windows-mappings)
+  - [❓ How to Use the Rules (DST Logic)](#-how-to-use-the-rules-dst-logic)
+    - [Pseudocode Example](#pseudocode-example)
+    - [Language-Agnostic Output](#language-agnostic-output)
+    - [Additional SQL Query Examples](#additional-sql-query-examples)
+  - [❓ How Parsing Works](#-how-parsing-works)
+    - [Zone Block Example (from tzdata source)](#zone-block-example-from-tzdata-source)
+      - [1. Zone Block Structure](#1-zone-block-structure)
+      - [2. Parsing Steps](#2-parsing-steps)
+      - [3. Output Structure (JSON)](#3-output-structure-json)
+      - [4. Notes](#4-notes)
+      - [5. Summary](#5-summary)
+    - [Data Processing Flow](#data-processing-flow)
+  - [🗄️ File Structure](#️-file-structure)
+  - [💡 Use Cases](#-use-cases)
+  - [📦 Installation \& Requirements](#-installation--requirements)
+  - [⚙️ Important Design Decision](#️-important-design-decision)
+  - [🛡️ Error Handling and Robustness](#️-error-handling-and-robustness)
+  - [🔗 Resources](#-resources)
+  - [🤝 Contributing](#-contributing)
+  - [📝 License](#-license)
 
 ## 🎯 Who Should Use tzbundler?
 
@@ -246,9 +289,10 @@ FROM zones z
 WHERE EXISTS (SELECT 1 FROM windows_mapping wm WHERE wm.iana_name = z.name);
 ```
 
-## 🧠 How to Use the Rules (DST Logic)
+## ❓ How to Use the Rules (DST Logic)
 
-**tzbundler provides raw rule data - DST calculations are your responsibility.**
+> [!Important] 
+> **tzbundler provides raw rule data - DST calculations are your responsibility**.
 
 To determine if DST is in effect for a given zone and date:
 
@@ -322,7 +366,7 @@ SELECT DISTINCT zone_name FROM transitions WHERE rule_name = 'US';
 SELECT * FROM rules WHERE rule_name = 'US' ORDER BY from_year;
 ```
 
-## How Parsing Works
+## ❓ How Parsing Works
 
 ### Zone Block Example (from tzdata source)
 
@@ -429,7 +473,7 @@ Each line in the zone block becomes a `Transition` in the `Zone.transitions` lis
 Raw tzdata files → Parse zones/rules/links → Enrich with metadata → Add Windows mappings → Output JSON/SQLite
 ```
 
-## File Structure
+## 🗄️ File Structure
 
 ```txt
 tzdata_raw/         # Downloaded raw files
@@ -445,9 +489,7 @@ tzdata/             # Processed output
 └── combined.sqlite  
 ```
 
-## Use Cases
-
-![Use Cases](https://img.shields.io/badge/💼-Use%20Cases-blueviolet.svg)
+## 💡 Use Cases
 
 - **Cross-Platform Applications**: Handle both IANA and Windows timezone identifiers
 - **Data Analysis**: Research time zone changes and patterns  
@@ -456,7 +498,7 @@ tzdata/             # Processed output
 - **Custom DST Logic**: Implement domain-specific DST calculations
 - **Migration Projects**: Convert between Windows and IANA timezone systems
 
-## Installation & Requirements
+## 📦 Installation & Requirements
 
 ```python
 # Required Python packages
@@ -472,7 +514,7 @@ pip install -r requirements.txt
 python make_tz_bundle.py
 ```
 
-## Important Design Decision
+## ⚙️ Important Design Decision
 
 **tzbundler does not pre-calculate DST status.** Instead, it provides:
 
@@ -490,7 +532,7 @@ python make_tz_bundle.py
 - Keeps complex temporal logic out of the data extraction layer
 - Provides maximum flexibility for cross-platform compatibility
 
-## Error Handling and Robustness
+## 🛡️ Error Handling and Robustness
 
 The tool includes comprehensive error handling:
 
@@ -500,17 +542,17 @@ The tool includes comprehensive error handling:
 - **Missing files**: Warns about missing files but continues with available data
 - **Partial downloads**: Detects and handles incomplete downloads
 
-## Resources
+## 🔗 Resources
 
 - [IANA Time Zone Database](https://www.iana.org/time-zones)
 - [tzdata Format Documentation](https://data.iana.org/time-zones/theory.html)
 - [tzdata Theory File](https://data.iana.org/time-zones/theory.html) (Essential for DST implementation)
 - [Unicode CLDR WindowsZones](https://github.com/unicode-org/cldr/blob/main/common/supplemental/windowsZones.xml)
 
-## Contributing
+## 🤝 Contributing
 
 Contributions welcome! Please feel free to submit a Pull Request.
 
-## License
+## 📝 License
 
 [MIT License](LICENSE.md)
