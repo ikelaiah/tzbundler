@@ -15,6 +15,9 @@ Usage: python make_tz_bundle.py
 Output:
 - tzdata/combined.json: All zones with metadata and transitions
 - tzdata/combined.sqlite: Normalized database tables
+
+Note: DST (daylight saving time) status is not calculated during bundling.
+Consumers should use the provided rules data to determine DST status as needed.
 """
 
 import logging
@@ -38,11 +41,13 @@ class Transition:
     
     For example, if a zone changed from UTC+8 to UTC+9 in 1988,
     that would be one transition.
+    
+    Note: DST status is not included - consumers should use the 
+    top-level rules data to calculate DST as needed.
     """
     from_utc: str           # When this period starts (e.g., "1988 May 8")
     to_utc: Optional[str]   # When this period ends (None if ongoing)
     offset: str             # UTC offset during this period (e.g., "+09:00")
-    is_dst: bool           # Whether daylight saving time is active
     abbr: str              # Time zone abbreviation (e.g., "JST", "KST")
 
 @dataclass
@@ -123,7 +128,6 @@ def parse_zone_files(input_dir: pathlib.Path):
             from_utc=from_utc or "",  # Empty string if no UNTIL date
             to_utc=None,              # Will be calculated later if needed
             offset=offset,
-            is_dst=False,             # Simplified - would need rule parsing for accuracy
             abbr=abbr
         )
         # Attach rule name for later linking (not in dataclass, so add as attribute)
@@ -365,21 +369,29 @@ def write_combined_json(zones: Dict[str, Zone], rules: Dict[str, list], version:
     """
     Write all zone data to a combined JSON file.
     
-    The JSON structure is:
+    The JSON structure separates raw transition data from DST rules:
     {
-      "Asia/Seoul": {
-        "country_code": "KR",
-        "coordinates": "+3733+12658",
-        "comment": "",
-        "rules": [ { transition objects } ],
-        "aliases": [ "ROK" ]
+      "timezones": {
+        "Asia/Seoul": {
+          "country_code": "KR",
+          "coordinates": "+3733+12658",
+          "comment": "",
+          "rules": [ { transition objects } ],
+          "aliases": [ "ROK" ]
+        }
       },
-      ...
+      "rules": {
+        "US": [ { rule objects } ]
+      },
       "_version": "2025a"
     }
     
+    Consumers should use the rules data to determine DST status rather
+    than relying on precalculated DST information in transitions.
+    
     Args:
         zones: Dictionary of all parsed zones
+        rules: Dictionary of all DST rules
         version: tzdata version string
         output_path: Where to write the JSON file
     """
@@ -410,14 +422,17 @@ def write_combined_sqlite(zones: Dict[str, Zone], rules: Dict[str, list], versio
     """
     Write all zone data to a SQLite database with normalized tables.
     
-    Creates two tables:
+    Creates three tables:
     - zones: One row per zone with metadata
     - transitions: One row per transition (can be many per zone)
+    - rules: One row per DST rule definition
     
     This normalized structure makes it easy to query and analyze the data.
+    Consumers should use the rules table to calculate DST status.
     
     Args:
         zones: Dictionary of all parsed zones
+        rules: Dictionary of all DST rules
         version: tzdata version string (not stored currently)
         output_path: Where to write the SQLite file
     """
@@ -438,13 +453,13 @@ def write_combined_sqlite(zones: Dict[str, Zone], rules: Dict[str, list], versio
         )
     """)
     # Create transitions table - one row per transition
+    # Note: is_dst removed - consumers should calculate from rules
     cur.execute("""
         CREATE TABLE IF NOT EXISTS transitions (
             zone_name TEXT,                 -- References zones.name
             from_utc TEXT,                  -- When this transition starts
             to_utc TEXT,                    -- When this transition ends
             offset TEXT,                    -- UTC offset during this period
-            is_dst BOOLEAN,                 -- Whether DST is active
             abbr TEXT,                      -- Time zone abbreviation
             rule_name TEXT                  -- Name of DST rule set (nullable)
         )
@@ -471,9 +486,9 @@ def write_combined_sqlite(zones: Dict[str, Zone], rules: Dict[str, list], versio
                    (name, zone.country_code, zone.latitude, zone.longitude, zone.comment))
         zones_inserted += 1
         for transition in zone.rules:
-            cur.execute("INSERT INTO transitions VALUES (?, ?, ?, ?, ?, ?, ?)",
+            cur.execute("INSERT INTO transitions VALUES (?, ?, ?, ?, ?, ?)",
                        (name, transition.from_utc, transition.to_utc, 
-                        transition.offset, transition.is_dst, transition.abbr, getattr(transition, "rule_name", None)))
+                        transition.offset, transition.abbr, getattr(transition, "rule_name", None)))
             transitions_inserted += 1
     # Insert all rules
     for rule_name, rule_list in rules.items():
@@ -499,6 +514,8 @@ def main():
     3. Parse metadata
     4. Merge everything together
     5. Write JSON and SQLite outputs
+    
+    Note: DST calculations are left to consumers who can use the rules data.
     """
     print("tzkit: IANA Time Zone Database Parser")
     print("=====================================")

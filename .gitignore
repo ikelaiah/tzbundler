@@ -9,7 +9,6 @@ __pycache__/
 dist/
 build/
 .eggs/
-*.sqlite
 *.db
 *.tar.gz
 *.zip
