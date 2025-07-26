@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+*.sqlite
+*.db
+*.tar.gz
+*.zip
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# tzkit output
+/tzdata_raw/
+# Allow versioned tzdata/ output to be committed
+# Ignore only temporary/intermediate files, not processed outputs
+/tzdata_raw/
+/tzdata_raw/**
+/tzdata/*.tmp
+/tzdata/*.bak
+/tzdata/*.log
+
+# OS files
+.DS_Store
+Thumbs.db
