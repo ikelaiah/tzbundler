@@ -47,13 +47,13 @@ Represents a time zone with its complete history and metadata.
 ```python
 @dataclass
 class Zone:
-    name: str                   # e.g., "Asia/Seoul"
-    country_code: str           # e.g., "KR" 
-    latitude: str               # from coordinates
-    longitude: str              # from coordinates  
-    comment: str                # optional description
-    rules: List[Transition]     # historical transitions
-    aliases: List[str]          # alternative names
+    name: str                       # e.g., "Asia/Seoul"
+    country_code: str               # e.g., "KR" 
+    latitude: str                   # from coordinates
+    longitude: str                  # from coordinates  
+    comment: str                    # optional description
+    transitions: List[Transition]   # historical transitions
+    aliases: List[str]              # alternative names
 ```
 
 ### 🔄 Transition
@@ -114,7 +114,7 @@ The tool processes these IANA tzdata files:
       "country_code": "KR",
       "coordinates": "+3733+12658", 
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1904 Dec",
           "to_utc": null,
@@ -306,7 +306,7 @@ transition = Transition(
 )
 # Attach rule name as attribute
 transition.rule_name = "RussiaAsia"  # or None if "-"
-zone.rules.append(transition)
+zone.transitions.append(transition)
 ```
 
 #### 3. Output Structure (JSON)
@@ -319,7 +319,7 @@ zone.rules.append(transition)
       "latitude": "+4023",
       "longitude": "+04951",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1924 May 2",
           "to_utc": null,
@@ -350,7 +350,7 @@ zone.rules.append(transition)
 
 #### 5. Summary
 
-Each line in the zone block becomes a `Transition` in the `Zone.rules` list. The zone itself is created once, and metadata is attached later. DST status must be calculated by consumers using the provided rules.
+Each line in the zone block becomes a `Transition` in the `Zone.transitions` list. The zone itself is created once, and metadata is attached later. DST status must be calculated by consumers using the provided rules.
 
 ### Data Processing Flow
 
@@ -385,7 +385,6 @@ requests>=2.25.0    # For downloading tzdata
 ```
 
 Clone and run:
-
 ```bash
 git clone https://github.com/yourusername/tzkit.git
 cd tzkit
@@ -403,7 +402,6 @@ python make_tz_bundle.py
 - ❌ Pre-calculated DST boolean flags
 
 **Why?** This design:
-
 - Avoids bundler bugs affecting DST calculations
 - Allows consumers to implement DST logic that fits their needs
 - Enables caching and on-demand DST computation

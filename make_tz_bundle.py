@@ -58,13 +58,13 @@ class Zone:
     Contains metadata (country, coordinates) plus a list of all
     transitions (offset changes) throughout history.
     """
-    name: str                           # Zone name (e.g., "Asia/Seoul")
-    country_code: str = ""              # ISO country code (e.g., "KR")
-    latitude: str = ""                  # Latitude from coordinates
-    longitude: str = ""                 # Longitude from coordinates
-    comment: str = ""                   # Optional description
-    rules: List[Transition] = field(default_factory=list)  # Historical transitions
-    aliases: List[str] = field(default_factory=list)       # Alternative names
+    name: str                               # Zone name (e.g., "Asia/Seoul")
+    country_code: str = ""                  # ISO country code (e.g., "KR")
+    latitude: str = ""                      # Latitude from coordinates
+    longitude: str = ""                     # Longitude from coordinates
+    comment: str = ""                       # Optional description
+    transitions: List[Transition] = field(default_factory=list)  # Historical transitions
+    aliases: List[str] = field(default_factory=list)           # Alternative names
 
 
 # =============================================================================
@@ -203,7 +203,7 @@ def parse_zone_files(input_dir: pathlib.Path):
                             zones[name] = Zone(name=name)
                         
                         # Add the first transition
-                        zones[name].rules.append(transition)
+                        zones[name].transitions.append(transition)
                         
                     elif parts[0] == "Rule":
                         # DST rule definition
@@ -221,7 +221,7 @@ def parse_zone_files(input_dir: pathlib.Path):
                         # Add "Zone" and current zone name to reuse parse_zone_line
                         zone_parts = ["Zone", current_zone] + parts
                         name, transition = parse_zone_line(zone_parts)
-                        zones[name].rules.append(transition)
+                        zones[name].transitions.append(transition)
                         
                 except Exception as e:
                     logging.warning(f"Error parsing {fname}:{line_num}: {line[:50]}... - {e}")
@@ -351,7 +351,7 @@ def merge_rules_and_metadata(zones: Dict[str, Zone], metadata: Dict[str, Dict], 
                 zone.latitude = coords[:mid]
                 zone.longitude = coords[mid:]
         # For each transition, attach the rule name if present and not "-"
-        for t in zone.rules:
+        for t in zone.transitions:
             rule_name = getattr(t, "rule_name", None)
             if rule_name and rule_name != "-":
                 t.rule_name = rule_name
@@ -408,8 +408,8 @@ def write_combined_json(zones: Dict[str, Zone], rules: Dict[str, list], version:
             "country_code": zone.country_code,
             "coordinates": f"{zone.latitude}{zone.longitude}",
             "comment": zone.comment,
-            "rules": [
-                {**t.__dict__, "rule_name": getattr(t, "rule_name", None)} for t in zone.rules
+            "transitions": [
+                {**t.__dict__, "rule_name": getattr(t, "rule_name", None)} for t in zone.transitions
             ],
             "aliases": zone.aliases
         }
@@ -485,7 +485,7 @@ def write_combined_sqlite(zones: Dict[str, Zone], rules: Dict[str, list], versio
         cur.execute("INSERT OR REPLACE INTO zones VALUES (?, ?, ?, ?, ?)",
                    (name, zone.country_code, zone.latitude, zone.longitude, zone.comment))
         zones_inserted += 1
-        for transition in zone.rules:
+        for transition in zone.transitions:
             cur.execute("INSERT INTO transitions VALUES (?, ?, ?, ?, ?, ?)",
                        (name, transition.from_utc, transition.to_utc, 
                         transition.offset, transition.abbr, getattr(transition, "rule_name", None)))
