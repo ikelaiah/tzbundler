@@ -4,7 +4,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![IANA tzdata](https://img.shields.io/badge/IANA-tzdata%202025b-green.svg)](https://www.iana.org/time-zones)
 
-
 <p align="center">
   <img src="assets/logo-v3.png" alt="tzbundler logo" style="max-height:256px;">
 </p>
@@ -62,6 +61,7 @@ class Zone:
 ```
 
 ### 🔄 Transition
+
 Represents a period in a zone's history (offset changes, DST periods, etc.).
 
 > **Note**: DST status is not pre-calculated. Consumers should use the rules data to determine DST as needed.
@@ -160,14 +160,15 @@ The tool processes these IANA tzdata files:
 
 Three normalized tables:
 
-**🗄️ zones**
+### zones
+
 - `name` (TEXT PRIMARY KEY)
-- `country_code` (TEXT) 
+- `country_code` (TEXT)
 - `latitude` (TEXT)
 - `longitude` (TEXT)
 - `comment` (TEXT)
 
-**transitions**  
+### transitions  
 
 - `zone_name` (TEXT)
 - `from_utc` (TEXT)
@@ -176,7 +177,7 @@ Three normalized tables:
 - `abbr` (TEXT)
 - `rule_name` (TEXT)
 
-**rules**
+### rules
 
 - `rule_name` (TEXT)
 - `from_year` (TEXT)
@@ -362,13 +363,13 @@ Each line in the zone block becomes a `Transition` in the `Zone.transitions` lis
 
 ### Data Processing Flow
 
-```
+```txt
 Raw tzdata files → Parse zones/rules/links → Enrich with metadata → Output JSON/SQLite
 ```
 
 ## File Structure
 
-```
+```txt
 tzdata_raw/     # Downloaded raw files
 tzdata/         # Processed output
 ├── combined.json
@@ -393,8 +394,9 @@ requests>=2.25.0    # For downloading tzdata
 ```
 
 Clone and run:
+
 ```bash
-git clone https://github.com/yourusername/tzbundler.git
+git clone https://github.com/ikelaiah/tzbundler.git
 cd tzbundler
 pip install -r requirements.txt
 python make_tz_bundle.py
