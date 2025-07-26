@@ -8,7 +8,7 @@ IANA tzdata files contain complex time zone information in a custom text format:
 - Rule lines: Define daylight saving time rules  
 - Link lines: Define aliases (alternative names for zones)
 
-This tool converts all that into easy-to-use structured data.
+This tool converts all that into easy-to-use structured data with Windows timezone support.
 
 Usage: python make_tz_bundle.py
 
@@ -24,8 +24,9 @@ import logging
 import pathlib
 import sqlite3
 import json
+import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Tuple
 import sys
 from get_latest_tz import get_latest_tz_data
 
@@ -65,6 +66,97 @@ class Zone:
     comment: str = ""                       # Optional description
     transitions: List[Transition] = field(default_factory=list)  # Historical transitions
     aliases: List[str] = field(default_factory=list)           # Alternative names
+    win_names: List[str] = field(default_factory=list)         # Windows timezone names
+
+
+# =============================================================================
+# WINDOWS ZONE MAPPING - Clean, readable implementation
+# =============================================================================
+
+def parse_windows_zones_xml(xml_path: pathlib.Path) -> Tuple[Dict[str, List[str]], Dict[str, List[str]]]:
+    """
+    Parse windowsZones.xml from CLDR to create bidirectional mappings.
+    
+    Args:
+        xml_path: Path to windowsZones.xml file
+        
+    Returns:
+        Tuple of (iana_to_windows, windows_to_iana) mappings
+        - iana_to_windows: {'Asia/Seoul': ['Korea Standard Time'], ...}
+        - windows_to_iana: {'Korea Standard Time': ['Asia/Seoul'], ...}
+    """
+    iana_to_windows = {}
+    windows_to_iana = {}
+    
+    if not xml_path.exists():
+        logging.warning(f"windowsZones.xml not found: {xml_path}")
+        return iana_to_windows, windows_to_iana
+    
+    logging.info("Parsing windowsZones.xml...")
+    
+    try:
+        tree = ET.parse(str(xml_path))
+        root = tree.getroot()
+        
+        # Find all mapZone elements with territory='001' (global mappings)
+        for mapZone in root.findall('.//mapZone[@territory="001"]'):
+            windows_name = mapZone.attrib.get('other')
+            iana_names = mapZone.attrib.get('type', '').split()
+            
+            if not windows_name or not iana_names:
+                continue
+                
+            # Build bidirectional mapping
+            for iana_name in iana_names:
+                # IANA -> Windows mapping
+                if iana_name not in iana_to_windows:
+                    iana_to_windows[iana_name] = []
+                iana_to_windows[iana_name].append(windows_name)
+                
+                # Windows -> IANA mapping  
+                if windows_name not in windows_to_iana:
+                    windows_to_iana[windows_name] = []
+                windows_to_iana[windows_name].append(iana_name)
+        
+        logging.info(f"Parsed {len(iana_to_windows)} IANA zones with Windows mappings")
+        
+    except ET.ParseError as e:
+        logging.error(f"Failed to parse windowsZones.xml: {e}")
+    except Exception as e:
+        logging.error(f"Error processing windowsZones.xml: {e}")
+    
+    return iana_to_windows, windows_to_iana
+
+
+def add_windows_names_to_zones(zones: Dict[str, Zone], iana_to_windows: Dict[str, List[str]]) -> None:
+    """
+    Add Windows timezone names to zone objects.
+    
+    This function modifies the zones dictionary in-place.
+    
+    Args:
+        zones: Dictionary of Zone objects to enhance
+        iana_to_windows: Mapping from IANA names to Windows names
+    """
+    logging.info("Adding Windows timezone names to zones...")
+    
+    enhanced_count = 0
+    
+    for zone_name, zone in zones.items():
+        # Check direct mapping
+        if zone_name in iana_to_windows:
+            zone.win_names = iana_to_windows[zone_name].copy()
+            enhanced_count += 1
+            continue
+            
+        # Check aliases for mapping
+        for alias in zone.aliases:
+            if alias in iana_to_windows:
+                zone.win_names = iana_to_windows[alias].copy()
+                enhanced_count += 1
+                break
+    
+    logging.info(f"Added Windows names to {enhanced_count}/{len(zones)} zones")
 
 
 # =============================================================================
@@ -89,7 +181,7 @@ def parse_zone_files(input_dir: pathlib.Path):
         input_dir: Directory containing extracted tzdata files
         
     Returns:
-        Dictionary mapping zone names to Zone objects
+        Tuple of (zones, rules) dictionaries
     """
     # These are all the main tzdata files we need to process
     zone_files = [
@@ -321,51 +413,55 @@ def parse_version(input_dir: pathlib.Path) -> str:
         return "unknown"
 
 
-def merge_rules_and_metadata(zones: Dict[str, Zone], metadata: Dict[str, Dict], rules: Dict[str, list]) -> Dict[str, Zone]:
+def merge_metadata_with_zones(zones: Dict[str, Zone], metadata: Dict[str, Dict]) -> None:
     """
     Enhance zone objects with metadata from zone1970.tab.
     
     This adds country codes, coordinates, and comments to each zone.
     The coordinates are parsed into separate latitude and longitude.
     
+    This function modifies the zones dictionary in-place.
+    
     Args:
-        zones: Dictionary of parsed zones
+        zones: Dictionary of parsed zones to enhance
         metadata: Dictionary of metadata from zone1970.tab
-        
-    Returns:
-        Updated zones dictionary with metadata merged in
     """
     logging.info("Merging metadata with zones...")
     
     metadata_found = 0
+    
     for name, zone in zones.items():
         meta = metadata.get(name)
         if meta:
             metadata_found += 1
             zone.country_code = meta["country_code"]
             zone.comment = meta["comment"]
+            
             # Parse coordinates from format like "+3733+12658"
             coords = meta["coordinates"]
             if coords and len(coords) >= 4:
                 mid = len(coords) // 2
                 zone.latitude = coords[:mid]
                 zone.longitude = coords[mid:]
-        # For each transition, attach the rule name if present and not "-"
-        for t in zone.transitions:
-            rule_name = getattr(t, "rule_name", None)
+        
+        # Clean up rule names on transitions
+        for transition in zone.transitions:
+            rule_name = getattr(transition, "rule_name", None)
             if rule_name and rule_name != "-":
-                t.rule_name = rule_name
+                transition.rule_name = rule_name
             else:
-                t.rule_name = None
+                transition.rule_name = None
+    
     logging.info(f"Added metadata to {metadata_found}/{len(zones)} zones")
-    return zones
 
 
 # =============================================================================
 # OUTPUT FUNCTIONS - Write parsed data to JSON and SQLite formats
 # =============================================================================
 
-def write_combined_json(zones: Dict[str, Zone], rules: Dict[str, list], version: str, output_path: pathlib.Path):
+def write_combined_json(zones: Dict[str, Zone], rules: Dict[str, list], 
+                       windows_to_iana: Dict[str, List[str]], version: str, 
+                       output_path: pathlib.Path) -> None:
     """
     Write all zone data to a combined JSON file.
     
@@ -376,12 +472,16 @@ def write_combined_json(zones: Dict[str, Zone], rules: Dict[str, list], version:
           "country_code": "KR",
           "coordinates": "+3733+12658",
           "comment": "",
-          "rules": [ { transition objects } ],
-          "aliases": [ "ROK" ]
+          "transitions": [ { transition objects } ],
+          "aliases": [ "ROK" ],
+          "win_names": [ "Korea Standard Time" ]
         }
       },
       "rules": {
         "US": [ { rule objects } ]
+      },
+      "windows_mapping": {
+        "Korea Standard Time": [ "Asia/Seoul" ]
       },
       "_version": "2025a"
     }
@@ -392,53 +492,68 @@ def write_combined_json(zones: Dict[str, Zone], rules: Dict[str, list], version:
     Args:
         zones: Dictionary of all parsed zones
         rules: Dictionary of all DST rules
+        windows_to_iana: Mapping from Windows names to IANA names
         version: tzdata version string
         output_path: Where to write the JSON file
     """
     logging.info("Writing JSON output...")
     
-    # Build the output dictionary with 'timezones' and 'rules' at the root
-    out = {
+    output_data = {
         "timezones": {},
         "rules": rules,
+        "windows_mapping": windows_to_iana,
         "_version": version
     }
+    
     for name, zone in zones.items():
-        out["timezones"][name] = {
+        output_data["timezones"][name] = {
             "country_code": zone.country_code,
             "coordinates": f"{zone.latitude}{zone.longitude}",
             "comment": zone.comment,
             "transitions": [
-                {**t.__dict__, "rule_name": getattr(t, "rule_name", None)} for t in zone.transitions
+                {
+                    "from_utc": t.from_utc,
+                    "to_utc": t.to_utc,
+                    "offset": t.offset,
+                    "abbr": t.abbr,
+                    "rule_name": getattr(t, "rule_name", None)
+                }
+                for t in zone.transitions
             ],
-            "aliases": zone.aliases
+            "aliases": zone.aliases,
+            "win_names": zone.win_names
         }
+    
     with output_path.open("w", encoding="utf-8") as f:
-        json.dump(out, f, indent=2, ensure_ascii=False)
+        json.dump(output_data, f, indent=2, ensure_ascii=False)
+    
     logging.info(f"Wrote JSON with {len(zones)} zones and {len(rules)} rule sets to: {output_path}")
 
 
-def write_combined_sqlite(zones: Dict[str, Zone], rules: Dict[str, list], version: str, output_path: pathlib.Path):
+def write_combined_sqlite(zones: Dict[str, Zone], rules: Dict[str, list], 
+                         windows_to_iana: Dict[str, List[str]], version: str, 
+                         output_path: pathlib.Path) -> None:
     """
-    Write all zone data to a SQLite database with normalized tables.
+    Write all zone data to SQLite database with normalized tables.
     
-    Creates three tables:
+    Creates four tables:
     - zones: One row per zone with metadata
     - transitions: One row per transition (can be many per zone)
     - rules: One row per DST rule definition
+    - windows_mapping: Mapping between Windows and IANA timezone names
     
     This normalized structure makes it easy to query and analyze the data.
     Consumers should use the rules table to calculate DST status.
     
     Args:
         zones: Dictionary of all parsed zones
-        rules: Dictionary of all DST rules
-        version: tzdata version string (not stored currently)
+        rules: Dictionary of all DST rules  
+        windows_to_iana: Mapping from Windows names to IANA names
+        version: tzdata version string
         output_path: Where to write the SQLite file
     """
     logging.info("Writing SQLite output...")
     
-    # Connect to database (creates file if it doesn't exist)
     conn = sqlite3.connect(str(output_path))
     cur = conn.cursor()
     
@@ -452,8 +567,8 @@ def write_combined_sqlite(zones: Dict[str, Zone], rules: Dict[str, list], versio
             comment TEXT                    -- Optional description
         )
     """)
+    
     # Create transitions table - one row per transition
-    # Note: is_dst removed - consumers should calculate from rules
     cur.execute("""
         CREATE TABLE IF NOT EXISTS transitions (
             zone_name TEXT,                 -- References zones.name
@@ -464,6 +579,7 @@ def write_combined_sqlite(zones: Dict[str, Zone], rules: Dict[str, list], versio
             rule_name TEXT                  -- Name of DST rule set (nullable)
         )
     """)
+    
     # Create rules table - one row per rule definition
     cur.execute("""
         CREATE TABLE IF NOT EXISTS rules (
@@ -478,31 +594,57 @@ def write_combined_sqlite(zones: Dict[str, Zone], rules: Dict[str, list], versio
             letter TEXT
         )
     """)
+    
+    # Create Windows mapping table
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS windows_mapping (
+            windows_name TEXT,              -- Windows timezone name
+            iana_name TEXT                  -- IANA timezone name
+        )
+    """)
+    
+    # Insert zones data
     zones_inserted = 0
     transitions_inserted = 0
-    rules_inserted = 0
+    
     for name, zone in zones.items():
         cur.execute("INSERT OR REPLACE INTO zones VALUES (?, ?, ?, ?, ?)",
                    (name, zone.country_code, zone.latitude, zone.longitude, zone.comment))
         zones_inserted += 1
+        
         for transition in zone.transitions:
             cur.execute("INSERT INTO transitions VALUES (?, ?, ?, ?, ?, ?)",
                        (name, transition.from_utc, transition.to_utc, 
-                        transition.offset, transition.abbr, getattr(transition, "rule_name", None)))
+                        transition.offset, transition.abbr, 
+                        getattr(transition, "rule_name", None)))
             transitions_inserted += 1
-    # Insert all rules
+    
+    # Insert rules
+    rules_inserted = 0
     for rule_name, rule_list in rules.items():
         for rule in rule_list:
             cur.execute("INSERT INTO rules VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                        (rule_name, rule["from"], rule["to"], rule["type"], rule["in"], rule["on"], rule["at"], rule["save"], rule["letter"]))
+                        (rule_name, rule["from"], rule["to"], rule["type"], 
+                         rule["in"], rule["on"], rule["at"], rule["save"], rule["letter"]))
             rules_inserted += 1
+    
+    # Insert Windows mappings
+    mappings_inserted = 0
+    for windows_name, iana_names in windows_to_iana.items():
+        for iana_name in iana_names:
+            cur.execute("INSERT INTO windows_mapping VALUES (?, ?)", 
+                       (windows_name, iana_name))
+            mappings_inserted += 1
+    
     conn.commit()
     conn.close()
-    logging.info(f"Wrote SQLite with {zones_inserted} zones, {transitions_inserted} transitions, and {rules_inserted} rules to: {output_path}")
+    
+    logging.info(f"Wrote SQLite with {zones_inserted} zones, {transitions_inserted} transitions, "
+                f"{rules_inserted} rules, and {mappings_inserted} Windows mappings to: {output_path}")
 
 
 # =============================================================================
-# MAIN FUNCTION - Orchestrate the entire process
+# MAIN FUNCTION - Orchestrate the entire process with clean flow
 # =============================================================================
 
 def main():
@@ -510,10 +652,11 @@ def main():
     Main function that orchestrates the entire tzdata processing pipeline:
     
     1. Download latest tzdata from IANA
-    2. Parse all zone files
-    3. Parse metadata
-    4. Merge everything together
-    5. Write JSON and SQLite outputs
+    2. Parse all zone files and rules
+    3. Parse metadata from zone1970.tab
+    4. Parse Windows timezone mappings from windowsZones.xml
+    5. Merge everything together
+    6. Write JSON and SQLite outputs
     
     Note: DST calculations are left to consumers who can use the rules data.
     """
@@ -543,19 +686,30 @@ def main():
         # Step 2: Parse version info
         print("2. Reading tzdata version...")
         version = parse_version(input_dir)
+        
         # Step 3: Parse all zone files and rules
         print("3. Parsing zone files and rules...")
         zones, rules = parse_zone_files(input_dir)
+        
         # Step 4: Parse metadata
         print("4. Parsing metadata...")
         metadata = parse_zone1970_tab(input_dir)
-        # Step 5: Merge everything together
-        print("5. Merging data...")
-        zones = merge_rules_and_metadata(zones, metadata, rules)
-        # Step 6: Write outputs
-        print("6. Writing outputs...")
-        write_combined_json(zones, rules, version, output_dir / "combined.json")
-        write_combined_sqlite(zones, rules, version, output_dir / "combined.sqlite")
+        
+        # Step 5: Parse Windows timezone mappings
+        print("5. Parsing Windows timezone mappings...")
+        windows_xml_path = input_dir / "windowsZones.xml"
+        iana_to_windows, windows_to_iana = parse_windows_zones_xml(windows_xml_path)
+        
+        # Step 6: Merge all data together
+        print("6. Merging all data...")
+        merge_metadata_with_zones(zones, metadata)
+        add_windows_names_to_zones(zones, iana_to_windows)
+        
+        # Step 7: Write outputs
+        print("7. Writing outputs...")
+        write_combined_json(zones, rules, windows_to_iana, version, output_dir / "combined.json")
+        write_combined_sqlite(zones, rules, windows_to_iana, version, output_dir / "combined.sqlite")
+        
         print(f"✅ Complete! Processed {len(zones)} zones from tzdata {version}")
         print(f"📁 Output files in: {output_dir}")
         print(f"   - combined.json: {(output_dir / 'combined.json').stat().st_size // 1024}KB")

@@ -21,6 +21,7 @@ Internet → tzdata-latest.tar.gz → tzdata_raw/ directory → individual tzdat
 
 import requests
 import tarfile
+import pathlib
 import os
 
 # =============================================================================
@@ -29,15 +30,56 @@ import os
 
 # IANA's official download URL for the latest timezone database
 # This always points to the most recent release (e.g., 2025a, 2025b, etc.)
-URL = "https://www.iana.org/time-zones/repository/tzdata-latest.tar.gz"
+URL_IANA = "https://www.iana.org/time-zones/repository/tzdata-latest.tar.gz"
+
+# Windows time zone mappings
+# The official and authoritative mapping between IANA (Linux/UNIX) time zone IDs and Windows time zone IDs.
+URL_WIN_ZONES = "https://raw.githubusercontent.com/unicode-org/cldr/main/common/supplemental/windowsZones.xml"
 
 # Local filename for the downloaded archive
-OUTPUT_FILE = "tzdata-latest.tar.gz"  
+OUTPUT_FILE_IANA = "tzdata-latest.tar.gz"  
 
-# Directory where we'll extract the archive contents
+# Local filename for the downloaded Windows zones XML file
+OUTPUT_FILE_WIN_ZONES = "windowsZones.xml"
+
+# Directory where we'll extract the archive contents and store windows zones xml file
 # This will contain files like: africa, asia, europe, zone1970.tab, version, etc.
 EXTRACT_DIR = "tzdata_raw"
 
+# =============================================================================
+# DOWNLOAD FUNCTION - Get the latest windowsZones.xml from GitHub
+# =============================================================================
+
+def get_latest_win_zones() -> bool:
+    """
+    Download the latest Windows time zone mappings from Unicode CLDR repository.
+    
+    This file contains the official mapping between IANA time zone IDs and
+    Windows time zone IDs, which is crucial for cross-platform compatibility.
+    
+    Returns:
+        bool: True if download was successful, False if any error occurred
+        
+    Raises:
+        No exceptions are raised - all errors are caught and logged
+    """
+    print(f"🌍 Downloading latest Windows time zone mappings from Unicode CLDR...")
+    print(f"   Source: {URL_WIN_ZONES}")
+    
+    try:
+        response = requests.get(url=URL_WIN_ZONES)
+        response.raise_for_status()  # Raise an error for bad status codes
+        
+        # Save the content to a local file
+        with open(pathlib.Path(EXTRACT_DIR, OUTPUT_FILE_WIN_ZONES), "wb") as file:
+            file.write(response.content)
+
+        print(f"✅ Download complete: {pathlib.Path(EXTRACT_DIR, OUTPUT_FILE_WIN_ZONES)}")
+        return True
+    
+    except requests.RequestException as e:
+        print(f"❌ Error downloading Windows zones: {e}")
+        return False
 
 # =============================================================================
 # DOWNLOAD FUNCTION - Get the latest tzdata from IANA
@@ -61,14 +103,14 @@ def get_latest_tz_zipped_data() -> bool:
         No exceptions are raised - all errors are caught and logged
     """
     print(f"🌍 Downloading latest timezone data from IANA...")
-    print(f"   Source: {URL}")
-    print(f"   Target: {OUTPUT_FILE}")
+    print(f"   Source: {URL_IANA}")
+    print(f"   Target: {OUTPUT_FILE_IANA}")
     
     try:
         # Make HTTP request with streaming enabled
         # stream=True means we download in chunks rather than all at once
         # This is important for large files and shows download progress
-        response = requests.get(url=URL, stream=True)
+        response = requests.get(url=URL_IANA, stream=True)
         
         # Check if the HTTP request was successful (status code 200)
         # This will raise an exception if we got 404, 500, etc.
@@ -81,7 +123,7 @@ def get_latest_tz_zipped_data() -> bool:
             print(f"   Size: {total_size // 1024}KB")
         
         # Open local file for writing in binary mode
-        with open(OUTPUT_FILE, "wb") as file:
+        with open(OUTPUT_FILE_IANA, "wb") as file:
             downloaded = 0
             
             # Download in 8KB chunks
@@ -99,7 +141,7 @@ def get_latest_tz_zipped_data() -> bool:
         if total_size:
             print()  # New line after progress indicator
             
-        print(f"✅ Download complete: {OUTPUT_FILE}")
+        print(f"✅ Download complete: {OUTPUT_FILE_IANA}")
         return True
     
     except requests.RequestException as e:
@@ -149,19 +191,19 @@ def extract_tz_data() -> None:
     print(f"📦 Extracting timezone data archive...")
     
     # Verify the downloaded file exists before trying to extract
-    if not os.path.exists(OUTPUT_FILE):
-        print(f"❌ Archive {OUTPUT_FILE} does not exist.")
+    if not os.path.exists(OUTPUT_FILE_IANA):
+        print(f"❌ Archive {OUTPUT_FILE_IANA} does not exist.")
         print("   You need to download the file first using get_latest_tz_zipped_data()")
         return
     
     # Check file size to make sure download completed properly
-    file_size = os.path.getsize(OUTPUT_FILE)
+    file_size = os.path.getsize(OUTPUT_FILE_IANA)
     if file_size == 0:
-        print(f"❌ Archive {OUTPUT_FILE} is empty (0 bytes).")
+        print(f"❌ Archive {OUTPUT_FILE_IANA} is empty (0 bytes).")
         print("   The download may have failed. Try downloading again.")
         return
         
-    print(f"   Source: {OUTPUT_FILE} ({file_size // 1024}KB)")
+    print(f"   Source: {OUTPUT_FILE_IANA} ({file_size // 1024}KB)")
     print(f"   Target: {EXTRACT_DIR}/")
     
     # Create the extraction directory if it doesn't exist
@@ -171,7 +213,7 @@ def extract_tz_data() -> None:
     try:
         # Open the tar.gz file for reading
         # "r:gz" means read mode with gzip compression
-        with tarfile.open(OUTPUT_FILE, "r:gz") as tar:
+        with tarfile.open(OUTPUT_FILE_IANA, "r:gz") as tar:
             
             # Get list of files in the archive for logging
             members = tar.getnames()
@@ -262,16 +304,22 @@ def get_latest_tz_data() -> bool:
         extract_tz_data()
         
         print()  # Blank line for readability
+
+        # Step 3: Download Windows zones mapping
+        win_success = get_latest_win_zones()
+        if not win_success:
+            print("⚠️  Warning: Could not download Windows time zone mapping (windowsZones.xml)")
+
         print("🧹 Cleaning up...")
         
-        # Step 3: Clean up the downloaded archive
+        # Step 4: Clean up the downloaded archive
         # We don't need the .tar.gz file anymore since we've extracted it
         try:
-            if os.path.exists(OUTPUT_FILE):
-                os.remove(OUTPUT_FILE)
-                print(f"   Deleted {OUTPUT_FILE}")
+            if os.path.exists(OUTPUT_FILE_IANA):
+                os.remove(OUTPUT_FILE_IANA)
+                print(f"   Deleted {OUTPUT_FILE_IANA}")
         except OSError as e:
-            print(f"⚠️  Warning: Could not delete {OUTPUT_FILE}: {e}")
+            print(f"⚠️  Warning: Could not delete {OUTPUT_FILE_IANA}: {e}")
             print("   You can manually delete this file")
         
         print("=" * 60)
@@ -289,7 +337,8 @@ def get_latest_tz_data() -> bool:
             ("northamerica", "North American time zones"),
             ("southamerica", "South American time zones"),
             ("australasia", "Australian/Pacific time zones"),
-            ("zone1970.tab", "Zone metadata (countries, coordinates)")
+            ("zone1970.tab", "Zone metadata (countries, coordinates)"),
+            ("windowsZones.xml", "Windows time zone mappings"),
         ]
         
         for filename, description in key_files:
@@ -320,9 +369,9 @@ def get_latest_tz_data() -> bool:
                     print(f"   Directory {EXTRACT_DIR} not empty, leaving it alone")
             
             # Remove any partial download file
-            if os.path.exists(OUTPUT_FILE):
-                os.remove(OUTPUT_FILE)
-                print(f"   Removed partial download: {OUTPUT_FILE}")
+            if os.path.exists(OUTPUT_FILE_IANA):
+                os.remove(OUTPUT_FILE_IANA)
+                print(f"   Removed partial download: {OUTPUT_FILE_IANA}")
                 
         except OSError as e:
             print(f"⚠️  Warning during cleanup: {e}")

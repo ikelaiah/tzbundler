@@ -1,5 +1,7 @@
+
 # 🌐 tzbundler: IANA Time Zone Database Parser and Bundler
 
+[![Version](https://img.shields.io/badge/version-1.0-blueviolet.svg)](https://github.com/ikelaiah/tzbundler/releases)
 [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![IANA tzdata](https://img.shields.io/badge/IANA-tzdata%202025b-green.svg)](https://www.iana.org/time-zones)
@@ -8,7 +10,10 @@
   <img src="assets/logo-v3.png" alt="tzbundler logo" style="max-height:256px;">
 </p>
 
-A Python tool that parses IANA tzdata files and converts them into machine-readable formats (JSON and SQLite). Perfect for applications, research, or data analysis involving time zones.
+
+**Version: 1.0**
+
+A Python tool that parses IANA tzdata files and converts them into machine-readable formats (JSON and SQLite). Perfect for applications, research, or data analysis involving time zones. Includes Windows timezone mappings for cross-platform compatibility.
 
 Or you can simply use the pre-generated bundle from `tzdata/` folder or [the Releases page](https://github.com/ikelaiah/tzbundler/releases).
 
@@ -17,12 +22,14 @@ Or you can simply use the pre-generated bundle from `tzdata/` folder or [the Rel
 - App developers who need reliable time zone handling
 - Researchers working on temporal/historical datasets
 - Anyone who wants a cross-language-compatible tzdata format (e.g. for Python, Free Pascal, JS)
+- Developers needing Windows timezone compatibility
 
 ## ✨ Features
 
 - **Simple one-command operation**: Just run `python make_tz_bundle.py`
 - **Multiple output formats**: JSON and SQLite database
 - **Complete data extraction**: Zones, transitions, rules, and aliases
+- **Windows timezone support**: Official Windows timezone mappings from Unicode CLDR
 - **Rich metadata**: Country codes, coordinates, and comments
 - **Version tracking**: Automatically includes tzdata version info
 - **Consumer-driven DST logic**: Raw rule data provided for flexible DST calculations
@@ -36,8 +43,9 @@ python make_tz_bundle.py
 This single command will:
 
 1. Fetch the latest IANA tzdata
-2. Extract and parse all files
-3. Generate `combined.json` and `combined.sqlite` in the `tzdata/` folder
+2. Download Windows timezone mappings from Unicode CLDR
+3. Extract and parse all files
+4. Generate `combined.json` and `combined.sqlite` in the `tzdata/` folder
 
 ## 🚀 Quick Start - Alternative
 
@@ -58,6 +66,7 @@ class Zone:
     comment: str                    # optional description
     transitions: List[Transition]   # historical transitions
     aliases: List[str]              # alternative names
+    win_names: List[str]            # Windows timezone names
 ```
 
 ### 🔄 Transition
@@ -107,6 +116,7 @@ The tool processes these IANA tzdata files:
 | **Additional** | `etcetera`, `backward`, `backzone` | Extra zones and compatibility aliases |
 | **Metadata** | `zone1970.tab` | Country codes, coordinates, comments |
 | **Version** | `version` | tzdata release version |
+| **Windows Mappings** | `windowsZones.xml` | Windows-IANA timezone mappings from Unicode CLDR |
 
 ## 📤 Output Files
 
@@ -135,7 +145,8 @@ The tool processes these IANA tzdata files:
           "rule_name": "Korea"
         }
       ],
-      "aliases": ["ROK"]
+      "aliases": ["ROK"],
+      "win_names": ["Korea Standard Time"]
     }
   },
   "rules": {
@@ -152,15 +163,18 @@ The tool processes these IANA tzdata files:
       }
     ]
   },
+  "windows_mapping": {
+    "Korea Standard Time": ["Asia/Seoul"]
+  },
   "_version": "2025b"
 }
 ```
 
 ### 💾 SQLite Database (`combined.sqlite`)
 
-Three normalized tables:
+Four normalized tables:
 
-### zones
+#### zones
 
 - `name` (TEXT PRIMARY KEY)
 - `country_code` (TEXT)
@@ -168,7 +182,7 @@ Three normalized tables:
 - `longitude` (TEXT)
 - `comment` (TEXT)
 
-### transitions  
+#### transitions  
 
 - `zone_name` (TEXT)
 - `from_utc` (TEXT)
@@ -177,7 +191,7 @@ Three normalized tables:
 - `abbr` (TEXT)
 - `rule_name` (TEXT)
 
-### rules
+#### rules
 
 - `rule_name` (TEXT)
 - `from_year` (TEXT)
@@ -188,6 +202,49 @@ Three normalized tables:
 - `at_time` (TEXT)
 - `save` (TEXT)
 - `letter` (TEXT)
+
+#### windows_mapping
+
+- `windows_name` (TEXT) - Windows timezone name
+- `iana_name` (TEXT) - IANA timezone name
+
+## 🪟 Windows Timezone Support
+
+tzbundler includes official Windows timezone mappings from the Unicode CLDR project:
+
+- **Bidirectional mappings**: IANA ↔ Windows timezone names
+- **Authoritative source**: Uses the official Unicode CLDR windowsZones.xml
+- **Cross-platform compatibility**: Perfect for applications that need to work with both IANA and Windows timezones
+
+### Example Usage
+
+```python
+# Find Windows name for IANA timezone
+asia_seoul_windows = timezones["Asia/Seoul"]["win_names"]  # ["Korea Standard Time"]
+
+# Find IANA zones for Windows timezone
+korea_iana_zones = windows_mapping["Korea Standard Time"]  # ["Asia/Seoul"]
+```
+
+### SQL Query Examples for Windows Mappings
+
+```sql
+-- Find Windows timezone name for an IANA zone
+SELECT z.name, wm.windows_name 
+FROM zones z 
+JOIN windows_mapping wm ON z.name = wm.iana_name 
+WHERE z.name = 'Asia/Seoul';
+
+-- List all Windows timezones and their IANA equivalents
+SELECT windows_name, GROUP_CONCAT(iana_name, ', ') as iana_zones
+FROM windows_mapping 
+GROUP BY windows_name;
+
+-- Find zones that have Windows mappings
+SELECT z.name, z.country_code 
+FROM zones z 
+WHERE EXISTS (SELECT 1 FROM windows_mapping wm WHERE wm.iana_name = z.name);
+```
 
 ## 🧠 How to Use the Rules (DST Logic)
 
@@ -249,7 +306,7 @@ For a complete implementation, see the [IANA tzdata Theory file](https://data.ia
 
 **Tip:** The rules table/object is a direct mapping of the IANA Rule lines, so you can implement DST logic in any language using this data.
 
-### SQL Query Examples
+### Additional SQL Query Examples
 
 ```sql
 -- Get all transitions for Australia/Sydney
@@ -337,13 +394,17 @@ zone.transitions.append(transition)
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": ["Azerbaijan Standard Time"]
     }
   },
   "rules": {
     "RussiaAsia": [ ... ],
     "EUAsia": [ ... ],
     "Azer": [ ... ]
+  },
+  "windows_mapping": {
+    "Azerbaijan Standard Time": ["Asia/Baku"]
   },
   "_version": "2025b"
 }
@@ -355,6 +416,7 @@ zone.transitions.append(transition)
 - The `rule_name` field (e.g., `"RussiaAsia"`, `"EUAsia"`, `"Azer"`) is used to look up DST rules.
 - The `from_utc` field is the UNTIL value (when this transition ends).
 - Metadata (`country_code`, `latitude`, etc.) is added later from `zone1970.tab`.
+- Windows timezone names are added from the Unicode CLDR mappings.
 - **DST calculations are left to consumers** using the rules data.
 
 #### 5. Summary
@@ -364,14 +426,21 @@ Each line in the zone block becomes a `Transition` in the `Zone.transitions` lis
 ### Data Processing Flow
 
 ```txt
-Raw tzdata files → Parse zones/rules/links → Enrich with metadata → Output JSON/SQLite
+Raw tzdata files → Parse zones/rules/links → Enrich with metadata → Add Windows mappings → Output JSON/SQLite
 ```
 
 ## File Structure
 
 ```txt
-tzdata_raw/     # Downloaded raw files
-tzdata/         # Processed output
+tzdata_raw/         # Downloaded raw files
+├── africa          # African timezone data
+├── asia            # Asian timezone data
+├── europe          # European timezone data
+├── ...             # Other region files
+├── zone1970.tab    # Metadata
+├── version         # tzdata version
+└── windowsZones.xml # Windows timezone mappings
+tzdata/             # Processed output
 ├── combined.json
 └── combined.sqlite  
 ```
@@ -380,17 +449,18 @@ tzdata/         # Processed output
 
 ![Use Cases](https://img.shields.io/badge/💼-Use%20Cases-blueviolet.svg)
 
-- **Application Development**: Integrate comprehensive time zone data
+- **Cross-Platform Applications**: Handle both IANA and Windows timezone identifiers
 - **Data Analysis**: Research time zone changes and patterns  
 - **Historical Analysis**: Track offset changes over time
 - **Compliance**: Ensure accurate time zone handling
 - **Custom DST Logic**: Implement domain-specific DST calculations
+- **Migration Projects**: Convert between Windows and IANA timezone systems
 
 ## Installation & Requirements
 
 ```python
 # Required Python packages
-requests>=2.25.0    # For downloading tzdata
+requests>=2.25.0    # For downloading tzdata and Windows mappings
 ```
 
 Clone and run:
@@ -409,6 +479,7 @@ python make_tz_bundle.py
 - ✅ Raw transition data (offsets, dates, abbreviations)
 - ✅ Complete DST rule definitions  
 - ✅ Rule names linked to transitions
+- ✅ Windows timezone mappings
 - ❌ Pre-calculated DST boolean flags
 
 **Why?** This design:
@@ -417,12 +488,24 @@ python make_tz_bundle.py
 - Allows consumers to implement DST logic that fits their needs
 - Enables caching and on-demand DST computation
 - Keeps complex temporal logic out of the data extraction layer
+- Provides maximum flexibility for cross-platform compatibility
+
+## Error Handling and Robustness
+
+The tool includes comprehensive error handling:
+
+- **Network issues**: Gracefully handles connection failures and provides troubleshooting tips
+- **File corruption**: Validates downloaded archives and provides cleanup on failure
+- **Parsing errors**: Logs problematic lines but continues processing
+- **Missing files**: Warns about missing files but continues with available data
+- **Partial downloads**: Detects and handles incomplete downloads
 
 ## Resources
 
 - [IANA Time Zone Database](https://www.iana.org/time-zones)
 - [tzdata Format Documentation](https://data.iana.org/time-zones/theory.html)
 - [tzdata Theory File](https://data.iana.org/time-zones/theory.html) (Essential for DST implementation)
+- [Unicode CLDR WindowsZones](https://github.com/unicode-org/cldr/blob/main/common/supplemental/windowsZones.xml)
 
 ## Contributing
 

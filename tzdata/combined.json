@@ -4,7 +4,7 @@
       "country_code": "DZ",
       "coordinates": "+3647+00303",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1891 Mar 16",
           "to_utc": null,
@@ -76,13 +76,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Atlantic/Cape_Verde": {
       "country_code": "CV",
       "coordinates": "+1455-02331",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912 Jan 01 2:00u # Praia",
           "to_utc": null,
@@ -119,13 +120,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Cape Verde Standard Time"
+      ]
     },
     "Africa/Ndjamena": {
       "country_code": "TD",
       "coordinates": "+1207+01503",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912 Jan 1 # N'Djamena",
           "to_utc": null,
@@ -155,13 +159,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Abidjan": {
       "country_code": "CI,BF,GH,GM,GN,IS,ML,MR,SH,SL,SN,TG",
       "coordinates": "+0519-00402",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912 Jan 1",
           "to_utc": null,
@@ -190,13 +195,16 @@
         "Atlantic/Reykjavik",
         "Atlantic/St_Helena",
         "Africa/Timbuktu"
+      ],
+      "win_names": [
+        "Greenwich Standard Time"
       ]
     },
     "Africa/Cairo": {
       "country_code": "EG",
       "coordinates": "+3003+03115",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1900 Oct",
           "to_utc": null,
@@ -214,13 +222,16 @@
       ],
       "aliases": [
         "Egypt"
+      ],
+      "win_names": [
+        "Egypt Standard Time"
       ]
     },
     "Africa/Bissau": {
       "country_code": "GW",
       "coordinates": "+1151-01535",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912 Jan 1 1:00u",
           "to_utc": null,
@@ -243,13 +254,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Nairobi": {
       "country_code": "KE,DJ,ER,ET,KM,MG,SO,TZ,UG,YT",
       "coordinates": "-0117+03649",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1908 May",
           "to_utc": null,
@@ -303,13 +315,16 @@
         "Indian/Antananarivo",
         "Indian/Comoro",
         "Indian/Mayotte"
+      ],
+      "win_names": [
+        "E. Africa Standard Time"
       ]
     },
     "Africa/Monrovia": {
       "country_code": "LR",
       "coordinates": "+0618-01047",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1882",
           "to_utc": null,
@@ -339,13 +354,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Tripoli": {
       "country_code": "LY",
       "coordinates": "+3254+01311",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1920",
           "to_utc": null,
@@ -412,13 +428,16 @@
       ],
       "aliases": [
         "Libya"
+      ],
+      "win_names": [
+        "Libya Standard Time"
       ]
     },
     "Indian/Mauritius": {
       "country_code": "MU",
       "coordinates": "-2010+05730",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1907 # Port Louis",
           "to_utc": null,
@@ -434,13 +453,16 @@
           "rule_name": "Mauritius"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Mauritius Standard Time"
+      ]
     },
     "Africa/Casablanca": {
       "country_code": "MA",
       "coordinates": "+3339-00735",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1913 Oct 26",
           "to_utc": null,
@@ -477,13 +499,16 @@
           "rule_name": "Morocco"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Morocco Standard Time"
+      ]
     },
     "Africa/El_Aaiun": {
       "country_code": "EH",
       "coordinates": "+2709-01312",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1934 Jan # El Aaiún",
           "to_utc": null,
@@ -513,13 +538,14 @@
           "rule_name": "Morocco"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Maputo": {
       "country_code": "MZ,BI,BW,CD,MW,RW,ZM,ZW",
       "coordinates": "-2558+03235",
       "comment": "Central Africa Time",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1909",
           "to_utc": null,
@@ -543,13 +569,14 @@
         "Africa/Kigali",
         "Africa/Lubumbashi",
         "Africa/Lusaka"
-      ]
+      ],
+      "win_names": []
     },
     "Africa/Windhoek": {
       "country_code": "NA",
       "coordinates": "-2234+01706",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1892 Feb 8",
           "to_utc": null,
@@ -593,13 +620,16 @@
           "rule_name": "Namibia"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Namibia Standard Time"
+      ]
     },
     "Africa/Lagos": {
       "country_code": "NG,AO,BJ,CD,CF,CG,CM,GA,GQ,NE",
       "coordinates": "+0627+00324",
       "comment": "West Africa Time",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1905 Jul 1",
           "to_utc": null,
@@ -646,13 +676,16 @@
         "Africa/Malabo",
         "Africa/Niamey",
         "Africa/Porto-Novo"
+      ],
+      "win_names": [
+        "W. Central Africa Standard Time"
       ]
     },
     "Africa/Sao_Tome": {
       "country_code": "ST",
       "coordinates": "+0020+00644",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1884",
           "to_utc": null,
@@ -689,13 +722,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Sao Tome Standard Time"
+      ]
     },
     "Africa/Johannesburg": {
       "country_code": "ZA,LS,SZ",
       "coordinates": "-2615+02800",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1892 Feb 8",
           "to_utc": null,
@@ -721,13 +757,16 @@
       "aliases": [
         "Africa/Maseru",
         "Africa/Mbabane"
+      ],
+      "win_names": [
+        "South Africa Standard Time"
       ]
     },
     "Africa/Khartoum": {
       "country_code": "SD",
       "coordinates": "+1536+03232",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1931",
           "to_utc": null,
@@ -757,13 +796,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Sudan Standard Time"
+      ]
     },
     "Africa/Juba": {
       "country_code": "SS",
       "coordinates": "+0451+03137",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1931",
           "to_utc": null,
@@ -793,13 +835,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "South Sudan Standard Time"
+      ]
     },
     "Africa/Tunis": {
       "country_code": "TN",
       "coordinates": "+3648+01011",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1881 May 12",
           "to_utc": null,
@@ -822,13 +867,14 @@
           "rule_name": "Tunisia"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Antarctica/Casey": {
       "country_code": "AQ",
       "coordinates": "-6617+11031",
       "comment": "Casey",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1969",
           "to_utc": null,
@@ -956,13 +1002,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Antarctica/Davis": {
       "country_code": "AQ",
       "coordinates": "-6835+07758",
       "comment": "Davis",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1957 Jan 13",
           "to_utc": null,
@@ -1020,13 +1067,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Antarctica/Mawson": {
       "country_code": "AQ",
       "coordinates": "-6736+06253",
       "comment": "Mawson",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1954 Feb 13",
           "to_utc": null,
@@ -1049,13 +1097,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Antarctica/Troll": {
       "country_code": "AQ",
       "coordinates": "-720041+0023206",
       "comment": "Troll",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "2005 Feb 12",
           "to_utc": null,
@@ -1071,13 +1120,14 @@
           "rule_name": "Troll"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Antarctica/Vostok": {
       "country_code": "AQ",
       "coordinates": "-7824+10654",
       "comment": "Vostok",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1957 Dec 16",
           "to_utc": null,
@@ -1114,13 +1164,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Antarctica/Rothera": {
       "country_code": "AQ",
       "coordinates": "-6734-06808",
       "comment": "Rothera",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1976 Dec 1",
           "to_utc": null,
@@ -1136,13 +1187,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Kabul": {
       "country_code": "AF",
       "coordinates": "+3431+06912",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890",
           "to_utc": null,
@@ -1165,13 +1217,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Afghanistan Standard Time"
+      ]
     },
     "Asia/Yerevan": {
       "country_code": "AM",
       "coordinates": "+4011+04430",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1924 May 2",
           "to_utc": null,
@@ -1222,13 +1277,16 @@
           "rule_name": "Armenia"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Caucasus Standard Time"
+      ]
     },
     "Asia/Baku": {
       "country_code": "AZ",
       "coordinates": "+4023+04951",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1924 May 2",
           "to_utc": null,
@@ -1279,13 +1337,16 @@
           "rule_name": "Azer"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Azerbaijan Standard Time"
+      ]
     },
     "Asia/Dhaka": {
       "country_code": "BD",
       "coordinates": "+2343+09025",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890",
           "to_utc": null,
@@ -1338,13 +1399,16 @@
       ],
       "aliases": [
         "Asia/Dacca"
+      ],
+      "win_names": [
+        "Bangladesh Standard Time"
       ]
     },
     "Asia/Thimphu": {
       "country_code": "BT",
       "coordinates": "+2728+08939",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1947 Aug 15 # or Thimbu",
           "to_utc": null,
@@ -1369,13 +1433,14 @@
       ],
       "aliases": [
         "Asia/Thimbu"
-      ]
+      ],
+      "win_names": []
     },
     "Indian/Chagos": {
       "country_code": "IO",
       "coordinates": "-0720+07225",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1907",
           "to_utc": null,
@@ -1398,13 +1463,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Yangon": {
       "country_code": "MM,CC",
       "coordinates": "+1647+09610",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880 # or Rangoon",
           "to_utc": null,
@@ -1444,13 +1510,16 @@
       "aliases": [
         "Indian/Cocos",
         "Asia/Rangoon"
+      ],
+      "win_names": [
+        "Myanmar Standard Time"
       ]
     },
     "Asia/Shanghai": {
       "country_code": "CN",
       "coordinates": "+3114+12128",
       "comment": "Beijing Time",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1901",
           "to_utc": null,
@@ -1477,13 +1546,16 @@
         "PRC",
         "Asia/Chongqing",
         "Asia/Harbin"
+      ],
+      "win_names": [
+        "China Standard Time"
       ]
     },
     "Asia/Urumqi": {
       "country_code": "CN",
       "coordinates": "+4348+08735",
       "comment": "Xinjiang Time",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1928",
           "to_utc": null,
@@ -1501,13 +1573,14 @@
       ],
       "aliases": [
         "Asia/Kashgar"
-      ]
+      ],
+      "win_names": []
     },
     "Asia/Hong_Kong": {
       "country_code": "HK",
       "coordinates": "+2217+11409",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1904 Oct 29 17:00u",
           "to_utc": null,
@@ -1553,13 +1626,14 @@
       ],
       "aliases": [
         "Hongkong"
-      ]
+      ],
+      "win_names": []
     },
     "Asia/Taipei": {
       "country_code": "TW",
       "coordinates": "+2503+12130",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1896 Jan 1",
           "to_utc": null,
@@ -1591,13 +1665,16 @@
       ],
       "aliases": [
         "ROC"
+      ],
+      "win_names": [
+        "Taipei Standard Time"
       ]
     },
     "Asia/Macau": {
       "country_code": "MO",
       "coordinates": "+221150+1133230",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1904 Oct 30",
           "to_utc": null,
@@ -1629,13 +1706,14 @@
       ],
       "aliases": [
         "Asia/Macao"
-      ]
+      ],
+      "win_names": []
     },
     "Asia/Nicosia": {
       "country_code": "CY",
       "coordinates": "+3510+03322",
       "comment": "most of Cyprus",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1921 Nov 14",
           "to_utc": null,
@@ -1660,13 +1738,14 @@
       ],
       "aliases": [
         "Europe/Nicosia"
-      ]
+      ],
+      "win_names": []
     },
     "Asia/Famagusta": {
       "country_code": "CY",
       "coordinates": "+3507+03357",
       "comment": "Northern Cyprus",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1921 Nov 14",
           "to_utc": null,
@@ -1703,13 +1782,14 @@
           "rule_name": "EUAsia"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Tbilisi": {
       "country_code": "GE",
       "coordinates": "+4143+04449",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880",
           "to_utc": null,
@@ -1788,13 +1868,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Georgian Standard Time"
+      ]
     },
     "Asia/Dili": {
       "country_code": "TL",
       "coordinates": "-0833+12535",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1911 Dec 31 16:00u",
           "to_utc": null,
@@ -1831,13 +1914,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Kolkata": {
       "country_code": "IN",
       "coordinates": "+2232+08822",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1854 Jun 28 # Kolkata",
           "to_utc": null,
@@ -1897,13 +1981,16 @@
       ],
       "aliases": [
         "Asia/Calcutta"
+      ],
+      "win_names": [
+        "India Standard Time"
       ]
     },
     "Asia/Jakarta": {
       "country_code": "ID",
       "coordinates": "-0610+10648",
       "comment": "Java, Sumatra",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1867 Aug 10",
           "to_utc": null,
@@ -1968,13 +2055,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Pontianak": {
       "country_code": "ID",
       "coordinates": "-0002+10920",
       "comment": "Borneo (west, central)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1908 May",
           "to_utc": null,
@@ -2039,13 +2127,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Makassar": {
       "country_code": "ID",
       "coordinates": "-0507+11924",
       "comment": "Borneo (east, south), Sulawesi/Celebes, Bali, Nusa Tengarra, Timor (west)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1920",
           "to_utc": null,
@@ -2084,13 +2173,14 @@
       ],
       "aliases": [
         "Asia/Ujung_Pandang"
-      ]
+      ],
+      "win_names": []
     },
     "Asia/Jayapura": {
       "country_code": "ID",
       "coordinates": "-0232+14042",
       "comment": "New Guinea (West Papua / Irian Jaya), Malukus/Moluccas",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1932 Nov",
           "to_utc": null,
@@ -2120,13 +2210,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Tehran": {
       "country_code": "IR",
       "coordinates": "+3540+05126",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1916",
           "to_utc": null,
@@ -2165,13 +2256,16 @@
       ],
       "aliases": [
         "Iran"
+      ],
+      "win_names": [
+        "Iran Standard Time"
       ]
     },
     "Asia/Baghdad": {
       "country_code": "IQ",
       "coordinates": "+3321+04425",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890",
           "to_utc": null,
@@ -2201,13 +2295,16 @@
           "rule_name": "Iraq"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Arabic Standard Time"
+      ]
     },
     "Asia/Jerusalem": {
       "country_code": "IL",
       "coordinates": "+314650+0351326",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880",
           "to_utc": null,
@@ -2233,13 +2330,16 @@
       "aliases": [
         "Israel",
         "Asia/Tel_Aviv"
+      ],
+      "win_names": [
+        "Israel Standard Time"
       ]
     },
     "Asia/Tokyo": {
       "country_code": "JP,AU",
       "coordinates": "+353916+1394441",
       "comment": "Eyre Bird Observatory",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1887 Dec 31 15:00u",
           "to_utc": null,
@@ -2257,13 +2357,16 @@
       ],
       "aliases": [
         "Japan"
+      ],
+      "win_names": [
+        "Tokyo Standard Time"
       ]
     },
     "Asia/Amman": {
       "country_code": "JO",
       "coordinates": "+3157+03556",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1931",
           "to_utc": null,
@@ -2286,13 +2389,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Jordan Standard Time"
+      ]
     },
     "Asia/Almaty": {
       "country_code": "KZ",
       "coordinates": "+4315+07657",
       "comment": "most of Kazakhstan",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1924 May 2 # or Alma-Ata",
           "to_utc": null,
@@ -2343,13 +2449,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Qyzylorda": {
       "country_code": "KZ",
       "coordinates": "+4448+06528",
       "comment": "Qyzylorda/Kyzylorda/Kzyl-Orda",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1924 May 2",
           "to_utc": null,
@@ -2435,13 +2542,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Qyzylorda Standard Time"
+      ]
     },
     "Asia/Qostanay": {
       "country_code": "KZ",
       "coordinates": "+5312+06337",
       "comment": "Qostanay/Kostanay/Kustanay",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1924 May 2",
           "to_utc": null,
@@ -2513,13 +2623,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Aqtobe": {
       "country_code": "KZ",
       "coordinates": "+5017+05710",
       "comment": "Aqtöbe/Aktobe",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1924 May 2",
           "to_utc": null,
@@ -2584,13 +2695,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Aqtau": {
       "country_code": "KZ",
       "coordinates": "+4431+05016",
       "comment": "Mangghystaū/Mankistau",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1924 May 2",
           "to_utc": null,
@@ -2655,13 +2767,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Atyrau": {
       "country_code": "KZ",
       "coordinates": "+4707+05156",
       "comment": "Atyraū/Atirau/Gur'yev",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1924 May 2",
           "to_utc": null,
@@ -2726,13 +2839,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Oral": {
       "country_code": "KZ",
       "coordinates": "+5113+05121",
       "comment": "West Kazakhstan",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1924 May 2 # or Ural'sk",
           "to_utc": null,
@@ -2804,13 +2918,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Bishkek": {
       "country_code": "KG",
       "coordinates": "+4254+07436",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1924 May 2",
           "to_utc": null,
@@ -2854,13 +2969,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Central Asia Standard Time"
+      ]
     },
     "Asia/Seoul": {
       "country_code": "KR",
       "coordinates": "+3733+12658",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1908 Apr 1",
           "to_utc": null,
@@ -2906,13 +3024,16 @@
       ],
       "aliases": [
         "ROK"
+      ],
+      "win_names": [
+        "Korea Standard Time"
       ]
     },
     "Asia/Pyongyang": {
       "country_code": "KP",
       "coordinates": "+3901+12545",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1908 Apr 1",
           "to_utc": null,
@@ -2956,13 +3077,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "North Korea Standard Time"
+      ]
     },
     "Asia/Beirut": {
       "country_code": "LB",
       "coordinates": "+3353+03530",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880",
           "to_utc": null,
@@ -2978,13 +3102,16 @@
           "rule_name": "Lebanon"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Middle East Standard Time"
+      ]
     },
     "Asia/Kuching": {
       "country_code": "MY,BN",
       "coordinates": "+0133+11020",
       "comment": "Sabah, Sarawak",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1926 Mar",
           "to_utc": null,
@@ -3023,13 +3150,14 @@
       ],
       "aliases": [
         "Asia/Brunei"
-      ]
+      ],
+      "win_names": []
     },
     "Indian/Maldives": {
       "country_code": "MV,TF",
       "coordinates": "+0410+07330",
       "comment": "Kerguelen, St Paul I, Amsterdam I",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880 # Malé",
           "to_utc": null,
@@ -3054,13 +3182,14 @@
       ],
       "aliases": [
         "Indian/Kerguelen"
-      ]
+      ],
+      "win_names": []
     },
     "Asia/Hovd": {
       "country_code": "MN",
       "coordinates": "+4801+09139",
       "comment": "Bayan-Ölgii, Hovd, Uvs",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1905 Aug",
           "to_utc": null,
@@ -3083,13 +3212,16 @@
           "rule_name": "Mongol"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "W. Mongolia Standard Time"
+      ]
     },
     "Asia/Ulaanbaatar": {
       "country_code": "MN",
       "coordinates": "+4755+10653",
       "comment": "most of Mongolia",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1905 Aug",
           "to_utc": null,
@@ -3115,13 +3247,16 @@
       "aliases": [
         "Asia/Choibalsan",
         "Asia/Ulan_Bator"
+      ],
+      "win_names": [
+        "Ulaanbaatar Standard Time"
       ]
     },
     "Asia/Kathmandu": {
       "country_code": "NP",
       "coordinates": "+2743+08519",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1920",
           "to_utc": null,
@@ -3146,13 +3281,16 @@
       ],
       "aliases": [
         "Asia/Katmandu"
+      ],
+      "win_names": [
+        "Nepal Standard Time"
       ]
     },
     "Asia/Karachi": {
       "country_code": "PK",
       "coordinates": "+2452+06703",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1907",
           "to_utc": null,
@@ -3196,13 +3334,16 @@
           "rule_name": "Pakistan"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Pakistan Standard Time"
+      ]
     },
     "Asia/Gaza": {
       "country_code": "PS",
       "coordinates": "+3130+03428",
       "comment": "Gaza Strip",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1900 Oct",
           "to_utc": null,
@@ -3288,13 +3429,14 @@
           "rule_name": "Palestine"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Hebron": {
       "country_code": "PS",
       "coordinates": "+313200+0350542",
       "comment": "West Bank",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1900 Oct",
           "to_utc": null,
@@ -3338,13 +3480,16 @@
           "rule_name": "Palestine"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "West Bank Standard Time"
+      ]
     },
     "Asia/Manila": {
       "country_code": "PH",
       "coordinates": "+143512+1205804",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1844 Dec 31",
           "to_utc": null,
@@ -3381,13 +3526,14 @@
           "rule_name": "Phil"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Qatar": {
       "country_code": "QA,BH",
       "coordinates": "+2517+05132",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1920 # Al Dawhah / Doha",
           "to_utc": null,
@@ -3412,13 +3558,14 @@
       ],
       "aliases": [
         "Asia/Bahrain"
-      ]
+      ],
+      "win_names": []
     },
     "Asia/Riyadh": {
       "country_code": "SA,AQ,KW,YE",
       "coordinates": "+2438+04643",
       "comment": "Syowa",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1947 Mar 14",
           "to_utc": null,
@@ -3438,13 +3585,16 @@
         "Antarctica/Syowa",
         "Asia/Aden",
         "Asia/Kuwait"
+      ],
+      "win_names": [
+        "Arab Standard Time"
       ]
     },
     "Asia/Singapore": {
       "country_code": "SG,AQ,MY",
       "coordinates": "+0117+10351",
       "comment": "peninsular Malaysia, Concordia",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1901 Jan 1",
           "to_utc": null,
@@ -3512,13 +3662,16 @@
       "aliases": [
         "Singapore",
         "Asia/Kuala_Lumpur"
+      ],
+      "win_names": [
+        "Singapore Standard Time"
       ]
     },
     "Asia/Colombo": {
       "country_code": "LK",
       "coordinates": "+0656+07951",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880",
           "to_utc": null,
@@ -3583,13 +3736,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Sri Lanka Standard Time"
+      ]
     },
     "Asia/Damascus": {
       "country_code": "SY",
       "coordinates": "+3330+03618",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1920 # Dimashq",
           "to_utc": null,
@@ -3612,13 +3768,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Syria Standard Time"
+      ]
     },
     "Asia/Dushanbe": {
       "country_code": "TJ",
       "coordinates": "+3835+06848",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1924 May 2",
           "to_utc": null,
@@ -3655,13 +3814,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Bangkok": {
       "country_code": "TH,CX,KH,LA,VN",
       "coordinates": "+1345+10031",
       "comment": "north Vietnam",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880",
           "to_utc": null,
@@ -3688,13 +3848,16 @@
         "Asia/Phnom_Penh",
         "Asia/Vientiane",
         "Indian/Christmas"
+      ],
+      "win_names": [
+        "SE Asia Standard Time"
       ]
     },
     "Asia/Ashgabat": {
       "country_code": "TM",
       "coordinates": "+3757+05823",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1924 May 2 # or Ashkhabad",
           "to_utc": null,
@@ -3733,13 +3896,14 @@
       ],
       "aliases": [
         "Asia/Ashkhabad"
-      ]
+      ],
+      "win_names": []
     },
     "Asia/Dubai": {
       "country_code": "AE,OM,RE,SC,TF",
       "coordinates": "+2518+05518",
       "comment": "Crozet",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1920",
           "to_utc": null,
@@ -3759,13 +3923,16 @@
         "Asia/Muscat",
         "Indian/Mahe",
         "Indian/Reunion"
+      ],
+      "win_names": [
+        "Arabian Standard Time"
       ]
     },
     "Asia/Samarkand": {
       "country_code": "UZ",
       "coordinates": "+3940+06648",
       "comment": "Uzbekistan (west)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1924 May 2",
           "to_utc": null,
@@ -3816,13 +3983,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Tashkent": {
       "country_code": "UZ",
       "coordinates": "+4120+06918",
       "comment": "Uzbekistan (east)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1924 May 2",
           "to_utc": null,
@@ -3859,13 +4027,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "West Asia Standard Time"
+      ]
     },
     "Asia/Ho_Chi_Minh": {
       "country_code": "VN",
       "coordinates": "+1045+10640",
       "comment": "south Vietnam",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1906 Jul 1",
           "to_utc": null,
@@ -3939,13 +4110,14 @@
       ],
       "aliases": [
         "Asia/Saigon"
-      ]
+      ],
+      "win_names": []
     },
     "Australia/Darwin": {
       "country_code": "AU",
       "coordinates": "-1228+13050",
       "comment": "Northern Territory",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1895 Feb",
           "to_utc": null,
@@ -3970,13 +4142,16 @@
       ],
       "aliases": [
         "Australia/North"
+      ],
+      "win_names": [
+        "AUS Central Standard Time"
       ]
     },
     "Australia/Perth": {
       "country_code": "AU",
       "coordinates": "-3157+11551",
       "comment": "Western Australia (most areas)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1895 Dec",
           "to_utc": null,
@@ -4001,13 +4176,16 @@
       ],
       "aliases": [
         "Australia/West"
+      ],
+      "win_names": [
+        "W. Australia Standard Time"
       ]
     },
     "Australia/Eucla": {
       "country_code": "AU",
       "coordinates": "-3143+12852",
       "comment": "Western Australia (Eucla)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1895 Dec",
           "to_utc": null,
@@ -4030,13 +4208,16 @@
           "rule_name": "AW"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Aus Central W. Standard Time"
+      ]
     },
     "Australia/Brisbane": {
       "country_code": "AU",
       "coordinates": "-2728+15302",
       "comment": "Queensland (most areas)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1895",
           "to_utc": null,
@@ -4061,13 +4242,16 @@
       ],
       "aliases": [
         "Australia/Queensland"
+      ],
+      "win_names": [
+        "E. Australia Standard Time"
       ]
     },
     "Australia/Lindeman": {
       "country_code": "AU",
       "coordinates": "-2016+14900",
       "comment": "Queensland (Whitsunday Islands)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1895",
           "to_utc": null,
@@ -4097,13 +4281,14 @@
           "rule_name": "Holiday"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Australia/Adelaide": {
       "country_code": "AU",
       "coordinates": "-3455+13835",
       "comment": "South Australia",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1895 Feb",
           "to_utc": null,
@@ -4135,13 +4320,16 @@
       ],
       "aliases": [
         "Australia/South"
+      ],
+      "win_names": [
+        "Cen. Australia Standard Time"
       ]
     },
     "Australia/Hobart": {
       "country_code": "AU",
       "coordinates": "-4253+14719",
       "comment": "Tasmania",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1895 Sep",
           "to_utc": null,
@@ -4174,13 +4362,16 @@
       "aliases": [
         "Australia/Tasmania",
         "Australia/Currie"
+      ],
+      "win_names": [
+        "Tasmania Standard Time"
       ]
     },
     "Australia/Melbourne": {
       "country_code": "AU",
       "coordinates": "-3749+14458",
       "comment": "Victoria",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1895 Feb",
           "to_utc": null,
@@ -4205,13 +4396,14 @@
       ],
       "aliases": [
         "Australia/Victoria"
-      ]
+      ],
+      "win_names": []
     },
     "Australia/Sydney": {
       "country_code": "AU",
       "coordinates": "-3352+15113",
       "comment": "New South Wales (most areas)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1895 Feb",
           "to_utc": null,
@@ -4238,13 +4430,16 @@
         "Australia/ACT",
         "Australia/NSW",
         "Australia/Canberra"
+      ],
+      "win_names": [
+        "AUS Eastern Standard Time"
       ]
     },
     "Australia/Broken_Hill": {
       "country_code": "AU",
       "coordinates": "-3157+14127",
       "comment": "New South Wales (Yancowinna)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1895 Feb",
           "to_utc": null,
@@ -4290,13 +4485,14 @@
       ],
       "aliases": [
         "Australia/Yancowinna"
-      ]
+      ],
+      "win_names": []
     },
     "Australia/Lord_Howe": {
       "country_code": "AU",
       "coordinates": "-3133+15905",
       "comment": "Lord Howe Island",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1895 Feb",
           "to_utc": null,
@@ -4328,13 +4524,16 @@
       ],
       "aliases": [
         "Australia/LHI"
+      ],
+      "win_names": [
+        "Lord Howe Standard Time"
       ]
     },
     "Antarctica/Macquarie": {
       "country_code": "AU",
       "coordinates": "-5430+15857",
       "comment": "Macquarie Island",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1899 Nov",
           "to_utc": null,
@@ -4399,13 +4598,14 @@
           "rule_name": "AT"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Pacific/Fiji": {
       "country_code": "FJ",
       "coordinates": "-1808+17825",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1915 Oct 26 # Suva",
           "to_utc": null,
@@ -4421,13 +4621,16 @@
           "rule_name": "Fiji"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Fiji Standard Time"
+      ]
     },
     "Pacific/Gambier": {
       "country_code": "PF",
       "coordinates": "-2308-13457",
       "comment": "Gambier Islands",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912 Oct 1 # Rikitea",
           "to_utc": null,
@@ -4443,13 +4646,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Pacific/Marquesas": {
       "country_code": "PF",
       "coordinates": "-0900-13930",
       "comment": "Marquesas Islands",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912 Oct 1",
           "to_utc": null,
@@ -4465,13 +4669,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Marquesas Standard Time"
+      ]
     },
     "Pacific/Tahiti": {
       "country_code": "PF",
       "coordinates": "-1732-14934",
       "comment": "Society Islands",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912 Oct 1 # Papeete",
           "to_utc": null,
@@ -4487,13 +4694,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Pacific/Guam": {
       "country_code": "GU,MP",
       "coordinates": "+1328+14445",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1844 Dec 31",
           "to_utc": null,
@@ -4539,13 +4747,14 @@
       ],
       "aliases": [
         "Pacific/Saipan"
-      ]
+      ],
+      "win_names": []
     },
     "Pacific/Tarawa": {
       "country_code": "KI,MH,TV,UM,WF",
       "coordinates": "+0125+17300",
       "comment": "Gilberts, Marshalls, Wake",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1901 # Bairiki",
           "to_utc": null,
@@ -4566,13 +4775,14 @@
         "Pacific/Majuro",
         "Pacific/Wake",
         "Pacific/Wallis"
-      ]
+      ],
+      "win_names": []
     },
     "Pacific/Kanton": {
       "country_code": "KI",
       "coordinates": "-0247-17143",
       "comment": "Phoenix Islands",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1937 Aug 31",
           "to_utc": null,
@@ -4604,13 +4814,14 @@
       ],
       "aliases": [
         "Pacific/Enderbury"
-      ]
+      ],
+      "win_names": []
     },
     "Pacific/Kiritimati": {
       "country_code": "KI",
       "coordinates": "+0152-15720",
       "comment": "Line Islands",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1901",
           "to_utc": null,
@@ -4640,13 +4851,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Line Islands Standard Time"
+      ]
     },
     "Pacific/Kwajalein": {
       "country_code": "MH",
       "coordinates": "+0905+16720",
       "comment": "Kwajalein",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1901",
           "to_utc": null,
@@ -4699,13 +4913,14 @@
       ],
       "aliases": [
         "Kwajalein"
-      ]
+      ],
+      "win_names": []
     },
     "Pacific/Kosrae": {
       "country_code": "FM",
       "coordinates": "+0519+16259",
       "comment": "Kosrae",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1844 Dec 31",
           "to_utc": null,
@@ -4777,13 +4992,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Pacific/Nauru": {
       "country_code": "NR",
       "coordinates": "-0031+16655",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1921 Jan 15 # Uaobe",
           "to_utc": null,
@@ -4820,13 +5036,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Pacific/Noumea": {
       "country_code": "NC",
       "coordinates": "-2216+16627",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912 Jan 13 # Nouméa",
           "to_utc": null,
@@ -4842,13 +5059,14 @@
           "rule_name": "NC"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Pacific/Auckland": {
       "country_code": "NZ,AQ",
       "coordinates": "-3652+17446",
       "comment": "New Zealand time",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1868 Nov 2",
           "to_utc": null,
@@ -4874,13 +5092,16 @@
       "aliases": [
         "NZ",
         "Antarctica/McMurdo"
+      ],
+      "win_names": [
+        "New Zealand Standard Time"
       ]
     },
     "Pacific/Chatham": {
       "country_code": "NZ",
       "coordinates": "-4357-17633",
       "comment": "Chatham Islands",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1868 Nov 2",
           "to_utc": null,
@@ -4905,13 +5126,16 @@
       ],
       "aliases": [
         "NZ-CHAT"
+      ],
+      "win_names": [
+        "Chatham Islands Standard Time"
       ]
     },
     "Pacific/Rarotonga": {
       "country_code": "CK",
       "coordinates": "-2114-15946",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1899 Dec 26 # Avarua",
           "to_utc": null,
@@ -4941,13 +5165,14 @@
           "rule_name": "Cook"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Pacific/Niue": {
       "country_code": "NU",
       "coordinates": "-1901-16955",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1952 Oct 16 # Alofi",
           "to_utc": null,
@@ -4970,13 +5195,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Pacific/Norfolk": {
       "country_code": "NF",
       "coordinates": "-2903+16758",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1901 # Kingston",
           "to_utc": null,
@@ -5027,13 +5253,16 @@
           "rule_name": "AN"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Norfolk Standard Time"
+      ]
     },
     "Pacific/Palau": {
       "country_code": "PW",
       "coordinates": "+0720+13429",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1844 Dec 31 # Koror",
           "to_utc": null,
@@ -5056,13 +5285,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Pacific/Port_Moresby": {
       "country_code": "PG,AQ,FM",
       "coordinates": "-0930+14710",
       "comment": "Papua New Guinea (most areas), Chuuk, Yap, Dumont d'Urville",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880",
           "to_utc": null,
@@ -5088,13 +5318,16 @@
       "aliases": [
         "Antarctica/DumontDUrville",
         "Pacific/Chuuk"
+      ],
+      "win_names": [
+        "West Pacific Standard Time"
       ]
     },
     "Pacific/Bougainville": {
       "country_code": "PG",
       "coordinates": "-0613+15534",
       "comment": "Bougainville",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880",
           "to_utc": null,
@@ -5138,13 +5371,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Bougainville Standard Time"
+      ]
     },
     "Pacific/Pitcairn": {
       "country_code": "PN",
       "coordinates": "-2504-13005",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1901 # Adamstown",
           "to_utc": null,
@@ -5167,13 +5403,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Pacific/Pago_Pago": {
       "country_code": "AS,UM",
       "coordinates": "-1416-17042",
       "comment": "Midway",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1892 Jul 5",
           "to_utc": null,
@@ -5200,13 +5437,14 @@
         "US/Samoa",
         "Pacific/Samoa",
         "Pacific/Midway"
-      ]
+      ],
+      "win_names": []
     },
     "Pacific/Apia": {
       "country_code": "WS",
       "coordinates": "-1350-17144",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1892 Jul 5",
           "to_utc": null,
@@ -5243,13 +5481,16 @@
           "rule_name": "WS"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Samoa Standard Time"
+      ]
     },
     "Pacific/Guadalcanal": {
       "country_code": "SB,FM",
       "coordinates": "-0932+16012",
       "comment": "Pohnpei",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912 Oct 1 # Honiara",
           "to_utc": null,
@@ -5267,13 +5508,16 @@
       ],
       "aliases": [
         "Pacific/Pohnpei"
+      ],
+      "win_names": [
+        "Central Pacific Standard Time"
       ]
     },
     "Pacific/Fakaofo": {
       "country_code": "TK",
       "coordinates": "-0922-17114",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1901",
           "to_utc": null,
@@ -5296,13 +5540,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Pacific/Tongatapu": {
       "country_code": "TO",
       "coordinates": "-210800-1751200",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1945 Sep 10",
           "to_utc": null,
@@ -5332,13 +5577,16 @@
           "rule_name": "Tonga"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Tonga Standard Time"
+      ]
     },
     "Pacific/Efate": {
       "country_code": "VU",
       "coordinates": "-1740+16825",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912 Jan 13 # Vila",
           "to_utc": null,
@@ -5354,13 +5602,14 @@
           "rule_name": "Vanuatu"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/London": {
       "country_code": "GB,GG,IM,JE",
       "coordinates": "+513030-0000731",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1847 Dec 1",
           "to_utc": null,
@@ -5404,13 +5653,16 @@
         "Europe/Isle_of_Man",
         "Europe/Jersey",
         "Europe/Belfast"
+      ],
+      "win_names": [
+        "GMT Standard Time"
       ]
     },
     "Europe/Dublin": {
       "country_code": "IE",
       "coordinates": "+5320-00615",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880 Aug 2",
           "to_utc": null,
@@ -5491,13 +5743,14 @@
       ],
       "aliases": [
         "Eire"
-      ]
+      ],
+      "win_names": []
     },
     "Europe/Tirane": {
       "country_code": "AL",
       "coordinates": "+4120+01950",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1914",
           "to_utc": null,
@@ -5527,13 +5780,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Andorra": {
       "country_code": "AD",
       "coordinates": "+4230+00131",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1901",
           "to_utc": null,
@@ -5563,13 +5817,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Vienna": {
       "country_code": "AT",
       "coordinates": "+4813+01620",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1893 Apr",
           "to_utc": null,
@@ -5627,13 +5882,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Minsk": {
       "country_code": "BY",
       "coordinates": "+5354+02734",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880",
           "to_utc": null,
@@ -5698,13 +5954,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Belarus Standard Time"
+      ]
     },
     "Europe/Brussels": {
       "country_code": "BE,LU,NL",
       "coordinates": "+5050+00420",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880",
           "to_utc": null,
@@ -5774,13 +6033,14 @@
         "MET",
         "Europe/Amsterdam",
         "Europe/Luxembourg"
-      ]
+      ],
+      "win_names": []
     },
     "Europe/Sofia": {
       "country_code": "BG",
       "coordinates": "+4241+02319",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880",
           "to_utc": null,
@@ -5852,13 +6112,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Prague": {
       "country_code": "CZ,SK",
       "coordinates": "+5005+01426",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1850",
           "to_utc": null,
@@ -5911,13 +6172,14 @@
       ],
       "aliases": [
         "Europe/Bratislava"
-      ]
+      ],
+      "win_names": []
     },
     "Atlantic/Faroe": {
       "country_code": "FO",
       "coordinates": "+6201-00646",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1908 Jan 11 # Tórshavn",
           "to_utc": null,
@@ -5942,13 +6204,14 @@
       ],
       "aliases": [
         "Atlantic/Faeroe"
-      ]
+      ],
+      "win_names": []
     },
     "America/Danmarkshavn": {
       "country_code": "GL",
       "coordinates": "+7646-01840",
       "comment": "National Park (east coast)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1916 Jul 28",
           "to_utc": null,
@@ -5978,13 +6241,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Scoresbysund": {
       "country_code": "GL",
       "coordinates": "+7029-02158",
       "comment": "Scoresbysund/Ittoqqortoormiit",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1916 Jul 28 # Ittoqqortoormiit",
           "to_utc": null,
@@ -6021,13 +6285,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Nuuk": {
       "country_code": "GL",
       "coordinates": "+6411-05144",
       "comment": "most of Greenland",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1916 Jul 28 # Godthåb",
           "to_utc": null,
@@ -6066,13 +6331,16 @@
       ],
       "aliases": [
         "America/Godthab"
+      ],
+      "win_names": [
+        "Greenland Standard Time"
       ]
     },
     "America/Thule": {
       "country_code": "GL",
       "coordinates": "+7634-06847",
       "comment": "Thule/Pituffik",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1916 Jul 28 # Pituffik",
           "to_utc": null,
@@ -6088,13 +6356,14 @@
           "rule_name": "Thule"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Tallinn": {
       "country_code": "EE",
       "coordinates": "+5925+02445",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880",
           "to_utc": null,
@@ -6187,13 +6456,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Helsinki": {
       "country_code": "FI,AX",
       "coordinates": "+6010+02458",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1878 May 31",
           "to_utc": null,
@@ -6225,13 +6495,14 @@
       ],
       "aliases": [
         "Europe/Mariehamn"
-      ]
+      ],
+      "win_names": []
     },
     "Europe/Paris": {
       "country_code": "FR,MC",
       "coordinates": "+4852+00220",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1891 Mar 16",
           "to_utc": null,
@@ -6284,13 +6555,16 @@
       ],
       "aliases": [
         "Europe/Monaco"
+      ],
+      "win_names": [
+        "Romance Standard Time"
       ]
     },
     "Europe/Berlin": {
       "country_code": "DE,DK,NO,SE,SJ",
       "coordinates": "+5230+01322",
       "comment": "most of Germany",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1893 Apr",
           "to_utc": null,
@@ -6332,13 +6606,16 @@
         "Europe/Oslo",
         "Europe/Stockholm",
         "Atlantic/Jan_Mayen"
+      ],
+      "win_names": [
+        "W. Europe Standard Time"
       ]
     },
     "Europe/Gibraltar": {
       "country_code": "GI",
       "coordinates": "+3608-00521",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880 Aug 2",
           "to_utc": null,
@@ -6368,13 +6645,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Athens": {
       "country_code": "GR",
       "coordinates": "+3758+02343",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1895 Sep 14",
           "to_utc": null,
@@ -6420,13 +6698,14 @@
       ],
       "aliases": [
         "EET"
-      ]
+      ],
+      "win_names": []
     },
     "Europe/Budapest": {
       "country_code": "HU",
       "coordinates": "+4730+01905",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890 Nov 1",
           "to_utc": null,
@@ -6470,13 +6749,16 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Central Europe Standard Time"
+      ]
     },
     "Europe/Rome": {
       "country_code": "IT,SM,VA",
       "coordinates": "+4154+01229",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1866 Dec 12",
           "to_utc": null,
@@ -6523,13 +6805,14 @@
       "aliases": [
         "Europe/San_Marino",
         "Europe/Vatican"
-      ]
+      ],
+      "win_names": []
     },
     "Europe/Riga": {
       "country_code": "LV",
       "coordinates": "+5657+02406",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880",
           "to_utc": null,
@@ -6636,13 +6919,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Vilnius": {
       "country_code": "LT",
       "coordinates": "+5441+02519",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880",
           "to_utc": null,
@@ -6749,13 +7033,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Malta": {
       "country_code": "MT",
       "coordinates": "+3554+01431",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1893 Nov 2 # Valletta",
           "to_utc": null,
@@ -6785,13 +7070,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Chisinau": {
       "country_code": "MD",
       "coordinates": "+4700+02850",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880",
           "to_utc": null,
@@ -6865,13 +7151,16 @@
       ],
       "aliases": [
         "Europe/Tiraspol"
+      ],
+      "win_names": [
+        "E. Europe Standard Time"
       ]
     },
     "Europe/Warsaw": {
       "country_code": "PL",
       "coordinates": "+5215+02100",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880",
           "to_utc": null,
@@ -6938,13 +7227,16 @@
       ],
       "aliases": [
         "Poland"
+      ],
+      "win_names": [
+        "Central European Standard Time"
       ]
     },
     "Europe/Lisbon": {
       "country_code": "PT",
       "coordinates": "+3843-00908",
       "comment": "Portugal (mainland)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1884",
           "to_utc": null,
@@ -7005,13 +7297,14 @@
       "aliases": [
         "Portugal",
         "WET"
-      ]
+      ],
+      "win_names": []
     },
     "Atlantic/Azores": {
       "country_code": "PT",
       "coordinates": "+3744-02540",
       "comment": "Azores",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1884 # Ponta Delgada",
           "to_utc": null,
@@ -7069,13 +7362,16 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Azores Standard Time"
+      ]
     },
     "Atlantic/Madeira": {
       "country_code": "PT",
       "coordinates": "+3238-01654",
       "comment": "Madeira Islands",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1884 # Funchal",
           "to_utc": null,
@@ -7119,13 +7415,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Bucharest": {
       "country_code": "RO",
       "coordinates": "+4426+02606",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1891 Oct",
           "to_utc": null,
@@ -7176,13 +7473,16 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "GTB Standard Time"
+      ]
     },
     "Europe/Kaliningrad": {
       "country_code": "RU",
       "coordinates": "+5443+02030",
       "comment": "MSK-01 - Kaliningrad",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1893 Apr",
           "to_utc": null,
@@ -7233,13 +7533,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Kaliningrad Standard Time"
+      ]
     },
     "Europe/Moscow": {
       "country_code": "RU",
       "coordinates": "+554521+0373704",
       "comment": "MSK+00 - Moscow area",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880",
           "to_utc": null,
@@ -7320,13 +7623,16 @@
       ],
       "aliases": [
         "W-SU"
+      ],
+      "win_names": [
+        "Russian Standard Time"
       ]
     },
     "Europe/Simferopol": {
       "country_code": "RU,UA",
       "coordinates": "+4457+03406",
       "comment": "Crimea",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880",
           "to_utc": null,
@@ -7433,13 +7739,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Astrakhan": {
       "country_code": "RU",
       "coordinates": "+4621+04803",
       "comment": "MSK+01 - Astrakhan",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1924 May",
           "to_utc": null,
@@ -7504,13 +7811,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Astrakhan Standard Time"
+      ]
     },
     "Europe/Volgograd": {
       "country_code": "RU",
       "coordinates": "+4844+04425",
       "comment": "MSK+00 - Volgograd",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1920 Jan 3",
           "to_utc": null,
@@ -7589,13 +7899,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Volgograd Standard Time"
+      ]
     },
     "Europe/Saratov": {
       "country_code": "RU",
       "coordinates": "+5134+04602",
       "comment": "MSK+01 - Saratov",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1919 Jul 1 0:00u",
           "to_utc": null,
@@ -7660,13 +7973,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Saratov Standard Time"
+      ]
     },
     "Europe/Kirov": {
       "country_code": "RU",
       "coordinates": "+5836+04939",
       "comment": "MSK+00 - Kirov",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1919 Jul 1 0:00u",
           "to_utc": null,
@@ -7724,13 +8040,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Samara": {
       "country_code": "RU",
       "coordinates": "+5312+05009",
       "comment": "MSK+01 - Samara, Udmurtia",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1919 Jul 1 0:00u",
           "to_utc": null,
@@ -7802,13 +8119,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Russia Time Zone 3"
+      ]
     },
     "Europe/Ulyanovsk": {
       "country_code": "RU",
       "coordinates": "+5420+04824",
       "comment": "MSK+01 - Ulyanovsk",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1919 Jul 1 0:00u",
           "to_utc": null,
@@ -7873,13 +8193,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Yekaterinburg": {
       "country_code": "RU",
       "coordinates": "+5651+06036",
       "comment": "MSK+02 - Urals",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1916 Jul 3",
           "to_utc": null,
@@ -7937,13 +8258,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Ekaterinburg Standard Time"
+      ]
     },
     "Asia/Omsk": {
       "country_code": "RU",
       "coordinates": "+5500+07324",
       "comment": "MSK+03 - Omsk",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1919 Nov 14",
           "to_utc": null,
@@ -7994,13 +8318,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Omsk Standard Time"
+      ]
     },
     "Asia/Barnaul": {
       "country_code": "RU",
       "coordinates": "+5322+08345",
       "comment": "MSK+04 - Altai",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1919 Dec 10",
           "to_utc": null,
@@ -8065,13 +8392,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Altai Standard Time"
+      ]
     },
     "Asia/Novosibirsk": {
       "country_code": "RU",
       "coordinates": "+5502+08255",
       "comment": "MSK+04 - Novosibirsk",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1919 Dec 14 6:00",
           "to_utc": null,
@@ -8136,13 +8466,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "N. Central Asia Standard Time"
+      ]
     },
     "Asia/Tomsk": {
       "country_code": "RU",
       "coordinates": "+5630+08458",
       "comment": "MSK+04 - Tomsk",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1919 Dec 22",
           "to_utc": null,
@@ -8207,13 +8540,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Tomsk Standard Time"
+      ]
     },
     "Asia/Novokuznetsk": {
       "country_code": "RU",
       "coordinates": "+5345+08707",
       "comment": "MSK+04 - Kemerovo",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1924 May 1",
           "to_utc": null,
@@ -8264,13 +8600,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Krasnoyarsk": {
       "country_code": "RU",
       "coordinates": "+5601+09250",
       "comment": "MSK+04 - Krasnoyarsk area",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1920 Jan 6",
           "to_utc": null,
@@ -8321,13 +8658,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "North Asia Standard Time"
+      ]
     },
     "Asia/Irkutsk": {
       "country_code": "RU",
       "coordinates": "+5216+10420",
       "comment": "MSK+05 - Irkutsk, Buryatia",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880",
           "to_utc": null,
@@ -8385,13 +8725,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "North Asia East Standard Time"
+      ]
     },
     "Asia/Chita": {
       "country_code": "RU",
       "coordinates": "+5203+11328",
       "comment": "MSK+06 - Zabaykalsky",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1919 Dec 15",
           "to_utc": null,
@@ -8449,13 +8792,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Transbaikal Standard Time"
+      ]
     },
     "Asia/Yakutsk": {
       "country_code": "RU",
       "coordinates": "+6200+12940",
       "comment": "MSK+06 - Lena River",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1919 Dec 15",
           "to_utc": null,
@@ -8506,13 +8852,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Yakutsk Standard Time"
+      ]
     },
     "Asia/Vladivostok": {
       "country_code": "RU",
       "coordinates": "+4310+13156",
       "comment": "MSK+07 - Amur River",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1922 Nov 15",
           "to_utc": null,
@@ -8563,13 +8912,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Vladivostok Standard Time"
+      ]
     },
     "Asia/Khandyga": {
       "country_code": "RU",
       "coordinates": "+623923+1353314",
       "comment": "MSK+06 - Tomponsky, Ust-Maysky",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1919 Dec 15",
           "to_utc": null,
@@ -8634,13 +8986,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Sakhalin": {
       "country_code": "RU",
       "coordinates": "+4658+14242",
       "comment": "MSK+08 - Sakhalin Island",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1905 Aug 23",
           "to_utc": null,
@@ -8705,13 +9058,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Sakhalin Standard Time"
+      ]
     },
     "Asia/Magadan": {
       "country_code": "RU",
       "coordinates": "+5934+15048",
       "comment": "MSK+08 - Magadan",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1924 May 2",
           "to_utc": null,
@@ -8769,13 +9125,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Magadan Standard Time"
+      ]
     },
     "Asia/Srednekolymsk": {
       "country_code": "RU",
       "coordinates": "+6728+15343",
       "comment": "MSK+08 - Sakha (E), N Kuril Is",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1924 May 2",
           "to_utc": null,
@@ -8826,13 +9185,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Russia Time Zone 10"
+      ]
     },
     "Asia/Ust-Nera": {
       "country_code": "RU",
       "coordinates": "+643337+1431336",
       "comment": "MSK+07 - Oymyakonsky",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1919 Dec 15",
           "to_utc": null,
@@ -8897,13 +9259,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Kamchatka": {
       "country_code": "RU",
       "coordinates": "+5301+15839",
       "comment": "MSK+09 - Kamchatka",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1922 Nov 10",
           "to_utc": null,
@@ -8954,13 +9317,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Russia Time Zone 11"
+      ]
     },
     "Asia/Anadyr": {
       "country_code": "RU",
       "coordinates": "+6445+17729",
       "comment": "MSK+09 - Bering Sea",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1924 May 2",
           "to_utc": null,
@@ -9018,13 +9384,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Belgrade": {
       "country_code": "RS,BA,HR,ME,MK,SI",
       "coordinates": "+4450+02030",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1884",
           "to_utc": null,
@@ -9081,13 +9448,14 @@
         "Europe/Sarajevo",
         "Europe/Skopje",
         "Europe/Zagreb"
-      ]
+      ],
+      "win_names": []
     },
     "Europe/Madrid": {
       "country_code": "ES",
       "coordinates": "+4024-00341",
       "comment": "Spain (mainland)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1901 Jan 1 0:00u",
           "to_utc": null,
@@ -9117,13 +9485,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Ceuta": {
       "country_code": "ES",
       "coordinates": "+3553-00519",
       "comment": "Ceuta, Melilla",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1901 Jan 1 0:00u",
           "to_utc": null,
@@ -9188,13 +9557,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Atlantic/Canary": {
       "country_code": "ES",
       "coordinates": "+2806-01524",
       "comment": "Canary Islands",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1922 Mar # Las Palmas de Gran C.",
           "to_utc": null,
@@ -9231,13 +9601,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Zurich": {
       "country_code": "CH,DE,LI",
       "coordinates": "+4723+00832",
       "comment": "Büsingen",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1853 Jul 16 # See above comment.",
           "to_utc": null,
@@ -9270,13 +9641,14 @@
       "aliases": [
         "Europe/Busingen",
         "Europe/Vaduz"
-      ]
+      ],
+      "win_names": []
     },
     "Europe/Istanbul": {
       "country_code": "TR",
       "coordinates": "+4101+02858",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880",
           "to_utc": null,
@@ -9372,13 +9744,16 @@
       "aliases": [
         "Turkey",
         "Asia/Istanbul"
+      ],
+      "win_names": [
+        "Turkey Standard Time"
       ]
     },
     "Europe/Kyiv": {
       "country_code": "UA",
       "coordinates": "+5026+03031",
       "comment": "most of Ukraine",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880",
           "to_utc": null,
@@ -9447,13 +9822,16 @@
         "Europe/Uzhgorod",
         "Europe/Zaporozhye",
         "Europe/Kiev"
+      ],
+      "win_names": [
+        "FLE Standard Time"
       ]
     },
     "America/New_York": {
       "country_code": "US",
       "coordinates": "+404251-0740023",
       "comment": "Eastern (most areas)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1883 Nov 18 17:00u",
           "to_utc": null,
@@ -9500,13 +9878,16 @@
       "aliases": [
         "EST5EDT",
         "US/Eastern"
+      ],
+      "win_names": [
+        "Eastern Standard Time"
       ]
     },
     "America/Chicago": {
       "country_code": "US",
       "coordinates": "+415100-0873900",
       "comment": "Central (most areas)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1883 Nov 18 18:00u",
           "to_utc": null,
@@ -9567,13 +9948,16 @@
       "aliases": [
         "CST6CDT",
         "US/Central"
+      ],
+      "win_names": [
+        "Central Standard Time"
       ]
     },
     "America/North_Dakota/Center": {
       "country_code": "US",
       "coordinates": "+470659-1011757",
       "comment": "Central - ND (Oliver)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1883 Nov 18 19:00u",
           "to_utc": null,
@@ -9596,13 +9980,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/North_Dakota/New_Salem": {
       "country_code": "US",
       "coordinates": "+465042-1012439",
       "comment": "Central - ND (Morton rural)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1883 Nov 18 19:00u",
           "to_utc": null,
@@ -9625,13 +10010,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/North_Dakota/Beulah": {
       "country_code": "US",
       "coordinates": "+471551-1014640",
       "comment": "Central - ND (Mercer)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1883 Nov 18 19:00u",
           "to_utc": null,
@@ -9654,13 +10040,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Denver": {
       "country_code": "US",
       "coordinates": "+394421-1045903",
       "comment": "Mountain (most areas)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1883 Nov 18 19:00u",
           "to_utc": null,
@@ -9709,13 +10096,16 @@
         "Navajo",
         "US/Mountain",
         "America/Shiprock"
+      ],
+      "win_names": [
+        "Mountain Standard Time"
       ]
     },
     "America/Los_Angeles": {
       "country_code": "US",
       "coordinates": "+340308-1181434",
       "comment": "Pacific",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1883 Nov 18 20:00u",
           "to_utc": null,
@@ -9748,13 +10138,16 @@
       "aliases": [
         "US/Pacific",
         "PST8PDT"
+      ],
+      "win_names": [
+        "Pacific Standard Time"
       ]
     },
     "America/Juneau": {
       "country_code": "US",
       "coordinates": "+581807-1342511",
       "comment": "Alaska - Juneau area",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1867 Oct 19 15:33:32",
           "to_utc": null,
@@ -9826,13 +10219,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Sitka": {
       "country_code": "US",
       "coordinates": "+571035-1351807",
       "comment": "Alaska - Sitka area",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1867 Oct 19 15:30",
           "to_utc": null,
@@ -9890,13 +10284,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Metlakatla": {
       "country_code": "US",
       "coordinates": "+550737-1313435",
       "comment": "Alaska - Annette Island",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1867 Oct 19 15:44:55",
           "to_utc": null,
@@ -9968,13 +10363,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Yakutat": {
       "country_code": "US",
       "coordinates": "+593249-1394338",
       "comment": "Alaska - Yakutat",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1867 Oct 19 15:12:18",
           "to_utc": null,
@@ -10025,13 +10421,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Anchorage": {
       "country_code": "US",
       "coordinates": "+611305-1495401",
       "comment": "Alaska (most areas)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1867 Oct 19 14:31:37",
           "to_utc": null,
@@ -10091,13 +10488,16 @@
       ],
       "aliases": [
         "US/Alaska"
+      ],
+      "win_names": [
+        "Alaskan Standard Time"
       ]
     },
     "America/Nome": {
       "country_code": "US",
       "coordinates": "+643004-1652423",
       "comment": "Alaska (west)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1867 Oct 19 13:29:35",
           "to_utc": null,
@@ -10162,13 +10562,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Adak": {
       "country_code": "US",
       "coordinates": "+515248-1763929",
       "comment": "Alaska - western Aleutians",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1867 Oct 19 12:44:35",
           "to_utc": null,
@@ -10236,13 +10637,16 @@
       "aliases": [
         "US/Aleutian",
         "America/Atka"
+      ],
+      "win_names": [
+        "Aleutian Standard Time"
       ]
     },
     "Pacific/Honolulu": {
       "country_code": "US",
       "coordinates": "+211825-1575130",
       "comment": "Hawaii",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1896 Jan 13 12:00",
           "to_utc": null,
@@ -10283,13 +10687,16 @@
         "US/Hawaii",
         "Pacific/Johnston",
         "HST"
+      ],
+      "win_names": [
+        "Hawaiian Standard Time"
       ]
     },
     "America/Phoenix": {
       "country_code": "US,CA",
       "coordinates": "+332654-1120424",
       "comment": "MST - AZ (most areas), Creston BC",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1883 Nov 18 19:00u",
           "to_utc": null,
@@ -10344,13 +10751,16 @@
         "MST",
         "US/Arizona",
         "America/Creston"
+      ],
+      "win_names": [
+        "US Mountain Standard Time"
       ]
     },
     "America/Boise": {
       "country_code": "US",
       "coordinates": "+433649-1161209",
       "comment": "Mountain - ID (south), OR (east)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1883 Nov 18 20:00u",
           "to_utc": null,
@@ -10387,13 +10797,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Indiana/Indianapolis": {
       "country_code": "US",
       "coordinates": "+394606-0860929",
       "comment": "Eastern - IN (most areas)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1883 Nov 18 18:00u",
           "to_utc": null,
@@ -10476,13 +10887,16 @@
         "US/East-Indiana",
         "America/Indianapolis",
         "America/Fort_Wayne"
+      ],
+      "win_names": [
+        "US Eastern Standard Time"
       ]
     },
     "America/Indiana/Marengo": {
       "country_code": "US",
       "coordinates": "+382232-0862041",
       "comment": "Eastern - IN (Crawford)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1883 Nov 18 18:00u",
           "to_utc": null,
@@ -10547,13 +10961,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Indiana/Vincennes": {
       "country_code": "US",
       "coordinates": "+384038-0873143",
       "comment": "Eastern - IN (Da, Du, K, Mn)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1883 Nov 18 18:00u",
           "to_utc": null,
@@ -10611,13 +11026,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Indiana/Tell_City": {
       "country_code": "US",
       "coordinates": "+375711-0864541",
       "comment": "Central - IN (Perry)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1883 Nov 18 18:00u",
           "to_utc": null,
@@ -10675,13 +11091,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Indiana/Petersburg": {
       "country_code": "US",
       "coordinates": "+382931-0871643",
       "comment": "Eastern - IN (Pike)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1883 Nov 18 18:00u",
           "to_utc": null,
@@ -10739,13 +11156,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Indiana/Knox": {
       "country_code": "US",
       "coordinates": "+411745-0863730",
       "comment": "Central - IN (Starke)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1883 Nov 18 18:00u",
           "to_utc": null,
@@ -10799,13 +11217,14 @@
       "aliases": [
         "US/Indiana-Starke",
         "America/Knox_IN"
-      ]
+      ],
+      "win_names": []
     },
     "America/Indiana/Winamac": {
       "country_code": "US",
       "coordinates": "+410305-0863611",
       "comment": "Eastern - IN (Pulaski)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1883 Nov 18 18:00u",
           "to_utc": null,
@@ -10863,13 +11282,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Indiana/Vevay": {
       "country_code": "US",
       "coordinates": "+384452-0850402",
       "comment": "Eastern - IN (Switzerland)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1883 Nov 18 18:00u",
           "to_utc": null,
@@ -10913,13 +11333,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Kentucky/Louisville": {
       "country_code": "US",
       "coordinates": "+381515-0854534",
       "comment": "Eastern - KY (Louisville area)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1883 Nov 18 18:00u",
           "to_utc": null,
@@ -10986,13 +11407,14 @@
       ],
       "aliases": [
         "America/Louisville"
-      ]
+      ],
+      "win_names": []
     },
     "America/Kentucky/Monticello": {
       "country_code": "US",
       "coordinates": "+364947-0845057",
       "comment": "Eastern - KY (Wayne)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1883 Nov 18 18:00u",
           "to_utc": null,
@@ -11029,13 +11451,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Detroit": {
       "country_code": "US",
       "coordinates": "+421953-0830245",
       "comment": "Eastern - MI (most areas)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1905",
           "to_utc": null,
@@ -11109,13 +11532,14 @@
       ],
       "aliases": [
         "US/Michigan"
-      ]
+      ],
+      "win_names": []
     },
     "America/Menominee": {
       "country_code": "US",
       "coordinates": "+450628-0873651",
       "comment": "Central - MI (Wisconsin border)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1885 Sep 18 12:00",
           "to_utc": null,
@@ -11152,13 +11576,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/St_Johns": {
       "country_code": "CA",
       "coordinates": "+4734-05243",
       "comment": "Newfoundland, Labrador (SE)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1884",
           "to_utc": null,
@@ -11218,13 +11643,16 @@
       ],
       "aliases": [
         "Canada/Newfoundland"
+      ],
+      "win_names": [
+        "Newfoundland Standard Time"
       ]
     },
     "America/Goose_Bay": {
       "country_code": "CA",
       "coordinates": "+5320-06025",
       "comment": "Atlantic - Labrador (most areas)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1884 # Happy Valley-Goose Bay",
           "to_utc": null,
@@ -11296,13 +11724,14 @@
           "rule_name": "Canada"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Halifax": {
       "country_code": "CA",
       "coordinates": "+4439-06336",
       "comment": "Atlantic - NS (most areas), PE",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1902 Jun 15",
           "to_utc": null,
@@ -11355,13 +11784,16 @@
       ],
       "aliases": [
         "Canada/Atlantic"
+      ],
+      "win_names": [
+        "Atlantic Standard Time"
       ]
     },
     "America/Glace_Bay": {
       "country_code": "CA",
       "coordinates": "+4612-05957",
       "comment": "Atlantic - NS (Cape Breton)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1902 Jun 15",
           "to_utc": null,
@@ -11405,13 +11837,14 @@
           "rule_name": "Canada"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Moncton": {
       "country_code": "CA",
       "coordinates": "+4606-06447",
       "comment": "Atlantic - New Brunswick",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1883 Dec 9",
           "to_utc": null,
@@ -11476,13 +11909,14 @@
           "rule_name": "Canada"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Toronto": {
       "country_code": "CA,BS",
       "coordinates": "+4339-07923",
       "comment": "Eastern - ON & QC (most areas)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1895",
           "to_utc": null,
@@ -11532,13 +11966,14 @@
         "America/Montreal",
         "America/Nipigon",
         "America/Thunder_Bay"
-      ]
+      ],
+      "win_names": []
     },
     "America/Winnipeg": {
       "country_code": "CA",
       "coordinates": "+4953-09709",
       "comment": "Central - ON (west), Manitoba",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1887 Jul 16",
           "to_utc": null,
@@ -11564,13 +11999,14 @@
       "aliases": [
         "Canada/Central",
         "America/Rainy_River"
-      ]
+      ],
+      "win_names": []
     },
     "America/Regina": {
       "country_code": "CA",
       "coordinates": "+5024-10439",
       "comment": "CST - SK (most areas)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1905 Sep",
           "to_utc": null,
@@ -11595,13 +12031,16 @@
       ],
       "aliases": [
         "Canada/Saskatchewan"
+      ],
+      "win_names": [
+        "Canada Central Standard Time"
       ]
     },
     "America/Swift_Current": {
       "country_code": "CA",
       "coordinates": "+5017-10750",
       "comment": "CST - SK (midwest)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1905 Sep",
           "to_utc": null,
@@ -11638,13 +12077,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Edmonton": {
       "country_code": "CA",
       "coordinates": "+5333-11328",
       "comment": "Mountain - AB, BC(E), NT(E), SK(W)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1906 Sep",
           "to_utc": null,
@@ -11670,13 +12110,14 @@
       "aliases": [
         "Canada/Mountain",
         "America/Yellowknife"
-      ]
+      ],
+      "win_names": []
     },
     "America/Vancouver": {
       "country_code": "CA",
       "coordinates": "+4916-12307",
       "comment": "Pacific - BC (most areas)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1884",
           "to_utc": null,
@@ -11701,13 +12142,14 @@
       ],
       "aliases": [
         "Canada/Pacific"
-      ]
+      ],
+      "win_names": []
     },
     "America/Dawson_Creek": {
       "country_code": "CA",
       "coordinates": "+5546-12014",
       "comment": "MST - BC (Dawson Cr, Ft St John)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1884",
           "to_utc": null,
@@ -11737,13 +12179,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Fort_Nelson": {
       "country_code": "CA",
       "coordinates": "+5848-12242",
       "comment": "MST - BC (Ft Nelson)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1884",
           "to_utc": null,
@@ -11787,13 +12230,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Iqaluit": {
       "country_code": "CA",
       "coordinates": "+6344-06828",
       "comment": "Eastern - NU (most areas)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1942 Aug # Frobisher Bay est.",
           "to_utc": null,
@@ -11825,13 +12269,14 @@
       ],
       "aliases": [
         "America/Pangnirtung"
-      ]
+      ],
+      "win_names": []
     },
     "America/Resolute": {
       "country_code": "CA",
       "coordinates": "+744144-0944945",
       "comment": "Central - NU (Resolute)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1947 Aug 31 # Resolute founded",
           "to_utc": null,
@@ -11875,13 +12320,14 @@
           "rule_name": "Canada"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Rankin_Inlet": {
       "country_code": "CA",
       "coordinates": "+624900-0920459",
       "comment": "Central - NU (central)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1957 # Rankin Inlet founded",
           "to_utc": null,
@@ -11911,13 +12357,14 @@
           "rule_name": "Canada"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Cambridge_Bay": {
       "country_code": "CA",
       "coordinates": "+690650-1050310",
       "comment": "Mountain - NU (west)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1920 # trading post est.?",
           "to_utc": null,
@@ -11961,13 +12408,14 @@
           "rule_name": "Canada"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Inuvik": {
       "country_code": "CA",
       "coordinates": "+682059-1334300",
       "comment": "Mountain - NT (west)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1953 # Inuvik founded",
           "to_utc": null,
@@ -11997,13 +12445,14 @@
           "rule_name": "Canada"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Whitehorse": {
       "country_code": "CA",
       "coordinates": "+6043-13503",
       "comment": "MST - Yukon (east)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1900 Aug 20",
           "to_utc": null,
@@ -12049,13 +12498,16 @@
       ],
       "aliases": [
         "Canada/Yukon"
+      ],
+      "win_names": [
+        "Yukon Standard Time"
       ]
     },
     "America/Dawson": {
       "country_code": "CA",
       "coordinates": "+6404-13925",
       "comment": "MST - Yukon (west)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1900 Aug 20",
           "to_utc": null,
@@ -12099,13 +12551,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Cancun": {
       "country_code": "MX",
       "coordinates": "+2105-08646",
       "comment": "Quintana Roo",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1922 Jan 1 6:00u",
           "to_utc": null,
@@ -12156,13 +12609,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Eastern Standard Time (Mexico)"
+      ]
     },
     "America/Merida": {
       "country_code": "MX",
       "coordinates": "+2058-08937",
       "comment": "Campeche, Yucatán",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1922 Jan 1 6:00u",
           "to_utc": null,
@@ -12192,13 +12648,14 @@
           "rule_name": "Mexico"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Matamoros": {
       "country_code": "MX",
       "coordinates": "+2550-09730",
       "comment": "Coahuila, Nuevo León, Tamaulipas (US border)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1922 Jan 1 6:00u",
           "to_utc": null,
@@ -12235,13 +12692,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Monterrey": {
       "country_code": "MX",
       "coordinates": "+2540-10019",
       "comment": "Durango; Coahuila, Nuevo León, Tamaulipas (most areas)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1922 Jan 1 6:00u",
           "to_utc": null,
@@ -12292,13 +12750,14 @@
           "rule_name": "Mexico"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Mexico_City": {
       "country_code": "MX",
       "coordinates": "+1924-09909",
       "comment": "Central Mexico",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1922 Jan 1 7:00u",
           "to_utc": null,
@@ -12351,13 +12810,16 @@
       ],
       "aliases": [
         "Mexico/General"
+      ],
+      "win_names": [
+        "Central Standard Time (Mexico)"
       ]
     },
     "America/Ciudad_Juarez": {
       "country_code": "MX",
       "coordinates": "+3144-10629",
       "comment": "Chihuahua (US border - west)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1922 Jan 1 7:00u",
           "to_utc": null,
@@ -12436,13 +12898,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Ojinaga": {
       "country_code": "MX",
       "coordinates": "+2934-10425",
       "comment": "Chihuahua (US border - east)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1922 Jan 1 7:00u",
           "to_utc": null,
@@ -12521,13 +12984,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Chihuahua": {
       "country_code": "MX",
       "coordinates": "+2838-10605",
       "comment": "Chihuahua (most areas)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1922 Jan 1 7:00u",
           "to_utc": null,
@@ -12592,13 +13056,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Hermosillo": {
       "country_code": "MX",
       "coordinates": "+2904-11058",
       "comment": "Sonora",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1922 Jan 1 7:00u",
           "to_utc": null,
@@ -12656,13 +13121,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Mazatlan": {
       "country_code": "MX",
       "coordinates": "+2313-10625",
       "comment": "Baja California Sur, Nayarit (most areas), Sinaloa",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1922 Jan 1 7:00u",
           "to_utc": null,
@@ -12715,13 +13181,16 @@
       ],
       "aliases": [
         "Mexico/BajaSur"
+      ],
+      "win_names": [
+        "Mountain Standard Time (Mexico)"
       ]
     },
     "America/Bahia_Banderas": {
       "country_code": "MX",
       "coordinates": "+2048-10515",
       "comment": "Bahía de Banderas",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1922 Jan 1 7:00u",
           "to_utc": null,
@@ -12779,13 +13248,14 @@
           "rule_name": "Mexico"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Tijuana": {
       "country_code": "MX",
       "coordinates": "+3232-11701",
       "comment": "Baja California",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1922 Jan 1 7:00u",
           "to_utc": null,
@@ -12966,13 +13436,16 @@
         "Mexico/BajaNorte",
         "America/Ensenada",
         "America/Santa_Isabel"
+      ],
+      "win_names": [
+        "Pacific Standard Time (Mexico)"
       ]
     },
     "America/Barbados": {
       "country_code": "BB",
       "coordinates": "+1306-05937",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1911 Aug 28 # Bridgetown",
           "to_utc": null,
@@ -13002,13 +13475,14 @@
           "rule_name": "Barb"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Belize": {
       "country_code": "BZ",
       "coordinates": "+1730-08812",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912 Apr 1",
           "to_utc": null,
@@ -13024,13 +13498,14 @@
           "rule_name": "Belize"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Atlantic/Bermuda": {
       "country_code": "BM",
       "coordinates": "+3217-06446",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890 # Hamilton",
           "to_utc": null,
@@ -13067,13 +13542,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Costa_Rica": {
       "country_code": "CR",
       "coordinates": "+0956-08405",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890 # San José",
           "to_utc": null,
@@ -13096,13 +13572,14 @@
           "rule_name": "CR"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Havana": {
       "country_code": "CU",
       "coordinates": "+2308-08222",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890",
           "to_utc": null,
@@ -13127,13 +13604,16 @@
       ],
       "aliases": [
         "Cuba"
+      ],
+      "win_names": [
+        "Cuba Standard Time"
       ]
     },
     "America/Santo_Domingo": {
       "country_code": "DO",
       "coordinates": "+1828-06954",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890",
           "to_utc": null,
@@ -13177,13 +13657,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/El_Salvador": {
       "country_code": "SV",
       "coordinates": "+1342-08912",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1921 # San Salvador",
           "to_utc": null,
@@ -13199,13 +13680,14 @@
           "rule_name": "Salv"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Guatemala": {
       "country_code": "GT",
       "coordinates": "+1438-09031",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1918 Oct 5",
           "to_utc": null,
@@ -13221,13 +13703,16 @@
           "rule_name": "Guat"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Central America Standard Time"
+      ]
     },
     "America/Port-au-Prince": {
       "country_code": "HT",
       "coordinates": "+1832-07220",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890",
           "to_utc": null,
@@ -13250,13 +13735,16 @@
           "rule_name": "Haiti"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Haiti Standard Time"
+      ]
     },
     "America/Tegucigalpa": {
       "country_code": "HN",
       "coordinates": "+1406-08713",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1921 Apr",
           "to_utc": null,
@@ -13272,13 +13760,14 @@
           "rule_name": "Hond"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Jamaica": {
       "country_code": "JM",
       "coordinates": "+175805-0764736",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890 # Kingston",
           "to_utc": null,
@@ -13317,13 +13806,14 @@
       ],
       "aliases": [
         "Jamaica"
-      ]
+      ],
+      "win_names": []
     },
     "America/Martinique": {
       "country_code": "MQ",
       "coordinates": "+1436-06105",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890 # Fort-de-France",
           "to_utc": null,
@@ -13360,13 +13850,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Managua": {
       "country_code": "NI",
       "coordinates": "+1209-08617",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890",
           "to_utc": null,
@@ -13431,13 +13922,14 @@
           "rule_name": "Nic"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Panama": {
       "country_code": "PA,CA,KY",
       "coordinates": "+0858-07932",
       "comment": "EST - ON (Atikokan), NU (Coral H)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890",
           "to_utc": null,
@@ -13465,13 +13957,14 @@
         "America/Atikokan",
         "America/Cayman",
         "America/Coral_Harbour"
-      ]
+      ],
+      "win_names": []
     },
     "America/Puerto_Rico": {
       "country_code": "PR,AG,CA,AI,AW,BL,BQ,CW,DM,GD,GP,KN,LC,MF,MS,SX,TT,VC,VG,VI",
       "coordinates": "+182806-0660622",
       "comment": "AST - QC (Lower North Shore)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1899 Mar 28 12:00 # San Juan",
           "to_utc": null,
@@ -13517,13 +14010,14 @@
         "America/St_Thomas",
         "America/St_Vincent",
         "America/Tortola"
-      ]
+      ],
+      "win_names": []
     },
     "America/Miquelon": {
       "country_code": "PM",
       "coordinates": "+4703-05620",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1911 Jun 15 # St Pierre",
           "to_utc": null,
@@ -13553,13 +14047,16 @@
           "rule_name": "Canada"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Saint Pierre Standard Time"
+      ]
     },
     "America/Grand_Turk": {
       "country_code": "TC",
       "coordinates": "+2128-07108",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890",
           "to_utc": null,
@@ -13603,13 +14100,16 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Turks And Caicos Standard Time"
+      ]
     },
     "America/Argentina/Buenos_Aires": {
       "country_code": "AR",
       "coordinates": "-3436-05827",
       "comment": "Buenos Aires (BA, CF)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1894 Oct 31",
           "to_utc": null,
@@ -13662,13 +14162,16 @@
       ],
       "aliases": [
         "America/Buenos_Aires"
+      ],
+      "win_names": [
+        "Argentina Standard Time"
       ]
     },
     "America/Argentina/Cordoba": {
       "country_code": "AR",
       "coordinates": "-3124-06411",
       "comment": "most areas: CB, CC, CN, ER, FM, MN, SE, SF",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1894 Oct 31",
           "to_utc": null,
@@ -13736,13 +14239,14 @@
       "aliases": [
         "America/Cordoba",
         "America/Rosario"
-      ]
+      ],
+      "win_names": []
     },
     "America/Argentina/Salta": {
       "country_code": "AR",
       "coordinates": "-2447-06525",
       "comment": "Salta (SA, LP, NQ, RN)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1894 Oct 31",
           "to_utc": null,
@@ -13814,13 +14318,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Argentina/Tucuman": {
       "country_code": "AR",
       "coordinates": "-2649-06513",
       "comment": "Tucumán (TM)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1894 Oct 31",
           "to_utc": null,
@@ -13899,13 +14404,14 @@
           "rule_name": "Arg"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Argentina/La_Rioja": {
       "country_code": "AR",
       "coordinates": "-2926-06651",
       "comment": "La Rioja (LR)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1894 Oct 31",
           "to_utc": null,
@@ -13991,13 +14497,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Argentina/San_Juan": {
       "country_code": "AR",
       "coordinates": "-3132-06831",
       "comment": "San Juan (SJ)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1894 Oct 31",
           "to_utc": null,
@@ -14083,13 +14590,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Argentina/Jujuy": {
       "country_code": "AR",
       "coordinates": "-2411-06518",
       "comment": "Jujuy (JY)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1894 Oct 31",
           "to_utc": null,
@@ -14184,13 +14692,14 @@
       ],
       "aliases": [
         "America/Jujuy"
-      ]
+      ],
+      "win_names": []
     },
     "America/Argentina/Catamarca": {
       "country_code": "AR",
       "coordinates": "-2828-06547",
       "comment": "Catamarca (CT), Chubut (CH)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1894 Oct 31",
           "to_utc": null,
@@ -14279,13 +14788,14 @@
       "aliases": [
         "America/Catamarca",
         "America/Argentina/ComodRivadavia"
-      ]
+      ],
+      "win_names": []
     },
     "America/Argentina/Mendoza": {
       "country_code": "AR",
       "coordinates": "-3253-06849",
       "comment": "Mendoza (MZ)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1894 Oct 31",
           "to_utc": null,
@@ -14401,13 +14911,14 @@
       ],
       "aliases": [
         "America/Mendoza"
-      ]
+      ],
+      "win_names": []
     },
     "America/Argentina/San_Luis": {
       "country_code": "AR",
       "coordinates": "-3319-06621",
       "comment": "San Luis (SL)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1894 Oct 31",
           "to_utc": null,
@@ -14521,13 +15032,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Argentina/Rio_Gallegos": {
       "country_code": "AR",
       "coordinates": "-5138-06913",
       "comment": "Santa Cruz (SC)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1894 Oct 31",
           "to_utc": null,
@@ -14599,13 +15111,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Argentina/Ushuaia": {
       "country_code": "AR",
       "coordinates": "-5448-06818",
       "comment": "Tierra del Fuego (TF)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1894 Oct 31",
           "to_utc": null,
@@ -14677,13 +15190,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/La_Paz": {
       "country_code": "BO",
       "coordinates": "-1630-06809",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890",
           "to_utc": null,
@@ -14713,13 +15227,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "SA Western Standard Time"
+      ]
     },
     "America/Noronha": {
       "country_code": "BR",
       "coordinates": "-0351-03225",
       "comment": "Atlantic islands",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1914",
           "to_utc": null,
@@ -14772,13 +15289,14 @@
       ],
       "aliases": [
         "Brazil/DeNoronha"
-      ]
+      ],
+      "win_names": []
     },
     "America/Belem": {
       "country_code": "BR",
       "coordinates": "-0127-04829",
       "comment": "Pará (east), Amapá",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1914",
           "to_utc": null,
@@ -14801,13 +15319,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Santarem": {
       "country_code": "BR",
       "coordinates": "-0226-05452",
       "comment": "Pará (west)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1914",
           "to_utc": null,
@@ -14837,13 +15356,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Fortaleza": {
       "country_code": "BR",
       "coordinates": "-0343-03830",
       "comment": "Brazil (northeast: MA, PI, CE, RN, PB)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1914",
           "to_utc": null,
@@ -14894,13 +15414,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Recife": {
       "country_code": "BR",
       "coordinates": "-0803-03454",
       "comment": "Pernambuco",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1914",
           "to_utc": null,
@@ -14951,13 +15472,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Araguaina": {
       "country_code": "BR",
       "coordinates": "-0712-04812",
       "comment": "Tocantins",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1914",
           "to_utc": null,
@@ -15008,13 +15530,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Tocantins Standard Time"
+      ]
     },
     "America/Maceio": {
       "country_code": "BR",
       "coordinates": "-0940-03543",
       "comment": "Alagoas, Sergipe",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1914",
           "to_utc": null,
@@ -15079,13 +15604,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Bahia": {
       "country_code": "BR",
       "coordinates": "-1259-03831",
       "comment": "Bahia",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1914",
           "to_utc": null,
@@ -15122,13 +15648,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Bahia Standard Time"
+      ]
     },
     "America/Sao_Paulo": {
       "country_code": "BR",
       "coordinates": "-2332-04637",
       "comment": "Brazil (southeast: GO, DF, MG, ES, RJ, SP, PR, SC, RS)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1914",
           "to_utc": null,
@@ -15160,13 +15689,16 @@
       ],
       "aliases": [
         "Brazil/East"
+      ],
+      "win_names": [
+        "E. South America Standard Time"
       ]
     },
     "America/Campo_Grande": {
       "country_code": "BR",
       "coordinates": "-2027-05437",
       "comment": "Mato Grosso do Sul",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1914",
           "to_utc": null,
@@ -15182,13 +15714,14 @@
           "rule_name": "Brazil"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Cuiaba": {
       "country_code": "BR",
       "coordinates": "-1535-05605",
       "comment": "Mato Grosso",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1914",
           "to_utc": null,
@@ -15218,13 +15751,16 @@
           "rule_name": "Brazil"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Central Brazilian Standard Time"
+      ]
     },
     "America/Porto_Velho": {
       "country_code": "BR",
       "coordinates": "-0846-06354",
       "comment": "Rondônia",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1914",
           "to_utc": null,
@@ -15247,13 +15783,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Boa_Vista": {
       "country_code": "BR",
       "coordinates": "+0249-06040",
       "comment": "Roraima",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1914",
           "to_utc": null,
@@ -15290,13 +15827,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Manaus": {
       "country_code": "BR",
       "coordinates": "-0308-06001",
       "comment": "Amazonas (east)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1914",
           "to_utc": null,
@@ -15335,13 +15873,14 @@
       ],
       "aliases": [
         "Brazil/West"
-      ]
+      ],
+      "win_names": []
     },
     "America/Eirunepe": {
       "country_code": "BR",
       "coordinates": "-0640-06952",
       "comment": "Amazonas (west)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1914",
           "to_utc": null,
@@ -15392,13 +15931,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Rio_Branco": {
       "country_code": "BR",
       "coordinates": "-0958-06748",
       "comment": "Acre",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1914",
           "to_utc": null,
@@ -15438,13 +15978,14 @@
       "aliases": [
         "Brazil/Acre",
         "America/Porto_Acre"
-      ]
+      ],
+      "win_names": []
     },
     "America/Santiago": {
       "country_code": "CL",
       "coordinates": "-3327-07040",
       "comment": "most of Chile",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890",
           "to_utc": null,
@@ -15546,13 +16087,16 @@
       ],
       "aliases": [
         "Chile/Continental"
+      ],
+      "win_names": [
+        "Pacific SA Standard Time"
       ]
     },
     "America/Coyhaique": {
       "country_code": "CL",
       "coordinates": "-4534-07204",
       "comment": "Aysén Region",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890",
           "to_utc": null,
@@ -15652,13 +16196,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Punta_Arenas": {
       "country_code": "CL",
       "coordinates": "-5309-07055",
       "comment": "Magallanes Region",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890",
           "to_utc": null,
@@ -15758,13 +16303,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Magallanes Standard Time"
+      ]
     },
     "Pacific/Easter": {
       "country_code": "CL",
       "coordinates": "-2709-10926",
       "comment": "Easter Island",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890",
           "to_utc": null,
@@ -15796,13 +16344,16 @@
       ],
       "aliases": [
         "Chile/EasterIsland"
+      ],
+      "win_names": [
+        "Easter Island Standard Time"
       ]
     },
     "Antarctica/Palmer": {
       "country_code": "AQ",
       "coordinates": "-6448-06406",
       "comment": "Palmer",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1965",
           "to_utc": null,
@@ -15839,13 +16390,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Bogota": {
       "country_code": "CO",
       "coordinates": "+0436-07405",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1884 Mar 13",
           "to_utc": null,
@@ -15868,13 +16420,16 @@
           "rule_name": "CO"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "SA Pacific Standard Time"
+      ]
     },
     "America/Guayaquil": {
       "country_code": "EC",
       "coordinates": "-0210-07950",
       "comment": "Ecuador (mainland)",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890",
           "to_utc": null,
@@ -15897,13 +16452,14 @@
           "rule_name": "Ecuador"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Pacific/Galapagos": {
       "country_code": "EC",
       "coordinates": "-0054-08936",
       "comment": "Galápagos Islands",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1931 # Puerto Baquerizo Moreno",
           "to_utc": null,
@@ -15926,13 +16482,14 @@
           "rule_name": "Ecuador"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Atlantic/Stanley": {
       "country_code": "FK",
       "coordinates": "-5142-05751",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890",
           "to_utc": null,
@@ -15976,13 +16533,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Cayenne": {
       "country_code": "GF",
       "coordinates": "+0456-05220",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1911 Jul 1",
           "to_utc": null,
@@ -16005,13 +16563,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "SA Eastern Standard Time"
+      ]
     },
     "America/Guyana": {
       "country_code": "GY",
       "coordinates": "+0648-05810",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1911 Aug 1 # Georgetown",
           "to_utc": null,
@@ -16048,13 +16609,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Asuncion": {
       "country_code": "PY",
       "coordinates": "-2516-05740",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890",
           "to_utc": null,
@@ -16098,13 +16660,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Paraguay Standard Time"
+      ]
     },
     "America/Lima": {
       "country_code": "PE",
       "coordinates": "-1203-07703",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890",
           "to_utc": null,
@@ -16127,13 +16692,14 @@
           "rule_name": "Peru"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Atlantic/South_Georgia": {
       "country_code": "GS",
       "coordinates": "-5416-03632",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890 # Grytviken",
           "to_utc": null,
@@ -16149,13 +16715,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Paramaribo": {
       "country_code": "SR",
       "coordinates": "+0550-05510",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1911",
           "to_utc": null,
@@ -16192,13 +16759,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Montevideo": {
       "country_code": "UY",
       "coordinates": "-345433-0561245",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1908 Jun 10",
           "to_utc": null,
@@ -16277,13 +16845,16 @@
           "rule_name": "Uruguay"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Montevideo Standard Time"
+      ]
     },
     "America/Caracas": {
       "country_code": "VE",
       "coordinates": "+1030-06656",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890",
           "to_utc": null,
@@ -16327,13 +16898,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Venezuela Standard Time"
+      ]
     },
     "Etc/UTC": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16350,13 +16924,16 @@
         "UTC",
         "Universal",
         "Zulu"
+      ],
+      "win_names": [
+        "UTC"
       ]
     },
     "Etc/GMT": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16375,13 +16952,14 @@
         "GMT-0",
         "GMT0",
         "Greenwich"
-      ]
+      ],
+      "win_names": []
     },
     "Etc/GMT-14": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16390,13 +16968,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Etc/GMT-13": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16405,13 +16984,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "UTC+13"
+      ]
     },
     "Etc/GMT-12": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16420,13 +17002,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "UTC+12"
+      ]
     },
     "Etc/GMT-11": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16435,13 +17020,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Etc/GMT-10": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16450,13 +17036,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Etc/GMT-9": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16465,13 +17052,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Etc/GMT-8": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16480,13 +17068,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Etc/GMT-7": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16495,13 +17084,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Etc/GMT-6": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16510,13 +17100,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Etc/GMT-5": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16525,13 +17116,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Etc/GMT-4": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16540,13 +17132,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Etc/GMT-3": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16555,13 +17148,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Etc/GMT-2": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16570,13 +17164,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Etc/GMT-1": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16585,13 +17180,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Etc/GMT+1": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16600,13 +17196,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Etc/GMT+2": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16615,13 +17212,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "UTC-02"
+      ]
     },
     "Etc/GMT+3": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16630,13 +17230,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Etc/GMT+4": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16645,13 +17246,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Etc/GMT+5": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16660,13 +17262,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Etc/GMT+6": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16675,13 +17278,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Etc/GMT+7": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16690,13 +17294,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Etc/GMT+8": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16705,13 +17310,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "UTC-08"
+      ]
     },
     "Etc/GMT+9": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16720,13 +17328,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "UTC-09"
+      ]
     },
     "Etc/GMT+10": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16735,13 +17346,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Etc/GMT+11": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16750,13 +17362,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "UTC-11"
+      ]
     },
     "Etc/GMT+12": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -16765,13 +17380,16 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": [
+        "Dateline Standard Time"
+      ]
     },
     "Africa/Accra": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1915 Nov 2",
           "to_utc": null,
@@ -16801,13 +17419,14 @@
           "rule_name": "Ghana"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Addis_Ababa": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1870",
           "to_utc": null,
@@ -16830,13 +17449,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Asmara": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1870",
           "to_utc": null,
@@ -16868,13 +17488,14 @@
       ],
       "aliases": [
         "Africa/Asmera"
-      ]
+      ],
+      "win_names": []
     },
     "Africa/Bamako": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912",
           "to_utc": null,
@@ -16904,13 +17525,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Bangui": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912",
           "to_utc": null,
@@ -16926,13 +17548,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Banjul": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912",
           "to_utc": null,
@@ -16962,13 +17585,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Blantyre": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1911 Jul 24",
           "to_utc": null,
@@ -16998,13 +17622,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Brazzaville": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912",
           "to_utc": null,
@@ -17020,13 +17645,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Bujumbura": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890",
           "to_utc": null,
@@ -17042,13 +17668,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Conakry": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912",
           "to_utc": null,
@@ -17078,13 +17705,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Dakar": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912",
           "to_utc": null,
@@ -17107,13 +17735,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Dar_es_Salaam": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1931",
           "to_utc": null,
@@ -17143,13 +17772,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Djibouti": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1911 Jul",
           "to_utc": null,
@@ -17165,13 +17795,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Douala": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912",
           "to_utc": null,
@@ -17187,13 +17818,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Freetown": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1882",
           "to_utc": null,
@@ -17230,13 +17862,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Gaborone": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1885",
           "to_utc": null,
@@ -17273,13 +17906,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Harare": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1903 Mar",
           "to_utc": null,
@@ -17295,13 +17929,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Kampala": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1928 Jul",
           "to_utc": null,
@@ -17338,13 +17973,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Kigali": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1935 Jun",
           "to_utc": null,
@@ -17360,13 +17996,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Kinshasa": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1897 Nov 9",
           "to_utc": null,
@@ -17382,13 +18019,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Libreville": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912",
           "to_utc": null,
@@ -17404,13 +18042,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Lome": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1893",
           "to_utc": null,
@@ -17426,13 +18065,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Luanda": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1892",
           "to_utc": null,
@@ -17455,13 +18095,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Lubumbashi": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1897 Nov 9",
           "to_utc": null,
@@ -17484,13 +18125,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Lusaka": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1903 Mar",
           "to_utc": null,
@@ -17506,13 +18148,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Malabo": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912",
           "to_utc": null,
@@ -17535,13 +18178,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Maseru": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1903 Mar",
           "to_utc": null,
@@ -17571,13 +18215,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Mbabane": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1903 Mar",
           "to_utc": null,
@@ -17593,13 +18238,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Mogadishu": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1893 Nov",
           "to_utc": null,
@@ -17629,13 +18275,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Niamey": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912",
           "to_utc": null,
@@ -17665,13 +18312,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Nouakchott": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912",
           "to_utc": null,
@@ -17701,13 +18349,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Ouagadougou": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912",
           "to_utc": null,
@@ -17723,13 +18372,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Porto-Novo": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912 Jan 1",
           "to_utc": null,
@@ -17752,13 +18402,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Africa/Timbuktu": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912",
           "to_utc": null,
@@ -17774,13 +18425,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Anguilla": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912 Mar 2",
           "to_utc": null,
@@ -17796,13 +18448,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Antigua": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912 Mar 2",
           "to_utc": null,
@@ -17825,13 +18478,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Argentina/ComodRivadavia": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1894 Oct 31",
           "to_utc": null,
@@ -17910,13 +18564,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Aruba": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912 Feb 12 # Oranjestad",
           "to_utc": null,
@@ -17939,13 +18594,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Atikokan": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1895",
           "to_utc": null,
@@ -17982,13 +18638,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Blanc-Sablon": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1884",
           "to_utc": null,
@@ -18011,13 +18668,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Cayman": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890 # Georgetown",
           "to_utc": null,
@@ -18040,13 +18698,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Coral_Harbour": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1884",
           "to_utc": null,
@@ -18069,13 +18728,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Creston": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1884",
           "to_utc": null,
@@ -18105,13 +18765,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Curacao": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912 Feb 12 # Willemstad",
           "to_utc": null,
@@ -18137,13 +18798,14 @@
       "aliases": [
         "America/Kralendijk",
         "America/Lower_Princes"
-      ]
+      ],
+      "win_names": []
     },
     "America/Dominica": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1911 Jul 1 0:01 # Roseau",
           "to_utc": null,
@@ -18159,13 +18821,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Ensenada": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1922 Jan 1 0:13:32",
           "to_utc": null,
@@ -18216,13 +18879,14 @@
           "rule_name": "Mexico"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Grenada": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1911 Jul # St George's",
           "to_utc": null,
@@ -18238,13 +18902,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Guadeloupe": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1911 Jun 8 # Pointe-à-Pitre",
           "to_utc": null,
@@ -18260,13 +18925,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Montreal": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1884",
           "to_utc": null,
@@ -18317,13 +18983,14 @@
           "rule_name": "Canada"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Montserrat": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1911 Jul 1 0:01 # Cork Hill",
           "to_utc": null,
@@ -18339,13 +19006,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Nassau": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912 Mar 2",
           "to_utc": null,
@@ -18368,13 +19036,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Nipigon": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1895",
           "to_utc": null,
@@ -18404,13 +19073,14 @@
           "rule_name": "Canada"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Pangnirtung": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1921 # trading post est.",
           "to_utc": null,
@@ -18440,13 +19110,14 @@
           "rule_name": "Canada"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Port_of_Spain": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912 Mar 2",
           "to_utc": null,
@@ -18465,13 +19136,14 @@
       "aliases": [
         "America/Marigot",
         "America/St_Barthelemy"
-      ]
+      ],
+      "win_names": []
     },
     "America/Rainy_River": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1895",
           "to_utc": null,
@@ -18501,13 +19173,14 @@
           "rule_name": "Canada"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Rosario": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1894 Nov",
           "to_utc": null,
@@ -18565,13 +19238,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/St_Kitts": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1912 Mar 2 # Basseterre",
           "to_utc": null,
@@ -18587,13 +19261,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/St_Lucia": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890 # Castries",
           "to_utc": null,
@@ -18616,13 +19291,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/St_Thomas": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1911 Jul # Charlotte Amalie",
           "to_utc": null,
@@ -18640,13 +19316,14 @@
       ],
       "aliases": [
         "America/Virgin"
-      ]
+      ],
+      "win_names": []
     },
     "America/St_Vincent": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890 # Kingstown",
           "to_utc": null,
@@ -18669,13 +19346,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Thunder_Bay": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1895",
           "to_utc": null,
@@ -18719,13 +19397,14 @@
           "rule_name": "Canada"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Tortola": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1911 Jul # Road Town",
           "to_utc": null,
@@ -18741,13 +19420,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "America/Yellowknife": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1935 # Yellowknife founded?",
           "to_utc": null,
@@ -18770,13 +19450,14 @@
           "rule_name": "Canada"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Antarctica/DumontDUrville": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1947",
           "to_utc": null,
@@ -18806,13 +19487,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Antarctica/McMurdo": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1956",
           "to_utc": null,
@@ -18830,13 +19512,14 @@
       ],
       "aliases": [
         "Antarctica/South_Pole"
-      ]
+      ],
+      "win_names": []
     },
     "Antarctica/Syowa": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1957 Jan 29",
           "to_utc": null,
@@ -18852,13 +19535,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Aden": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1950",
           "to_utc": null,
@@ -18874,13 +19558,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Bahrain": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1941 Jul 20 # Manamah",
           "to_utc": null,
@@ -18910,13 +19595,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Brunei": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1926 Mar # Bandar Seri Begawan",
           "to_utc": null,
@@ -18939,13 +19625,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Chongqing": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1928 # or Chungking",
           "to_utc": null,
@@ -18970,13 +19657,14 @@
       ],
       "aliases": [
         "Asia/Chungking"
-      ]
+      ],
+      "win_names": []
     },
     "Asia/Hanoi": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1906 Jul 1",
           "to_utc": null,
@@ -19034,13 +19722,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Harbin": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1928 # or Haerbin",
           "to_utc": null,
@@ -19084,13 +19773,14 @@
           "rule_name": "PRC"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Kashgar": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1928 # or Kashi or Kaxgar",
           "to_utc": null,
@@ -19120,13 +19810,14 @@
           "rule_name": "PRC"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Kuala_Lumpur": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1901 Jan 1",
           "to_utc": null,
@@ -19191,13 +19882,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Kuwait": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1950",
           "to_utc": null,
@@ -19213,13 +19905,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Muscat": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1920",
           "to_utc": null,
@@ -19235,13 +19928,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Phnom_Penh": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1906 Jul 1",
           "to_utc": null,
@@ -19285,13 +19979,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Tel_Aviv": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880",
           "to_utc": null,
@@ -19314,13 +20009,14 @@
           "rule_name": "Zion"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Asia/Vientiane": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1906 Jul 1",
           "to_utc": null,
@@ -19378,13 +20074,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Atlantic/Jan_Mayen": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -19393,13 +20090,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Atlantic/Reykjavik": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1908",
           "to_utc": null,
@@ -19424,13 +20122,16 @@
       ],
       "aliases": [
         "Iceland"
+      ],
+      "win_names": [
+        "Greenwich Standard Time"
       ]
     },
     "Atlantic/St_Helena": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890 # Jamestown",
           "to_utc": null,
@@ -19453,13 +20154,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Australia/Currie": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1895 Sep",
           "to_utc": null,
@@ -19489,13 +20191,14 @@
           "rule_name": "AT"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Amsterdam": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1835",
           "to_utc": null,
@@ -19539,13 +20242,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Belfast": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880 Aug 2",
           "to_utc": null,
@@ -19596,13 +20300,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Copenhagen": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890",
           "to_utc": null,
@@ -19646,13 +20351,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Guernsey": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1913 Jun 18",
           "to_utc": null,
@@ -19703,13 +20409,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Isle_of_Man": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1883 Mar 30 0:00s",
           "to_utc": null,
@@ -19746,13 +20453,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Jersey": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1898 Jun 11 16:00u",
           "to_utc": null,
@@ -19803,13 +20511,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Ljubljana": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1884",
           "to_utc": null,
@@ -19853,13 +20562,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Luxembourg": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1904 Jun",
           "to_utc": null,
@@ -19910,13 +20620,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Monaco": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1892 Jun 1",
           "to_utc": null,
@@ -19953,13 +20664,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Oslo": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1895 Jan 1",
           "to_utc": null,
@@ -19998,13 +20710,14 @@
       ],
       "aliases": [
         "Arctic/Longyearbyen"
-      ]
+      ],
+      "win_names": []
     },
     "Europe/Sarajevo": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1884",
           "to_utc": null,
@@ -20048,13 +20761,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Skopje": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1884",
           "to_utc": null,
@@ -20098,13 +20812,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Stockholm": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1879 Jan 1",
           "to_utc": null,
@@ -20148,13 +20863,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Tiraspol": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880",
           "to_utc": null,
@@ -20219,13 +20935,14 @@
           "rule_name": "Russia"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Uzhgorod": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1890 Oct",
           "to_utc": null,
@@ -20304,13 +21021,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Vaduz": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1894 Jun",
           "to_utc": null,
@@ -20333,13 +21051,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Zagreb": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1884",
           "to_utc": null,
@@ -20383,13 +21102,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Europe/Zaporozhye": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1880",
           "to_utc": null,
@@ -20454,13 +21174,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Indian/Antananarivo": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1911 Jul",
           "to_utc": null,
@@ -20490,13 +21211,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Indian/Christmas": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1895 Feb",
           "to_utc": null,
@@ -20512,13 +21234,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Indian/Cocos": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1900",
           "to_utc": null,
@@ -20534,13 +21257,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Indian/Comoro": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1911 Jul # Moroni, Gran Comoro",
           "to_utc": null,
@@ -20556,13 +21280,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Indian/Kerguelen": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1950 # Port-aux-Français",
           "to_utc": null,
@@ -20578,13 +21303,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Indian/Mahe": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1907 Jan 1 # Victoria",
           "to_utc": null,
@@ -20600,13 +21326,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Indian/Mayotte": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1911 Jul # Mamoutzou",
           "to_utc": null,
@@ -20622,13 +21349,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Indian/Reunion": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1911 Jun # Saint-Denis",
           "to_utc": null,
@@ -20644,13 +21372,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Pacific/Chuuk": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1844 Dec 31",
           "to_utc": null,
@@ -20704,13 +21433,14 @@
       "aliases": [
         "Pacific/Yap",
         "Pacific/Truk"
-      ]
+      ],
+      "win_names": []
     },
     "Pacific/Enderbury": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1860",
           "to_utc": null,
@@ -20747,13 +21477,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Pacific/Funafuti": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1901",
           "to_utc": null,
@@ -20769,13 +21500,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Pacific/Johnston": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -20784,13 +21516,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Pacific/Majuro": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1901",
           "to_utc": null,
@@ -20848,13 +21581,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Pacific/Midway": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1901",
           "to_utc": null,
@@ -20884,13 +21618,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Pacific/Pohnpei": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1844 Dec 31 # Kolonia",
           "to_utc": null,
@@ -20950,13 +21685,14 @@
       ],
       "aliases": [
         "Pacific/Ponape"
-      ]
+      ],
+      "win_names": []
     },
     "Pacific/Saipan": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1844 Dec 31",
           "to_utc": null,
@@ -20993,13 +21729,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Pacific/Wake": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1901",
           "to_utc": null,
@@ -21015,13 +21752,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "Pacific/Wallis": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "1901",
           "to_utc": null,
@@ -21037,13 +21775,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "HST": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -21052,13 +21791,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "PST8PDT": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -21067,13 +21807,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "MST": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -21082,13 +21823,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "MST7MDT": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -21097,13 +21839,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "CST6CDT": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -21112,13 +21855,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "EST": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -21127,13 +21871,14 @@
           "rule_name": null
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "EST5EDT": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -21142,13 +21887,14 @@
           "rule_name": "US"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "WET": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -21157,13 +21903,14 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "CET": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -21172,13 +21919,14 @@
           "rule_name": "C-Eur"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "MET": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -21187,13 +21935,14 @@
           "rule_name": "C-Eur"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     },
     "EET": {
       "country_code": "",
       "coordinates": "",
       "comment": "",
-      "rules": [
+      "transitions": [
         {
           "from_utc": "",
           "to_utc": null,
@@ -21202,7 +21951,8 @@
           "rule_name": "EU"
         }
       ],
-      "aliases": []
+      "aliases": [],
+      "win_names": []
     }
   },
   "rules": {
@@ -43641,6 +44391,425 @@
         "save": "1:00",
         "letter": "S"
       }
+    ]
+  },
+  "windows_mapping": {
+    "Dateline Standard Time": [
+      "Etc/GMT+12"
+    ],
+    "UTC-11": [
+      "Etc/GMT+11"
+    ],
+    "Aleutian Standard Time": [
+      "America/Adak"
+    ],
+    "Hawaiian Standard Time": [
+      "Pacific/Honolulu"
+    ],
+    "Marquesas Standard Time": [
+      "Pacific/Marquesas"
+    ],
+    "Alaskan Standard Time": [
+      "America/Anchorage"
+    ],
+    "UTC-09": [
+      "Etc/GMT+9"
+    ],
+    "Pacific Standard Time (Mexico)": [
+      "America/Tijuana"
+    ],
+    "UTC-08": [
+      "Etc/GMT+8"
+    ],
+    "Pacific Standard Time": [
+      "America/Los_Angeles"
+    ],
+    "US Mountain Standard Time": [
+      "America/Phoenix"
+    ],
+    "Mountain Standard Time (Mexico)": [
+      "America/Mazatlan"
+    ],
+    "Mountain Standard Time": [
+      "America/Denver"
+    ],
+    "Yukon Standard Time": [
+      "America/Whitehorse"
+    ],
+    "Central America Standard Time": [
+      "America/Guatemala"
+    ],
+    "Central Standard Time": [
+      "America/Chicago"
+    ],
+    "Easter Island Standard Time": [
+      "Pacific/Easter"
+    ],
+    "Central Standard Time (Mexico)": [
+      "America/Mexico_City"
+    ],
+    "Canada Central Standard Time": [
+      "America/Regina"
+    ],
+    "SA Pacific Standard Time": [
+      "America/Bogota"
+    ],
+    "Eastern Standard Time (Mexico)": [
+      "America/Cancun"
+    ],
+    "Eastern Standard Time": [
+      "America/New_York"
+    ],
+    "Haiti Standard Time": [
+      "America/Port-au-Prince"
+    ],
+    "Cuba Standard Time": [
+      "America/Havana"
+    ],
+    "US Eastern Standard Time": [
+      "America/Indianapolis"
+    ],
+    "Turks And Caicos Standard Time": [
+      "America/Grand_Turk"
+    ],
+    "Paraguay Standard Time": [
+      "America/Asuncion"
+    ],
+    "Atlantic Standard Time": [
+      "America/Halifax"
+    ],
+    "Venezuela Standard Time": [
+      "America/Caracas"
+    ],
+    "Central Brazilian Standard Time": [
+      "America/Cuiaba"
+    ],
+    "SA Western Standard Time": [
+      "America/La_Paz"
+    ],
+    "Pacific SA Standard Time": [
+      "America/Santiago"
+    ],
+    "Newfoundland Standard Time": [
+      "America/St_Johns"
+    ],
+    "Tocantins Standard Time": [
+      "America/Araguaina"
+    ],
+    "E. South America Standard Time": [
+      "America/Sao_Paulo"
+    ],
+    "SA Eastern Standard Time": [
+      "America/Cayenne"
+    ],
+    "Argentina Standard Time": [
+      "America/Buenos_Aires"
+    ],
+    "Greenland Standard Time": [
+      "America/Godthab"
+    ],
+    "Montevideo Standard Time": [
+      "America/Montevideo"
+    ],
+    "Magallanes Standard Time": [
+      "America/Punta_Arenas"
+    ],
+    "Saint Pierre Standard Time": [
+      "America/Miquelon"
+    ],
+    "Bahia Standard Time": [
+      "America/Bahia"
+    ],
+    "UTC-02": [
+      "Etc/GMT+2"
+    ],
+    "Azores Standard Time": [
+      "Atlantic/Azores"
+    ],
+    "Cape Verde Standard Time": [
+      "Atlantic/Cape_Verde"
+    ],
+    "UTC": [
+      "Etc/UTC"
+    ],
+    "GMT Standard Time": [
+      "Europe/London"
+    ],
+    "Greenwich Standard Time": [
+      "Atlantic/Reykjavik"
+    ],
+    "Sao Tome Standard Time": [
+      "Africa/Sao_Tome"
+    ],
+    "Morocco Standard Time": [
+      "Africa/Casablanca"
+    ],
+    "W. Europe Standard Time": [
+      "Europe/Berlin"
+    ],
+    "Central Europe Standard Time": [
+      "Europe/Budapest"
+    ],
+    "Romance Standard Time": [
+      "Europe/Paris"
+    ],
+    "Central European Standard Time": [
+      "Europe/Warsaw"
+    ],
+    "W. Central Africa Standard Time": [
+      "Africa/Lagos"
+    ],
+    "Jordan Standard Time": [
+      "Asia/Amman"
+    ],
+    "GTB Standard Time": [
+      "Europe/Bucharest"
+    ],
+    "Middle East Standard Time": [
+      "Asia/Beirut"
+    ],
+    "Egypt Standard Time": [
+      "Africa/Cairo"
+    ],
+    "E. Europe Standard Time": [
+      "Europe/Chisinau"
+    ],
+    "Syria Standard Time": [
+      "Asia/Damascus"
+    ],
+    "West Bank Standard Time": [
+      "Asia/Hebron"
+    ],
+    "South Africa Standard Time": [
+      "Africa/Johannesburg"
+    ],
+    "FLE Standard Time": [
+      "Europe/Kiev"
+    ],
+    "Israel Standard Time": [
+      "Asia/Jerusalem"
+    ],
+    "South Sudan Standard Time": [
+      "Africa/Juba"
+    ],
+    "Kaliningrad Standard Time": [
+      "Europe/Kaliningrad"
+    ],
+    "Sudan Standard Time": [
+      "Africa/Khartoum"
+    ],
+    "Libya Standard Time": [
+      "Africa/Tripoli"
+    ],
+    "Namibia Standard Time": [
+      "Africa/Windhoek"
+    ],
+    "Arabic Standard Time": [
+      "Asia/Baghdad"
+    ],
+    "Turkey Standard Time": [
+      "Europe/Istanbul"
+    ],
+    "Arab Standard Time": [
+      "Asia/Riyadh"
+    ],
+    "Belarus Standard Time": [
+      "Europe/Minsk"
+    ],
+    "Russian Standard Time": [
+      "Europe/Moscow"
+    ],
+    "E. Africa Standard Time": [
+      "Africa/Nairobi"
+    ],
+    "Iran Standard Time": [
+      "Asia/Tehran"
+    ],
+    "Arabian Standard Time": [
+      "Asia/Dubai"
+    ],
+    "Astrakhan Standard Time": [
+      "Europe/Astrakhan"
+    ],
+    "Azerbaijan Standard Time": [
+      "Asia/Baku"
+    ],
+    "Russia Time Zone 3": [
+      "Europe/Samara"
+    ],
+    "Mauritius Standard Time": [
+      "Indian/Mauritius"
+    ],
+    "Saratov Standard Time": [
+      "Europe/Saratov"
+    ],
+    "Georgian Standard Time": [
+      "Asia/Tbilisi"
+    ],
+    "Volgograd Standard Time": [
+      "Europe/Volgograd"
+    ],
+    "Caucasus Standard Time": [
+      "Asia/Yerevan"
+    ],
+    "Afghanistan Standard Time": [
+      "Asia/Kabul"
+    ],
+    "West Asia Standard Time": [
+      "Asia/Tashkent"
+    ],
+    "Ekaterinburg Standard Time": [
+      "Asia/Yekaterinburg"
+    ],
+    "Pakistan Standard Time": [
+      "Asia/Karachi"
+    ],
+    "Qyzylorda Standard Time": [
+      "Asia/Qyzylorda"
+    ],
+    "India Standard Time": [
+      "Asia/Calcutta"
+    ],
+    "Sri Lanka Standard Time": [
+      "Asia/Colombo"
+    ],
+    "Nepal Standard Time": [
+      "Asia/Katmandu"
+    ],
+    "Central Asia Standard Time": [
+      "Asia/Bishkek"
+    ],
+    "Bangladesh Standard Time": [
+      "Asia/Dhaka"
+    ],
+    "Omsk Standard Time": [
+      "Asia/Omsk"
+    ],
+    "Myanmar Standard Time": [
+      "Asia/Rangoon"
+    ],
+    "SE Asia Standard Time": [
+      "Asia/Bangkok"
+    ],
+    "Altai Standard Time": [
+      "Asia/Barnaul"
+    ],
+    "W. Mongolia Standard Time": [
+      "Asia/Hovd"
+    ],
+    "North Asia Standard Time": [
+      "Asia/Krasnoyarsk"
+    ],
+    "N. Central Asia Standard Time": [
+      "Asia/Novosibirsk"
+    ],
+    "Tomsk Standard Time": [
+      "Asia/Tomsk"
+    ],
+    "China Standard Time": [
+      "Asia/Shanghai"
+    ],
+    "North Asia East Standard Time": [
+      "Asia/Irkutsk"
+    ],
+    "Singapore Standard Time": [
+      "Asia/Singapore"
+    ],
+    "W. Australia Standard Time": [
+      "Australia/Perth"
+    ],
+    "Taipei Standard Time": [
+      "Asia/Taipei"
+    ],
+    "Ulaanbaatar Standard Time": [
+      "Asia/Ulaanbaatar"
+    ],
+    "Aus Central W. Standard Time": [
+      "Australia/Eucla"
+    ],
+    "Transbaikal Standard Time": [
+      "Asia/Chita"
+    ],
+    "Tokyo Standard Time": [
+      "Asia/Tokyo"
+    ],
+    "North Korea Standard Time": [
+      "Asia/Pyongyang"
+    ],
+    "Korea Standard Time": [
+      "Asia/Seoul"
+    ],
+    "Yakutsk Standard Time": [
+      "Asia/Yakutsk"
+    ],
+    "Cen. Australia Standard Time": [
+      "Australia/Adelaide"
+    ],
+    "AUS Central Standard Time": [
+      "Australia/Darwin"
+    ],
+    "E. Australia Standard Time": [
+      "Australia/Brisbane"
+    ],
+    "AUS Eastern Standard Time": [
+      "Australia/Sydney"
+    ],
+    "West Pacific Standard Time": [
+      "Pacific/Port_Moresby"
+    ],
+    "Tasmania Standard Time": [
+      "Australia/Hobart"
+    ],
+    "Vladivostok Standard Time": [
+      "Asia/Vladivostok"
+    ],
+    "Lord Howe Standard Time": [
+      "Australia/Lord_Howe"
+    ],
+    "Bougainville Standard Time": [
+      "Pacific/Bougainville"
+    ],
+    "Russia Time Zone 10": [
+      "Asia/Srednekolymsk"
+    ],
+    "Magadan Standard Time": [
+      "Asia/Magadan"
+    ],
+    "Norfolk Standard Time": [
+      "Pacific/Norfolk"
+    ],
+    "Sakhalin Standard Time": [
+      "Asia/Sakhalin"
+    ],
+    "Central Pacific Standard Time": [
+      "Pacific/Guadalcanal"
+    ],
+    "Russia Time Zone 11": [
+      "Asia/Kamchatka"
+    ],
+    "New Zealand Standard Time": [
+      "Pacific/Auckland"
+    ],
+    "UTC+12": [
+      "Etc/GMT-12"
+    ],
+    "Fiji Standard Time": [
+      "Pacific/Fiji"
+    ],
+    "Chatham Islands Standard Time": [
+      "Pacific/Chatham"
+    ],
+    "UTC+13": [
+      "Etc/GMT-13"
+    ],
+    "Tonga Standard Time": [
+      "Pacific/Tongatapu"
+    ],
+    "Samoa Standard Time": [
+      "Pacific/Apia"
+    ],
+    "Line Islands Standard Time": [
+      "Pacific/Kiritimati"
     ]
   },
   "_version": "2025b"
