@@ -1,6 +1,6 @@
 ---
 name: "❓ Question"
-description: "Ask a question about tzkit"
+description: "Ask a question"
 labels: ["question"]
 ---
 

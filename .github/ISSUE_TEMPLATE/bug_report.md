@@ -1,25 +1,31 @@
 ---
-name: "🐛 Bug Report"
-description: "Report a bug in tzkit"
-labels: ["bug"]
+name: Bug report
+about: Create a report to help us improve
+title: '[BUG] '
+labels: bug
+assignees: ''
 ---
 
-## Describe the Bug
+**Describe the bug**
 A clear and concise description of what the bug is.
 
-## To Reproduce
+**To Reproduce**
 Steps to reproduce the behavior:
-1. Go to '...'
-2. Run command '...'
+1. Run command '...'
+2. With input '...'
 3. See error
 
-## Expected Behavior
+**Expected behavior**
 A clear and concise description of what you expected to happen.
 
-## Environment
-- OS: [e.g., Windows 10, macOS 12.0, Ubuntu 20.04]
-- Python Version: [e.g., 3.8.0]
-- tzkit Version: [e.g., 1.0.0]
+**Error Output**
 
-## Additional Context
-Add any other context about the problem here, including error messages or stack traces.
+If applicable, add the error output you received.
+
+**Environment:**
+- OS: [e.g. Windows 10, macOS 12, Ubuntu 22.04]
+- Python version: [e.g. 3.9.0]
+- tzbundler version: [e.g. 1.0]
+
+**Additional context**
+Add any other context about the problem here.

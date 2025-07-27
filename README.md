@@ -40,17 +40,14 @@ Or you can simply use the pre-generated bundle from `tzdata/` folder or [the Rel
     - [Example Usage](#example-usage)
     - [SQL Query Examples for Windows Mappings](#sql-query-examples-for-windows-mappings)
   - [❓ How to Use the Rules (DST Logic)](#-how-to-use-the-rules-dst-logic)
-    - [Pseudocode Example](#pseudocode-example)
-    - [Language-Agnostic Output](#language-agnostic-output)
-    - [Additional SQL Query Examples](#additional-sql-query-examples)
-  - [❓ How Parsing Works](#-how-parsing-works)
-    - [Zone Block Example (from tzdata source)](#zone-block-example-from-tzdata-source)
-      - [1. Zone Block Structure](#1-zone-block-structure)
-      - [2. Parsing Steps](#2-parsing-steps)
-      - [3. Output Structure (JSON)](#3-output-structure-json)
-      - [4. Notes](#4-notes)
-      - [5. Summary](#5-summary)
-    - [Data Processing Flow](#data-processing-flow)
+    - [How to Determine DST Status for a Date](#how-to-determine-dst-status-for-a-date)
+      - [Step 1: Find the Active Transition](#step-1-find-the-active-transition)
+      - [Step 2: Check for DST Rules](#step-2-check-for-dst-rules)
+      - [Step 3: Find Applicable Rules for Your Year](#step-3-find-applicable-rules-for-your-year)
+      - [Step 4: Calculate Rule Dates](#step-4-calculate-rule-dates)
+      - [Step 5: Apply Hemisphere Logic](#step-5-apply-hemisphere-logic)
+      - [Step 6: Handle Edge Cases](#step-6-handle-edge-cases)
+    - [Example: Australia/Sydney on May 23, 2030](#example-australiasydney-on-may-23-2030)
   - [🗄️ File Structure](#️-file-structure)
   - [💡 Use Cases](#-use-cases)
   - [📦 Installation \& Requirements](#-installation--requirements)
@@ -291,181 +288,77 @@ WHERE EXISTS (SELECT 1 FROM windows_mapping wm WHERE wm.iana_name = z.name);
 
 ## ❓ How to Use the Rules (DST Logic)
 
-> [!Important] 
-> **tzbundler provides raw rule data - DST calculations are your responsibility**.
+> **Important:**  
+> tzbundler provides raw rule data—**you must calculate DST status yourself** using the rules and transitions.
 
-To determine if DST is in effect for a given zone and date:
+### How to Determine DST Status for a Date
 
-1. **Find the relevant transition** for the zone and date (by checking `from_utc`/`to_utc`).
-2. If the transition's `rule_name` is not `null` or `"-"`, look up the rule set in the `rules` table/object.
-3. Apply the rule logic for the given year/month/day/time to determine if DST is active and what the abbreviation should be.
+To determine if DST is active for a specific zone and date (e.g., "Australia/Sydney" on May 23, 2030):
 
-### Pseudocode Example
+#### Step 1: Find the Active Transition
+- Get the **current transition** for your zone (usually the last one in the transitions array)
+- This gives you the base UTC offset and rule name
+
+#### Step 2: Check for DST Rules  
+- If `rule_name` is `null` or `"-"`: **No DST** (fixed offset zone)
+- Otherwise, get the rule set: `tzdata['rules'][rule_name]`
+
+#### Step 3: Find Applicable Rules for Your Year
+- Look for rules where: `from_year <= target_year <= to_year`
+- You'll typically find **two types**:
+  - **DST start rule**: `save` > 0 (e.g., `"1:00"`)
+  - **DST end rule**: `save` = 0 (e.g., `"0"`)
+
+#### Step 4: Calculate Rule Dates
+Parse the IANA date specifications:
+- `"lastSun"` = Last Sunday of the month
+- `"Sun>=8"` = First Sunday on or after the 8th
+- `"15"` = 15th day of the month
+
+#### Step 5: Apply Hemisphere Logic
+- **Northern Hemisphere** (US/Europe): DST typically Mar-Nov
+  - `DST active = start_date <= target_date < end_date`
+- **Southern Hemisphere** (Australia): DST typically Oct-Apr  
+  - `DST active = target_date >= start_date OR target_date < end_date`
+
+#### Step 6: Handle Edge Cases
+- **Ambiguous times**: When clocks "fall back", some times occur twice
+- **Invalid times**: When clocks "spring forward", some times don't exist  
+- **Time suffixes**: `s`=standard, `u`/`g`/`z`=UTC, `w`=wall (default)
+
+### Example: Australia/Sydney on May 23, 2030
 
 ```python
-def calculate_dst_status(zone_name, target_date, transitions, rules):
-    """
-    Calculate DST status for a given zone and date.
-    
-    Note: This is a simplified example. Full implementation requires
-    complex date/time parsing and rule application logic.
-    """
-    # 1. Find the active transition for this date
-    for transition in transitions[zone_name]:
-        if transition_applies_to_date(transition, target_date):
-            rule_name = transition.get('rule_name')
-            
-            # No DST rule applies
-            if not rule_name or rule_name == '-':
-                return False, transition['abbr']
-            
-            # 2. Apply the DST rules
-            rule_set = rules.get(rule_name, [])
-            for rule in rule_set:
-                if rule_applies_to_date(rule, target_date):
-                    # DST is active if save > 0
-                    is_dst = rule['save'] != '0:00'
-                    # Calculate abbreviation using rule['letter']
-                    abbr = apply_format_with_letter(transition['abbr'], rule['letter'])
-                    return is_dst, abbr
-            
-            # No matching rule found
-            return False, transition['abbr']
-    
-    return False, "UTC"  # Fallback
+# 1. Active transition
+transition = tzdata['timezones']['Australia/Sydney']['transitions'][-1]
+# Result: offset="+10:00", rule_name="AN"
 
-# Helper functions (you need to implement these)
-def transition_applies_to_date(transition, date): pass
-def rule_applies_to_date(rule, date): pass  
-def apply_format_with_letter(format_str, letter): pass
-```
+# 2. Get DST rules
+an_rules = tzdata['rules']['AN']
 
-For a complete implementation, see the [IANA tzdata Theory file](https://data.iana.org/time-zones/theory.html) or use a reference library like `pytz` or `dateutil`.
+# 3. Find 2030 rules
+current_rules = [r for r in an_rules if r['from'] <= '2030' <= r.get('to', '9999')]
+# DST ends: Apr Sun>=1 (April 7, 2030)  
+# DST starts: Oct Sun>=1 (October 6, 2030)
 
-### Language-Agnostic Output
+# 4. Check date
+test_date = May 23, 2030
+# May 23 is AFTER April 7 (DST end) and BEFORE October 6 (DST start)
+# Therefore: DST is NOT active
 
-- All data is exported as standard JSON arrays/objects and SQLite tables.
-- No language-specific types or code required.
-- You can load and use the data in Python, Ruby, JavaScript, Pascal, LISP, etc.
+# 5. Result
+is_dst = False
+offset = "+10:00"  # Base offset only
+abbreviation = "AEST"  # AE%sT with %s="S" for Standard
 
-**Tip:** The rules table/object is a direct mapping of the IANA Rule lines, so you can implement DST logic in any language using this data.
 
-### Additional SQL Query Examples
+## 🕐 How to Calculate DST Status
 
-```sql
--- Get all transitions for Australia/Sydney
-SELECT * FROM transitions WHERE zone_name = 'Australia/Sydney';
-
--- List all countries with more than one time zone
-SELECT country_code, COUNT(*) FROM zones GROUP BY country_code HAVING COUNT(*) > 1;
-
--- Find zones that use a specific DST rule
-SELECT DISTINCT zone_name FROM transitions WHERE rule_name = 'US';
-
--- Get all DST rules for a specific rule set
-SELECT * FROM rules WHERE rule_name = 'US' ORDER BY from_year;
-```
+See [How to Calculate DST Status](docs/how-to-calculate-dst-status.md)
 
 ## ❓ How Parsing Works
 
-### Zone Block Example (from tzdata source)
-
-```text
-Zone    Asia/Baku    3:19:24 -    LMT    1924 May 2
-                     3:00    -    %z     1957 Mar  
-                     4:00    RussiaAsia %z 1991 Mar 31 2:00s
-                     3:00    RussiaAsia %z 1992 Sep lastSun 2:00s
-                     4:00    -    %z     1996
-                     4:00    EUAsia %z  1997
-                     4:00    Azer   %z
-```
-
-#### 1. Zone Block Structure
-
-- The first line starts with `Zone` and the zone name (`Asia/Baku`).
-- The following indented lines (no `Zone` keyword) are *continuations*—each describes a new period (transition) in the zone's history.
-
-#### 2. Parsing Steps
-
-**a. Create a `Zone` object:**
-
-```python
-zone = Zone(name="Asia/Baku")
-```
-
-**b. For each line (including the first), create a `Transition`:**
-
-| Line | from_utc (UNTIL) | offset | rule | abbr (FORMAT) | rule_name |
-|------|------------------|--------|------|---------------|-----------|
-| Zone Asia/Baku 3:19:24 - LMT 1924 May 2 | "1924 May 2" | "3:19:24" | "-" | "LMT" | null |
-| 3:00 - %z 1957 Mar | "1957 Mar" | "3:00" | "-" | "%z" | null |
-| 4:00 RussiaAsia %z 1991 Mar 31 2:00s | "1991 Mar 31 2:00s" | "4:00" | "RussiaAsia" | "%z" | "RussiaAsia" |
-| 3:00 RussiaAsia %z 1992 Sep lastSun 2:00s | "1992 Sep lastSun 2:00s" | "3:00" | "RussiaAsia" | "%z" | "RussiaAsia" |
-| 4:00 - %z 1996 | "1996" | "4:00" | "-" | "%z" | null |
-| 4:00 EUAsia %z 1997 | "1997" | "4:00" | "EUAsia" | "%z" | "EUAsia" |
-| 4:00 Azer %z | "" | "4:00" | "Azer" | "%z" | "Azer" |
-
-Each line becomes:
-
-```python
-transition = Transition(
-    from_utc="1924 May 2",  # UNTIL value (when this transition ends)
-    to_utc=None,            # Calculated later if needed
-    offset="3:19:24",
-    abbr="LMT"             # or "%z" (determined by rules)
-)
-# Attach rule name as attribute
-transition.rule_name = "RussiaAsia"  # or None if "-"
-zone.transitions.append(transition)
-```
-
-#### 3. Output Structure (JSON)
-
-```json
-{
-  "timezones": {
-    "Asia/Baku": {
-      "country_code": "AZ",
-      "latitude": "+4023",
-      "longitude": "+04951",
-      "comment": "",
-      "transitions": [
-        {
-          "from_utc": "1924 May 2",
-          "to_utc": null,
-          "offset": "3:19:24",
-          "abbr": "LMT",
-          "rule_name": null
-        }
-      ],
-      "aliases": [],
-      "win_names": ["Azerbaijan Standard Time"]
-    }
-  },
-  "rules": {
-    "RussiaAsia": [ ... ],
-    "EUAsia": [ ... ],
-    "Azer": [ ... ]
-  },
-  "windows_mapping": {
-    "Azerbaijan Standard Time": ["Asia/Baku"]
-  },
-  "_version": "2025b"
-}
-```
-
-#### 4. Notes
-
-- The `abbr` field is `"LMT"` or `"%z"` (which means the abbreviation is determined by rules).
-- The `rule_name` field (e.g., `"RussiaAsia"`, `"EUAsia"`, `"Azer"`) is used to look up DST rules.
-- The `from_utc` field is the UNTIL value (when this transition ends).
-- Metadata (`country_code`, `latitude`, etc.) is added later from `zone1970.tab`.
-- Windows timezone names are added from the Unicode CLDR mappings.
-- **DST calculations are left to consumers** using the rules data.
-
-#### 5. Summary
-
-Each line in the zone block becomes a `Transition` in the `Zone.transitions` list. The zone itself is created once, and metadata is attached later. DST status must be calculated by consumers using the provided rules.
+See [How Parsing Works](docs/how-parsing-works.md)
 
 ### Data Processing Flow
 
