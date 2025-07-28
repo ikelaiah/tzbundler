@@ -27,8 +27,20 @@ import json
 import xml.etree.ElementTree as ET
 from dataclasses import dataclass, field
 from typing import List, Dict, Optional, Tuple
+
 import sys
-from get_latest_tz import get_latest_tz_data
+import os
+from src.get_latest_tz import get_latest_tz_data
+
+# Determine project root for consistent tzdata paths
+def get_project_root():
+    current = pathlib.Path(__file__).resolve()
+    if current.parent.name == 'src':
+        # If running from src/, project root is parent of src
+        return current.parent.parent
+    else:
+        # Otherwise, use the current file's directory
+        return current.parent
 
 
 # =============================================================================
@@ -671,9 +683,10 @@ def main():
         sys.exit(1)
     print("✅ Download complete")
     
-    # Set up paths
-    input_dir = pathlib.Path("tzdata_raw")   # Where extracted files are
-    output_dir = pathlib.Path("tzdata")      # Where to put our outputs
+    # Set up paths relative to project root if running from src/
+    project_root = get_project_root()
+    input_dir = project_root / "tzdata_raw"
+    output_dir = project_root / "tzdata"
     output_dir.mkdir(parents=True, exist_ok=True)
     
     # Configure logging

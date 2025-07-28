@@ -6,6 +6,32 @@ Debug script to diagnose Windows timezone mapping issues
 import pathlib
 import xml.etree.ElementTree as ET
 
+# Determine project root for consistent tzdata paths
+def get_project_root():
+    current = pathlib.Path(__file__).resolve()
+    if current.parent.name == 'tests':
+        # If running from tests/, project root is parent of tests
+        return current.parent.parent
+    else:
+        # Otherwise, use the current file's directory
+        return current.parent
+
+# Set up base directory for all file operations
+PROJECT_ROOT = get_project_root()
+
+
+# =============================================================================
+# CONFIGURATION - File paths
+# =============================================================================
+
+# Filename for the output JSON file
+LOCAL_WIN_ZONES_FILE = str(PROJECT_ROOT / "tzdata_raw" / "windowsZones.xml")
+
+
+# =============================================================================
+# TEST FUNCTION - Ensuring the downloaded windowsZones.xml file is valid
+# =============================================================================
+
 def debug_windows_zones_xml(xml_path: pathlib.Path):
     """
     Debug the windowsZones.xml parsing to see what's going wrong.
@@ -80,6 +106,11 @@ def debug_windows_zones_xml(xml_path: pathlib.Path):
     except Exception as e:
         print(f"❌ General Error: {e}")
 
+
+# =============================================================================
+# TEST FUNCTION - Try a different parsing approach 
+# =============================================================================
+
 def test_manual_parsing(xml_path: pathlib.Path):
     """
     Try a different parsing approach to see if we can get the data.
@@ -121,24 +152,14 @@ def test_manual_parsing(xml_path: pathlib.Path):
     except Exception as e:
         print(f"❌ Error reading file: {e}")
 
+# =============================================================================
+# SCRIPT ENTRY POINT - Allow running this file directly
+# =============================================================================
+
 if __name__ == "__main__":
     # Test the actual file location
-    xml_path = pathlib.Path("tzdata_raw/windowsZones.xml")
+    xml_path = pathlib.Path(LOCAL_WIN_ZONES_FILE)
     
     debug_windows_zones_xml(xml_path)
     test_manual_parsing(xml_path)
-    
-    # Also check if it might be in a different location
-    possible_paths = [
-        pathlib.Path("windowsZones.xml"),
-        pathlib.Path("tzdata/windowsZones.xml"), 
-        pathlib.Path("tzdata_raw/windowsZones.xml"),
-        pathlib.Path("supplemental/windowsZones.xml"),
-        pathlib.Path("tzdata_raw/supplemental/windowsZones.xml"),
-    ]
-    
-    print(f"\n🔍 Checking other possible locations:")
-    for path in possible_paths:
-        exists = path.exists()
-        size = path.stat().st_size if exists else 0
-        print(f"  {path}: {'✅' if exists else '❌'} ({size} bytes)")
+    print("\n🔚 Test complete.")

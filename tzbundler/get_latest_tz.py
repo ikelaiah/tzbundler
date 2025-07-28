@@ -19,10 +19,24 @@ File Flow:
 Internet → tzdata-latest.tar.gz → tzdata_raw/ directory → individual tzdata files
 """
 
+
 import requests
 import tarfile
 import pathlib
 import os
+
+# Determine project root for consistent tzdata paths
+def get_project_root():
+    current = pathlib.Path(__file__).resolve()
+    if current.parent.name == 'src':
+        # If running from src/, project root is parent of src
+        return current.parent.parent
+    else:
+        # Otherwise, use the current file's directory
+        return current.parent
+
+# Set up base directory for all file operations
+PROJECT_ROOT = get_project_root()
 
 # =============================================================================
 # CONFIGURATION - URLs and file paths
@@ -37,14 +51,14 @@ URL_IANA = "https://www.iana.org/time-zones/repository/tzdata-latest.tar.gz"
 URL_WIN_ZONES = "https://raw.githubusercontent.com/unicode-org/cldr/main/common/supplemental/windowsZones.xml"
 
 # Local filename for the downloaded archive
-OUTPUT_FILE_IANA = "tzdata-latest.tar.gz"  
+OUTPUT_FILE_IANA = str(PROJECT_ROOT / "tzdata-latest.tar.gz")
 
 # Local filename for the downloaded Windows zones XML file
 OUTPUT_FILE_WIN_ZONES = "windowsZones.xml"
 
 # Directory where we'll extract the archive contents and store windows zones xml file
 # This will contain files like: africa, asia, europe, zone1970.tab, version, etc.
-EXTRACT_DIR = "tzdata_raw"
+EXTRACT_DIR = str(PROJECT_ROOT / "tzdata_raw")
 
 # =============================================================================
 # DOWNLOAD FUNCTION - Get the latest windowsZones.xml from GitHub
@@ -71,10 +85,11 @@ def get_latest_win_zones() -> bool:
         response.raise_for_status()  # Raise an error for bad status codes
         
         # Save the content to a local file
-        with open(pathlib.Path(EXTRACT_DIR, OUTPUT_FILE_WIN_ZONES), "wb") as file:
+        win_zones_path = os.path.join(EXTRACT_DIR, OUTPUT_FILE_WIN_ZONES)
+        with open(win_zones_path, "wb") as file:
             file.write(response.content)
 
-        print(f"✅ Download complete: {pathlib.Path(EXTRACT_DIR, OUTPUT_FILE_WIN_ZONES)}")
+        print(f"✅ Download complete: {win_zones_path}")
         return True
     
     except requests.RequestException as e:
@@ -214,37 +229,29 @@ def extract_tz_data() -> None:
         # Open the tar.gz file for reading
         # "r:gz" means read mode with gzip compression
         with tarfile.open(OUTPUT_FILE_IANA, "r:gz") as tar:
-            
             # Get list of files in the archive for logging
             members = tar.getnames()
             print(f"   Found {len(members)} files in archive:")
-            
             # Show first few files as examples
             for i, name in enumerate(members[:5]):
                 print(f"     - {name}")
             if len(members) > 5:
                 print(f"     ... and {len(members) - 5} more files")
-            
             # Extract all files to the target directory
             # This will overwrite existing files with same names
             tar.extractall(path=EXTRACT_DIR)
-            
         print(f"✅ Extraction complete: {EXTRACT_DIR}/")
-        
         # Verify extraction by checking for key files
         key_files = ["africa", "asia", "europe", "zone1970.tab", "version"]
         missing_files = []
-        
         for filename in key_files:
             if not os.path.exists(os.path.join(EXTRACT_DIR, filename)):
                 missing_files.append(filename)
-        
         if missing_files:
             print(f"⚠️  Warning: Some expected files are missing: {missing_files}")
             print("   The archive may be incomplete or corrupted")
         else:
             print("✅ All expected files found")
-    
     except tarfile.TarError as e:
         # This catches tar-specific errors:
         # - Corrupted archive
@@ -256,7 +263,6 @@ def extract_tz_data() -> None:
         print("   - Download was interrupted")
         print("   - Unsupported archive format")
         print("   Try downloading the file again")
-        
     except IOError as e:
         # This catches file system errors during extraction:
         # - Disk full
@@ -327,7 +333,6 @@ def get_latest_tz_data() -> bool:
         print(f"📁 Timezone data is now available in: {EXTRACT_DIR}/")
         print()
         print("Key files extracted:")
-        
         # Show what files are now available
         key_files = [
             ("version", "tzdata version (e.g., '2025a')"),
@@ -340,7 +345,6 @@ def get_latest_tz_data() -> bool:
             ("zone1970.tab", "Zone metadata (countries, coordinates)"),
             ("windowsZones.xml", "Windows time zone mappings"),
         ]
-        
         for filename, description in key_files:
             filepath = os.path.join(EXTRACT_DIR, filename)
             if os.path.exists(filepath):
@@ -348,7 +352,6 @@ def get_latest_tz_data() -> bool:
                 print(f"  ✓ {filename:<15} - {description} ({size:,} bytes)")
             else:
                 print(f"  ✗ {filename:<15} - MISSING")
-        
         return True
         
     else:
