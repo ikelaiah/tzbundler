@@ -7,7 +7,7 @@
 [![IANA tzdata](https://img.shields.io/badge/IANA-tzdata%202025b-green.svg)](https://www.iana.org/time-zones)
 
 <p align="center">
-  <img src="assets/logo-v3.png" alt="tzbundler logo" style="max-height:256px;">
+  <img src="assets/logo-v3-256.png" alt="tzbundler logo" style="max-height:256px;">
 </p>
 
 **Version: 1.0**
