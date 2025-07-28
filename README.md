@@ -23,7 +23,7 @@ Or you can simply use the pre-generated bundle from `tzdata/` folder or [the Rel
   - [🎯 Who Should Use tzbundler?](#-who-should-use-tzbundler)
   - [✨ Features](#-features)
   - [🚀 Quick Start](#-quick-start)
-  - [🚀 Quick Start - Alternative](#-quick-start---alternative)
+  - [🚀 Quick Start - Just Download!](#-quick-start---just-download)
   - [📊 Data Model](#-data-model)
     - [Zone](#zone)
     - [🔄 Transition](#-transition)
@@ -88,7 +88,7 @@ This single command will:
 3. Extract and parse all files
 4. Generate `combined.json` and `combined.sqlite` in the `tzdata/` folder
 
-## 🚀 Quick Start - Alternative
+## 🚀 Quick Start - Just Download!
 
 Use the pre-generated `.json` or `.sqlite` bundle from `tzdata/` folder or [the Releases page](https://github.com/ikelaiah/tzbundler/releases).
 
