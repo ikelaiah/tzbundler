@@ -78,7 +78,7 @@ Or you can simply use the pre-generated bundle from `tzdata/` folder or [the Rel
 ## 🚀 Quick Start
 
 ```bash
-python make_tz_bundle.py
+python run_tzbundler.py
 ```
 
 This single command will:
