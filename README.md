@@ -7,7 +7,7 @@
 [![IANA tzdata](https://img.shields.io/badge/IANA-tzdata%202025b-green.svg)](https://www.iana.org/time-zones)
 
 <p align="center">
-  <img src="assets/logo-v3-256.png" alt="tzbundler logo" style="max-height:256px;">
+  <img src="assets/logo-v3-320.png" alt="tzbundler logo" style="max-width:100%; height:auto;">
 </p>
 
 **Version: 1.0**
@@ -487,3 +487,7 @@ Contributions welcome! Please feel free to submit a Pull Request.
 ## 📝 License
 
 [MIT License](LICENSE.md)
+
+---
+
+**Built with ❤️ for developers who need reliable timezone data**
