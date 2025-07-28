@@ -10,12 +10,12 @@
   <img src="assets/logo-v3.png" alt="tzbundler logo" style="max-height:256px;">
 </p>
 
-
 **Version: 1.0**
 
 A Python tool that parses IANA tzdata files and converts them into machine-readable formats (JSON and SQLite). Perfect for applications, research, or data analysis involving time zones. Includes Windows timezone mappings for cross-platform compatibility.
 
 Or you can simply use the pre-generated bundle from `tzdata/` folder or [the Releases page](https://github.com/ikelaiah/tzbundler/releases).
+
 ## 🗂️ Table of Contents
 
 - [🌏 tzbundler: IANA Time Zone Database Parser and Bundler](#-tzbundler-iana-time-zone-database-parser-and-bundler)
@@ -49,6 +49,7 @@ Or you can simply use the pre-generated bundle from `tzdata/` folder or [the Rel
       - [Step 6: Handle Edge Cases](#step-6-handle-edge-cases)
     - [Example: Australia/Sydney on May 23, 2030](#example-australiasydney-on-may-23-2030)
   - [🗄️ File Structure](#️-file-structure)
+  - [🧪 Testing](#-testing)
   - [💡 Use Cases](#-use-cases)
   - [📦 Installation \& Requirements](#-installation--requirements)
   - [⚙️ Important Design Decision](#️-important-design-decision)
@@ -61,7 +62,7 @@ Or you can simply use the pre-generated bundle from `tzdata/` folder or [the Rel
 
 - App developers who need reliable time zone handling
 - Researchers working on temporal/historical datasets
-- Anyone who wants a cross-language-compatible tzdata format (e.g. for Python, Free Pascal, JS)
+- Anyone who wants a cross-language-compatible tzdata format
 - Developers needing Windows timezone compatibility
 
 ## ✨ Features
@@ -94,6 +95,7 @@ Use the pre-generated `.json` or `.sqlite` bundle from `tzdata/` folder or [the 
 ## 📊 Data Model
 
 ### Zone
+
 Represents a time zone with its complete history and metadata.
 
 ```python
@@ -296,32 +298,39 @@ WHERE EXISTS (SELECT 1 FROM windows_mapping wm WHERE wm.iana_name = z.name);
 To determine if DST is active for a specific zone and date (e.g., "Australia/Sydney" on May 23, 2030):
 
 #### Step 1: Find the Active Transition
+
 - Get the **current transition** for your zone (usually the last one in the transitions array)
 - This gives you the base UTC offset and rule name
 
 #### Step 2: Check for DST Rules  
+
 - If `rule_name` is `null` or `"-"`: **No DST** (fixed offset zone)
 - Otherwise, get the rule set: `tzdata['rules'][rule_name]`
 
 #### Step 3: Find Applicable Rules for Your Year
+
 - Look for rules where: `from_year <= target_year <= to_year`
 - You'll typically find **two types**:
   - **DST start rule**: `save` > 0 (e.g., `"1:00"`)
   - **DST end rule**: `save` = 0 (e.g., `"0"`)
 
 #### Step 4: Calculate Rule Dates
+
 Parse the IANA date specifications:
+
 - `"lastSun"` = Last Sunday of the month
 - `"Sun>=8"` = First Sunday on or after the 8th
 - `"15"` = 15th day of the month
 
 #### Step 5: Apply Hemisphere Logic
+
 - **Northern Hemisphere** (US/Europe): DST typically Mar-Nov
   - `DST active = start_date <= target_date < end_date`
 - **Southern Hemisphere** (Australia): DST typically Oct-Apr  
   - `DST active = target_date >= start_date OR target_date < end_date`
 
 #### Step 6: Handle Edge Cases
+
 - **Ambiguous times**: When clocks "fall back", some times occur twice
 - **Invalid times**: When clocks "spring forward", some times don't exist  
 - **Time suffixes**: `s`=standard, `u`/`g`/`z`=UTC, `w`=wall (default)
@@ -352,11 +361,11 @@ offset = "+10:00"  # Base offset only
 abbreviation = "AEST"  # AE%sT with %s="S" for Standard
 
 
-## 🕐 How to Calculate DST Status
+## 🕐 How to Calculate DST Status (Detailed)
 
 See [How to Calculate DST Status](docs/how-to-calculate-dst-status.md)
 
-## ❓ How Parsing Works
+## ❓ How Parsing Works (Detailed)
 
 See [How Parsing Works](docs/how-parsing-works.md)
 
@@ -369,18 +378,47 @@ Raw tzdata files → Parse zones/rules/links → Enrich with metadata → Add Wi
 ## 🗄️ File Structure
 
 ```txt
-tzdata_raw/         # Downloaded raw files
-├── africa          # African timezone data
-├── asia            # Asian timezone data
-├── europe          # European timezone data
-├── ...             # Other region files
-├── zone1970.tab    # Metadata
-├── version         # tzdata version
-└── windowsZones.xml # Windows timezone mappings
-tzdata/             # Processed output
+assets/                 # Project assets (e.g., logos)
+docs/                   # Documentation
+example/                # Example data and usage
+tests/                  # Unified and supporting test scripts
+├── test_tzbundler.py   # Unified test suite for all outputs
+└── test_windowsZones.py
+tzbundler/              # Main package source code
+├── __init__.py
+├── get_latest_tz.py
+└── make_tz_bundle.py
+tzdata/                 # Processed output
 ├── combined.json
-└── combined.sqlite  
+└── combined.sqlite
+tzdata_raw/             # Downloaded raw IANA and CLDR files
+CHANGELOG.md            # Release notes
+CONTRIBUTING.md         # Contribution guidelines
+LICENSE                 # License file
+README.md               # Project documentation
+requirements.txt        # Python dependencies
+run_tests.py            # Entry point to run all tests
+run_tzbundler.py        # Main script to generate tzdata bundles
+setup.py                # Package setup
 ```
+
+## 🧪 Testing
+
+You can run all tests in two ways:
+
+**With pytest (recommended for CI and automation):**
+
+```bash
+pytest tests/test_tzbundler.py
+```
+
+**Or using the provided entry point script:**
+
+```bash
+python run_tests.py
+```
+
+This will run all major tests (JSON, SQLite, consistency, and structure) and print a summary.
 
 ## 💡 Use Cases
 
@@ -404,7 +442,7 @@ Clone and run:
 git clone https://github.com/ikelaiah/tzbundler.git
 cd tzbundler
 pip install -r requirements.txt
-python make_tz_bundle.py
+python run_tzbundler.py
 ```
 
 ## ⚙️ Important Design Decision
