@@ -28,8 +28,8 @@ import os
 # Determine project root for consistent tzdata paths
 def get_project_root():
     current = pathlib.Path(__file__).resolve()
-    if current.parent.name == 'src':
-        # If running from src/, project root is parent of src
+    if current.parent.name == 'tzbundler':
+        # If running from tzbundler/, project root is parent of tzbundler
         return current.parent.parent
     else:
         # Otherwise, use the current file's directory

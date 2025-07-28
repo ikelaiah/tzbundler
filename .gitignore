@@ -1,18 +1,27 @@
 # Python
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-*.so
+*.db
 *.egg
 *.egg-info/
-dist/
-build/
-.eggs/
-*.db
+*.log
+*.py[cod]
+*.pyd
+*.pyo
+*.so
 *.tar.gz
 *.zip
-*.log
+.Python
+.eggs/
+.installed.cfg
+__pycache__/
+build/
+develop-eggs/
+dist/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
 
 # Jupyter
 .ipynb_checkpoints/
@@ -20,15 +29,18 @@ build/
 # VS Code
 .vscode/
 
-# tzkit output
-/tzdata_raw/
+# The output of tzbundler
+# We are keeping the processed tzdata/ output in version control
+# /tzdata/*.json
+# /tzdata/*.sqlite
+
 # Allow versioned tzdata/ output to be committed
 # Ignore only temporary/intermediate files, not processed outputs
 /tzdata_raw/
 /tzdata_raw/**
-/tzdata/*.tmp
 /tzdata/*.bak
 /tzdata/*.log
+/tzdata/*.tmp
 
 # OS files
 .DS_Store
