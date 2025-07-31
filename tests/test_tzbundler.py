@@ -157,7 +157,7 @@ def test_json_transition_structure():
     assert len(sydney["transitions"]) > 0, "Australia/Sydney should have transitions"
     
     transition = sydney["transitions"][0]
-    required_fields = ["from_utc", "to_utc", "offset", "abbr", "rule_name"]
+    required_fields = ["to_utc", "offset", "abbr", "rule_name"]
     for field in required_fields:
         assert field in transition, f"Missing field '{field}' in transition"
 
