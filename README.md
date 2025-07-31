@@ -1,7 +1,7 @@
 
 # 🌏 tzbundler: IANA Time Zone Database Parser and Bundler
 
-[![Version](https://img.shields.io/badge/version-1.0-blueviolet.svg)](https://github.com/ikelaiah/tzbundler/releases)
+[![Version](https://img.shields.io/badge/version-1.0.1-blueviolet.svg)](https://github.com/ikelaiah/tzbundler/releases)
 [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![IANA tzdata](https://img.shields.io/badge/IANA-tzdata%202025b-green.svg)](https://www.iana.org/time-zones)
@@ -10,7 +10,7 @@
   <img src="assets/logo-v3-320.png" alt="tzbundler logo" style="max-width:100%; height:auto;">
 </p>
 
-**Version: 1.0**
+**Version: 1.0.1**
 
 A Python tool that parses IANA tzdata files and converts them into machine-readable formats (JSON and SQLite). Perfect for applications, research, or data analysis involving time zones. Includes Windows timezone mappings for cross-platform compatibility.
 
