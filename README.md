@@ -1,7 +1,7 @@
 
 # 🌏 tzbundler: IANA Time Zone Database Parser and Bundler
 
-[![Version](https://img.shields.io/badge/version-1.0-blueviolet.svg)](https://github.com/ikelaiah/tzbundler/releases)
+[![Version](https://img.shields.io/badge/version-1.0.1-blueviolet.svg)](https://github.com/ikelaiah/tzbundler/releases)
 [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![IANA tzdata](https://img.shields.io/badge/IANA-tzdata%202025b-green.svg)](https://www.iana.org/time-zones)
@@ -10,7 +10,7 @@
   <img src="assets/logo-v3-320.png" alt="tzbundler logo" style="max-width:100%; height:auto;">
 </p>
 
-**Version: 1.0**
+**Version: 1.0.1**
 
 A Python tool that parses IANA tzdata files and converts them into machine-readable formats (JSON and SQLite). Perfect for applications, research, or data analysis involving time zones. Includes Windows timezone mappings for cross-platform compatibility.
 
@@ -57,6 +57,7 @@ Or you can simply use the pre-generated bundle from `tzdata/` folder or [the Rel
   - [🔗 Resources](#-resources)
   - [🤝 Contributing](#-contributing)
   - [📝 License](#-license)
+  - [🙏 Acknowledgements](#-acknowledgements)
 
 ## 🎯 Who Should Use tzbundler?
 
@@ -120,8 +121,7 @@ Represents a period in a zone's history (offset changes, DST periods, etc.).
 ```python
 @dataclass  
 class Transition:
-    from_utc: str              # when this period starts
-    to_utc: Optional[str]      # when this period ends
+    to_utc: Optional[str]      # when this period ends (IANA UNTIL; empty string if ongoing)
     offset: str                # UTC offset (e.g., "+09:00")
     abbr: str                  # abbreviation (e.g., "KST", "JST")
     # rule_name: Optional[str] # attached as attribute during parsing
@@ -173,15 +173,13 @@ The tool processes these IANA tzdata files:
       "comment": "",
       "transitions": [
         {
-          "from_utc": "1904 Dec",
-          "to_utc": null,
+          "to_utc": "1948 May 8",
           "offset": "+08:30",
           "abbr": "KST",
           "rule_name": null
         },
         {
-          "from_utc": "1948 May 8",
-          "to_utc": null,
+          "to_utc": "",
           "offset": "+09:00",
           "abbr": "KDT",
           "rule_name": "Korea"
@@ -224,10 +222,9 @@ Four normalized tables:
 - `longitude` (TEXT)
 - `comment` (TEXT)
 
-#### transitions  
+#### transitions
 
 - `zone_name` (TEXT)
-- `from_utc` (TEXT)
 - `to_utc` (TEXT)
 - `offset` (TEXT)
 - `abbr` (TEXT)
@@ -480,6 +477,7 @@ The tool includes comprehensive error handling:
 - [tzdata Theory File](https://data.iana.org/time-zones/theory.html) (Essential for DST implementation)
 - [Unicode CLDR WindowsZones](https://github.com/unicode-org/cldr/blob/main/common/supplemental/windowsZones.xml)
 
+
 ## 🤝 Contributing
 
 Contributions welcome! Please feel free to submit a Pull Request.
@@ -487,6 +485,14 @@ Contributions welcome! Please feel free to submit a Pull Request.
 ## 📝 License
 
 [MIT License](LICENSE.md)
+
+
+## 🙏 Acknowledgements
+
+Special thanks to the Python core developers and the wider Python community for building and maintaining the language and ecosystem that make projects like this possible.
+
+Special thanks to [a-blekot](https://github.com/a-blekot) for valuable feedback and suggestions on naming and IANA compatibility.
+
 
 ---
 

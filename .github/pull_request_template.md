@@ -8,8 +8,8 @@ Brief description of what this PR does.
 - [ ] Documentation update
 
 ## Testing
-- [ ] Ran `python make_tz_bundle.py` successfully
-- [ ] Ran `python test_outputs.py` with passing results
+- [ ] Ran `python run_tzbundler.py` successfully
+- [ ] Ran `python run_tests.py` with passing results
 - [ ] Tested with different timezone examples
 - [ ] Updated documentation if needed
 

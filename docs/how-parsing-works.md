@@ -27,8 +27,9 @@ zone = Zone(name="Asia/Baku")
 
 **b. For each line (including the first), create a `Transition`:**
 
-| Line | from_utc (UNTIL) | offset | rule | abbr (FORMAT) | rule_name |
-|------|------------------|--------|------|---------------|-----------|
+
+| Line | to_utc (UNTIL) | offset | rule | abbr (FORMAT) | rule_name |
+|------|---------------|--------|------|---------------|-----------|
 | Zone Asia/Baku 3:19:24 - LMT 1924 May 2 | "1924 May 2" | "3:19:24" | "-" | "LMT" | null |
 | 3:00 - %z 1957 Mar | "1957 Mar" | "3:00" | "-" | "%z" | null |
 | 4:00 RussiaAsia %z 1991 Mar 31 2:00s | "1991 Mar 31 2:00s" | "4:00" | "RussiaAsia" | "%z" | "RussiaAsia" |
@@ -37,12 +38,12 @@ zone = Zone(name="Asia/Baku")
 | 4:00 EUAsia %z 1997 | "1997" | "4:00" | "EUAsia" | "%z" | "EUAsia" |
 | 4:00 Azer %z | "" | "4:00" | "Azer" | "%z" | "Azer" |
 
+
 Each line becomes:
 
 ```python
 transition = Transition(
-    from_utc="1924 May 2",  # UNTIL value (when this transition ends)
-    to_utc=None,            # Calculated later if needed
+    to_utc="1924 May 2",   # UNTIL value (when this period ends; empty string if ongoing)
     offset="3:19:24",
     abbr="LMT"             # or "%z" (determined by rules)
 )
@@ -63,8 +64,7 @@ zone.transitions.append(transition)
       "comment": "",
       "transitions": [
         {
-          "from_utc": "1924 May 2",
-          "to_utc": null,
+          "to_utc": "1924 May 2",
           "offset": "3:19:24",
           "abbr": "LMT",
           "rule_name": null
@@ -90,11 +90,11 @@ zone.transitions.append(transition)
 
 - The `abbr` field is `"LMT"` or `"%z"` (which means the abbreviation is determined by rules).
 - The `rule_name` field (e.g., `"RussiaAsia"`, `"EUAsia"`, `"Azer"`) is used to look up DST rules.
-- The `from_utc` field is the UNTIL value (when this transition ends).
+- The `to_utc` field is the IANA UNTIL value (when this period ends; empty string if ongoing).
 - Metadata (`country_code`, `latitude`, etc.) is added later from `zone1970.tab`.
 - Windows timezone names are added from the Unicode CLDR mappings.
 - **DST calculations are left to consumers** using the rules data.
 
 ### 5. Summary
 
-Each line in the zone block becomes a `Transition` in the `Zone.transitions` list. The zone itself is created once, and metadata is attached later. DST status must be calculated by consumers using the provided rules.
+Each line in the zone block becomes a `Transition` in the `Zone.transitions` list, with `to_utc` matching the IANA UNTIL value. The zone itself is created once, and metadata is attached later. DST status must be calculated by consumers using the provided rules.

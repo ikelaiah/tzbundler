@@ -51,17 +51,18 @@ def get_project_root():
 class Transition:
     """
     Represents a single period in a time zone's history.
-    
+
     For example, if a zone changed from UTC+8 to UTC+9 in 1988,
     that would be one transition.
-    
+
+    to_utc: when this period ends (matches IANA UNTIL; None/"" for the last period)
+
     Note: DST status is not included - consumers should use the 
     top-level rules data to calculate DST as needed.
     """
-    from_utc: str           # When this period starts (e.g., "1988 May 8")
-    to_utc: Optional[str]   # When this period ends (None if ongoing)
+    to_utc: Optional[str]   # When this period ends (IANA UNTIL value, None or "" if ongoing)
     offset: str             # UTC offset during this period (e.g., "+09:00")
-    abbr: str              # Time zone abbreviation (e.g., "JST", "KST")
+    abbr: str               # Time zone abbreviation (e.g., "JST", "KST")
 
 @dataclass
 class Zone:
@@ -224,13 +225,12 @@ def parse_zone_files(input_dir: pathlib.Path):
         rule = parts[3]         # Rule name or "-"
         abbr = parts[4]         # Abbreviation format
         # UNTIL date is everything after the format field
-        from_utc = None
+        to_utc = None
         if len(parts) > 5:
-            from_utc = " ".join(parts[5:])  # Join remaining parts
+            to_utc = " ".join(parts[5:])  # Join remaining parts
         # Store the rule name in the transition for later linking
         transition = Transition(
-            from_utc=from_utc or "",  # Empty string if no UNTIL date
-            to_utc=None,              # Will be calculated later if needed
+            to_utc=to_utc or "",  # Empty string if no UNTIL date
             offset=offset,
             abbr=abbr
         )
@@ -524,7 +524,6 @@ def write_combined_json(zones: Dict[str, Zone], rules: Dict[str, list],
             "comment": zone.comment,
             "transitions": [
                 {
-                    "from_utc": t.from_utc,
                     "to_utc": t.to_utc,
                     "offset": t.offset,
                     "abbr": t.abbr,
@@ -584,7 +583,6 @@ def write_combined_sqlite(zones: Dict[str, Zone], rules: Dict[str, list],
     cur.execute("""
         CREATE TABLE IF NOT EXISTS transitions (
             zone_name TEXT,                 -- References zones.name
-            from_utc TEXT,                  -- When this transition starts
             to_utc TEXT,                    -- When this transition ends
             offset TEXT,                    -- UTC offset during this period
             abbr TEXT,                      -- Time zone abbreviation
@@ -625,8 +623,8 @@ def write_combined_sqlite(zones: Dict[str, Zone], rules: Dict[str, list],
         zones_inserted += 1
         
         for transition in zone.transitions:
-            cur.execute("INSERT INTO transitions VALUES (?, ?, ?, ?, ?, ?)",
-                       (name, transition.from_utc, transition.to_utc, 
+            cur.execute("INSERT INTO transitions VALUES (?, ?, ?, ?, ?)",
+                       (name, transition.to_utc, 
                         transition.offset, transition.abbr, 
                         getattr(transition, "rule_name", None)))
             transitions_inserted += 1

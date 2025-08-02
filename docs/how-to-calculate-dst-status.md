@@ -71,14 +71,14 @@ print(f"Abbreviation: AEST")    # AE%sT with %s = "S" for Standard
 ## 🌍 Understanding the Data Structure
 
 ### Transitions
-Each timezone has a list of **transitions** - periods when the rules changed:
+Each timezone has a list of **transitions** – periods when the rules changed. Each transition's `to_utc` field matches the IANA UNTIL value (when that period ends; empty string if ongoing):
 
 ```json
 {
-  "from_utc": "",           // When this period starts (empty = current)
-  "offset": "+10:00",       // Base UTC offset 
-  "abbr": "AE%sT",         // Abbreviation format (%s replaced by rule letter)
-  "rule_name": "AN"        // Which DST rule set to use
+  "to_utc": "",           // When this period ends (IANA UNTIL; empty = ongoing)
+  "offset": "+10:00",     // Base UTC offset 
+  "abbr": "AE%sT",        // Abbreviation format (%s replaced by rule letter)
+  "rule_name": "AN"       // Which DST rule set to use
 }
 ```
 
@@ -203,6 +203,7 @@ For production applications, consider using established libraries that handle al
 - **Go:** `time.LoadLocation()`
 
 The tzbundler output is perfect for:
+
 - Research and analysis
 - Custom DST logic
 - Cross-platform data exchange
